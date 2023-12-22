@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>榮紹精密塑膠射出成型工廠</title>
+<link rel="stylesheet" type="text/css" href="1-3.css">
+ 
+</head>
+ 
+<body>
+	<div class="top_bar"><!-- 上半部 -->
+    <img src="image/logo.jpg" alt="Logo" class="logo" >
+    <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+
+    <div class="search-container">
+    <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+    <div onclick="searchFunction()">
+      <img src="image/seac.png" alt="搜索按钮" class="search-button">
+    </div>
+    </div>
+
+  </div>
+
+  <div class="left_bar"><!-- 左半部選單 -->
+    <img src="image/manage.png" alt="Manage" class="manage-pic" >
+    <div class="op_manage">作業管理
+        <br><input type="button" value="庫存管理" name="按鈕名稱">
+        <br><input type="button" value="原物料管理" name="按鈕名稱">
+        <br><input type="button" value="訂單進度" name="按鈕名稱">
+        <br><input type="button" value="新增訂單" name="按鈕名稱">
+    </div>
+    <img src="image/cus.png" alt="Cus" class="cus-pic" >
+    <div class="cus_manage">顧客關係管理
+        <br><input type="button" value="銷售分析" name="按鈕名稱">
+        <br><input type="button" value="顧客分析" name="按鈕名稱">
+        <br><input type="button" value="銷售資料分析" name="按鈕名稱">
+        <br><input type="button" value="顧客資料分析" name="按鈕名稱">
+    </div>
+      <div class="vertical-line"></div>
+  </div>
+
+  <div class="title1-1">庫存管理 - 庫存量不足</div>
+
+  <div class="item_container">
+    <!-- 第一個直排 -->
+    <div class="item_column">
+      <div class="item_box">
+        <img src="image/精密零組件.jpg" alt="精密零組件" class="item_pic">
+        <div class="item_topic_warn">精密零組件</div>
+        <div class="item_num_warn">產量編號：</div>
+        <div class="item_num_content_warn">A002</div>
+        <div class="item_inv_warn">庫存量：</div>
+        <div class="item_inv_content_warn">不足</div>
+        <div class="oem_color"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="past_name">過去庫存量</div>
+  <div class="past_content">
+    <img src="image/chart1-3.jpg" alt="chart" class="chart">
+  </div>
+
+  <div class="add_name">新增生產需求</div>
+  <div class="add_content">請輸入生產數量：
+    <input type="text" class="add_input" id="searchInput" >
+    <button class="add_button" onclick="togglePopup()">送出</button>
+  </div>
+
+  <div class="overlay" id="popupOverlay">
+    <div class="popup">
+      <h1>送出成功！</h1>
+      <p>已通知生產部門</p>
+      <button onclick="togglePopup()" class="pop_close">關閉</button>
+    </div>
+  </div>
+
+
+
+    
+<script>
+
+    function searchFunction() {
+      // 取得輸入框的值
+      var searchValue = document.getElementById("searchInput").value;
+      
+      // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
+      alert("您搜尋的內容是：" + searchValue);
+    }
+
+   function togglePopup() {
+      var overlay = document.getElementById('popupOverlay');
+      overlay.style.display = (overlay.style.display === 'none' || overlay.style.display === '') ? 'flex' : 'none';
+    }
+
+  </script>
+
+</body>
+</html>
+

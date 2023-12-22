@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>榮紹精密塑膠射出成型工廠</title>
+<link rel="stylesheet" type="text/css" href="3-2.css">
+ 
+</head>
+ 
+<body>
+	<div class="top_bar"><!-- 上半部 -->
+    <img src="image/logo.jpg" alt="Logo" class="logo" >
+    <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+
+    <div class="search-container">
+    <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+    <div onclick="searchFunction()">
+      <img src="image/seac.png" alt="搜索按钮" class="search-button">
+    </div>
+    </div>
+
+  </div>
+
+  <div class="left_bar"><!-- 左半部選單 -->
+    <img src="image/manage.png" alt="Manage" class="manage-pic" >
+    <div class="op_manage">作業管理
+        <br><input type="button" value="庫存管理" name="按鈕名稱">
+        <br><input type="button" value="原物料管理" name="按鈕名稱">
+        <br><input type="button" value="訂單進度" name="按鈕名稱">
+        <br><input type="button" value="新增訂單" name="按鈕名稱">
+    </div>
+    <img src="image/cus.png" alt="Cus" class="cus-pic" >
+    <div class="cus_manage">顧客關係管理
+        <br><input type="button" value="銷售分析" name="按鈕名稱">
+        <br><input type="button" value="顧客分析" name="按鈕名稱">
+        <br><input type="button" value="銷售資料分析" name="按鈕名稱">
+        <br><input type="button" value="顧客資料分析" name="按鈕名稱">
+    </div>
+      <div class="vertical-line"></div>
+  </div>
+
+  <div class="title1-1">原物料管理 - 訂單商品原物料管理</div>
+  <div class="order0">
+    <div>訂單編號：</div>
+    <div class="order1-1">110306001</div>
+    <div class="order2">訂單進度：</div>
+    <div class="order2-1">82%</div>
+    <div class="order3">訂單內容：</div>
+  </div>
+
+  <div class="item_name">商品名稱
+    <span class="item_num">數量</span>
+  </div>
+  <div class="item_content">
+    <div class="item_content_name">精密微小件</div>
+    <div class="item_content_num">1,000</div>
+    <div class="item_content_name">雙色射出</div>
+    <div class="item_content_num">500</div>
+    <div class="vertical-line-in"></div>
+  </div>
+
+  <div class="item_content_r">
+    <div class="item_content_r_1">微小精密件</div>
+    <div class="item_container"> <!--框架-->
+      <div class="item_column">     <!--左邊直排-->
+        <div class="item_box">
+        <div class="item_topic">POM</div>
+        <div class="item_num">收回代碼：</div>
+        <div class="item_num_content">07</div>
+        <div class="item_inv">庫存量：</div>
+        <div class="item_inv_content">足夠</div>
+        </div>
+      </div>
+      <!-- <div class="item_column">     
+        <div class="item_box">
+        <div class="item_topic">TPR</div>
+        <div class="item_num">收回代碼：</div>
+        <div class="item_num_content">01</div>
+        <div class="item_inv">庫存量：</div>
+        <div class="item_inv_content">足夠</div>
+        </div>
+      </div>  -->
+    </div> 
+
+    <div class="item_content_r_1">雙色射出</div>
+    <div class="item_container"> <!--框架-->
+      <div class="item_column">     <!--左邊直排-->
+        <div class="item_box">
+        <div class="item_topic_warn">ABS</div>
+        <div class="item_num_warn">收回代碼：</div>
+        <div class="item_num_content_warn">04</div>
+        <div class="item_inv_warn">庫存量：</div>
+        <div class="item_inv_content_warn">不足</div>
+        <div class="already">已通知廠商</div>
+        </div>
+      </div>
+      <div class="item_column">     <!--右邊直排-->
+        <div class="item_box">
+        <div class="item_topic">TPR</div>
+        <div class="item_num">收回代碼：</div>
+        <div class="item_num_content">01</div>
+        <div class="item_inv">庫存量：</div>
+        <div class="item_inv_content">足夠</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+    
+<script>
+
+    function searchFunction() {
+      // 取得輸入框的值
+      var searchValue = document.getElementById("searchInput").value;
+      
+      // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
+      alert("您搜尋的內容是：" + searchValue);
+    }
+
+   function togglePopup() {
+      var overlay = document.getElementById('popupOverlay');
+      overlay.style.display = (overlay.style.display === 'none' || overlay.style.display === '') ? 'flex' : 'none';
+    }
+
+  </script>
+
+</body>
+</html>
+

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>榮紹精密塑膠射出成型工廠</title>
+<link rel="stylesheet" type="text/css" href="1-2.css">
+ 
+</head>
+ 
+<body>
+	<div class="top_bar"><!-- 上半部 -->
+    <img src="image/logo.jpg" alt="Logo" class="logo" >
+    <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+
+    <div class="search-container">
+    <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+    <div onclick="searchFunction()">
+      <img src="image/seac.png" alt="搜索按钮" class="search-button">
+    </div>
+    </div>
+
+  </div>
+
+  <div class="left_bar"><!-- 左半部選單 -->
+    <img src="image/manage.png" alt="Manage" class="manage-pic" >
+    <div class="op_manage">作業管理
+        <br><input type="button" value="庫存管理" name="按鈕名稱">
+        <br><input type="button" value="原物料管理" name="按鈕名稱">
+        <br><input type="button" value="訂單進度" name="按鈕名稱">
+        <br><input type="button" value="新增訂單" name="按鈕名稱">
+    </div>
+    <img src="image/cus.png" alt="Cus" class="cus-pic" >
+    <div class="cus_manage">顧客關係管理
+        <br><input type="button" value="銷售分析" name="按鈕名稱">
+        <br><input type="button" value="顧客分析" name="按鈕名稱">
+        <br><input type="button" value="銷售資料分析" name="按鈕名稱">
+        <br><input type="button" value="顧客資料分析" name="按鈕名稱">
+    </div>
+      <div class="vertical-line"></div>
+  </div>
+
+  <div class="title1-1">庫存管理 - 庫存量不足</div>
+  <div class="OEM">OEM</div>
+  <div class="ODM">ODM</div>
+
+  <div class="search-container-inside">
+    <input type="text" class="search-box-inside" id="searchInput" placeholder="請輸入欲查詢的商品名稱或編號">
+    <div onclick="searchFunction()">
+      <img src="image/seac.png" alt="搜索按钮" class="search-button-inside">
+    </div>
+    <button class="red-button">查看全部清單</button>
+    </div>
+
+  <div class="item_container">
+
+    <!-- 第一個直排 -->
+    <div class="item_column">
+      <div class="item_box">
+        <img src="image/精密零組件.jpg" alt="精密零組件" class="item_pic">
+        <div class="item_topic_warn">精密零組件</div>
+        <div class="item_num_warn">產量編號：</div>
+        <div class="item_num_content_warn">A002</div>
+        <div class="item_inv_warn">庫存量：</div>
+        <button class="item_inv_content_warn">不足</button>
+        <div class="oem_color"></div>
+      </div>
+      <div class="item_box">
+        <img src="image/零配件三.jpg" alt="零配件三" class="item_pic">
+        <div class="item_topic_warn">零配件三</div>
+        <div class="item_num_warn">產量編號：</div>
+        <div class="item_num_content_warn">A009</div>
+        <div class="item_inv_warn">庫存量：</div>
+        <button class="item_inv_content_warn">不足</button>
+        <div class="oem_color"></div>
+      </div>
+    </div>
+
+    <!-- 第二個直排 -->
+    <div class="item_column">
+      <div class="item_box">
+        <img src="image/框架零組件.jpg" alt="框架零組件" class="item_pic">
+        <div class="item_topic_warn">框架零組件</div>
+        <div class="item_num_warn">產量編號：</div>
+        <div class="item_num_content_warn">B015</div>
+        <div class="item_inv_warn">庫存量：</div>
+        <button class="item_inv_content_warn">不足</button>
+        <div class="odm_color"></div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+    
+<script>
+
+    function searchFunction() {
+      // 取得輸入框的值
+      var searchValue = document.getElementById("searchInput").value;
+      
+      // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
+      alert("您搜尋的內容是：" + searchValue);
+    }
+
+  </script>
+
+</body>
+</html>
+

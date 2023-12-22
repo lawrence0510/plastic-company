@@ -1,0 +1,265 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.top_bar {
+  background-color: darkgray;
+  height: 15%;
+  position: relative;
+}
+
+.company_name {
+  font-size: 40px;
+  font-weight: bold;
+  color: white;
+  text-align: left;
+  margin-left: 100px;
+  margin-top: -55px;
+}
+
+.logo {
+  width: 50px; 
+  height: 50px;
+  margin-left: 38px;
+  margin-top: 47px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.search-box {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-left: 1300px;
+  margin-top: -55px;
+  height: 10px;
+  position: absolute;
+}
+
+.search-button {
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 40px; 
+  height: 40px;
+  margin-left: 740px;
+  margin-top: -67px;
+  position: absolute;
+}
+
+.left_bar {
+  width: 20%;
+  height: 85%;
+}
+
+.manage-pic{
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px; 
+  height: 30px;
+  margin-left: 45px;
+  margin-top: -3px;
+  position: absolute;
+}
+
+.op_manage{
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 90px;
+  margin-top: 80px;
+}
+
+.cus-pic{
+  padding: 10px;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px; 
+  height: 30px;
+  margin-left: 45px;
+  margin-top: 76px;
+  position: absolute;
+}
+
+.cus_manage{
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 90px;
+  margin-top: 80px;
+}
+
+input[type="button"] {
+  width: 150px;
+  height: 50px;
+  border: none;
+  font-size: 20px;
+  color: dimgray;
+  cursor: pointer;
+  text-align: left;
+  margin-left: -40px;
+  margin-top: 9px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+input[type="button"]:hover {  /* 鼠標懸停時的變化 */
+  background-color: #f0f0f0; 
+  transform: scale(1.1);
+}
+
+.vertical-line {
+  border-left: 2px solid #000;
+  height: 1300px; 
+  margin-left: 310px;
+  margin-top: -660px;
+    }
+
+.title1-1{
+  font-weight: bold;
+  font-size: 50px;
+  color: dimgray;
+  margin-left: 370px;
+  margin-top: -830px;
+}
+
+.order_num{
+  border-color: black;
+  border-style: solid; 
+  border-width: 1px; 
+  margin-left: 370px;
+  margin-top: 20px;
+  height: 45px;
+  width: 1210px;
+  background-color: dimgray;
+  font-weight: bold;
+  font-size: 25px;
+  color: white;
+  padding-left: 40px;
+  padding-top: 15px;
+  border-radius: 20px 20px 0 0;
+}
+
+.order_word{
+  margin-left: 130px;
+}
+
+.order_now{
+  border-color: black;
+  border-style: solid; 
+  border-width: 1px; 
+  margin-left: 370px;
+  height: 850px;
+  width: 1250px;
+  background-color: gainsboro;
+  border-radius: 0 0 20px 20px;
+}
+
+.order1{
+  height: 100px;
+  width: 1245px;
+  margin-top: 10px;
+  display: flex;
+}
+
+.order_inside_num{
+  font-weight: bold;
+  font-size: 40px;
+  color: dimgray;
+  margin-left: 30px;
+  margin-top: 10px;
+}
+
+.order_inside_button{
+  margin-left: -155px;
+  margin-top: 60px;
+  height: 40px;
+  width: 130px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 25px 25px 25px 25px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.order_inside_button:hover {  /* 鼠標懸停時的變化 */
+  transform: scale(1.1);
+}
+
+.order_inside_line{
+  height: 50px;
+  width: 800px;
+  background-color: white;
+  border-radius: 5px 5px 5px 5px;
+  margin-top: 25px;
+  margin-left: 96px;
+}
+
+.order_inside_line_color_82,
+.order_inside_line_color_69,
+.order_inside_line_color_71,
+.order_inside_line_color_63,
+.order_inside_line_color_10,
+.order_inside_line_color_55,
+.order_inside_line_color_38{
+  background-color: SlateGray;
+  height: 50px;
+  border-radius: 5px 5px 5px 5px;
+  margin-top: 25px;
+  margin-left: 278px;
+  position: absolute;
+}
+
+.order_inside_line_color_82{
+  width: 700px;
+}
+
+.order_inside_line_color_69{
+  width: 600px;
+}
+
+.order_inside_line_color_71{
+  width: 650px;
+}
+
+.order_inside_line_color_63{
+  width: 550px;
+}
+
+.order_inside_line_color_10{
+  width: 50px;
+}
+
+.order_inside_line_color_55{
+  width: 450px;
+}
+
+.order_inside_line_color_38{
+  width: 250px;
+}
+
+
+.order_inside_perc{
+  margin-left: auto;
+  font-weight: bold;
+  font-size: 35px;
+  margin-right: 50px;
+  margin-top: 30px;
+}
+
+
+  

@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>test</title>
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+ 
+</head>
+ 
+<body>
+ 
+  <!--div class="container"-->
+  <div class="fixed">
+    <div class="top_bar"><!-- 上半部 -->
+        <img src="image/logo.jpg" alt="Logo" class="logo" >
+        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+
+        <div class="search-container">
+          <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+          <div onclick="searchFunction()" class="search-button">
+            <img src="image/seac.png" alt="搜索按钮" class="search-button">
+          </div>
+        </div>
+      
+    </div>
+  </div>
+    
+     
+        <div class="left_bar"><!-- 左半部選單 -->
+          
+          <div class="op_manage">
+            <img src="image/manage.png" alt="Manage" class="manage-pic" >
+            作業管理
+              <br><input type="button" value="庫存管理" name="按鈕名稱">
+              <br><input type="button" value="原物料管理" name="按鈕名稱">
+              <br><input type="button" value="訂單進度" name="按鈕名稱">
+              <br><input type="button" value="新增訂單" name="按鈕名稱">
+          </div>
+          
+          <div class="cus_manage">
+            <img src="image/cus.png" alt="Cus" class="cus-pic" >
+            顧客關係管理
+              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("sales_analyze.html")'>
+              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("customer_analyze.html")'>
+              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("sales_search.html")'>
+              <br><input type="button" value="顧客資料查詢" name="按鈕名稱"onclick='location.href=("customer_search.html")'>
+          </div>
+        </div>
+        
+        <div class="vertical-line"></div>
+
+        <!--右半部-->
+        <div class='right_bar' >
+          <div class="title1-1">銷售分析</div>
+          <div class="grid">
+            <div class="chart1">
+              <div class="header">
+                <div class="header_text">ODM產品銷量比較</div>
+                <select name="time1" id="time1" class="time">
+                  <option >請選擇時間區段</option>
+                  <option value="month">近一個月</option>
+                  <option value="halfYear">近六個月</option>
+                  <option value="year">近一年</option>
+
+                </select>
+
+              </div>
+             <canvas id="Chart1" class="chart"></canvas>
+            </div>
+
+            <div class="chart2">
+              <div class="header">
+                <div class="header_text">OEM產品銷量比較</div>
+                <select name="time2" id="time2" class="time">
+                  <option>請選擇時間區段</option>
+                  <option value="month">近一個月</option>
+                  <option value="halfYear">近六個月</option>
+                  <option value="year">近一年</option>
+
+                </select>
+
+              </div>
+             <canvas id="Chart2" class="chart"></canvas>
+            </div>
+
+            <div class="chart3">
+              <div class="header">
+                <div class="header_text">單一產品銷售量</div>
+                <input type="text" class="search_chart" id="chartInput" placeholder="Search...">
+                <div onclick="searchChart()" class="chart_search-button">
+                  <img src="image/seac.png" alt="搜索按钮" class="search-button">
+                </div>
+
+              </div>
+             <canvas id="Chart3" class="chart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+  
+
+  //ODM銷量
+  var dataset1={
+    month_data : [3600, 4500, 1700, 6600, 2300, 5000],
+    halfYear_data : [21600, 27000, 10200, 39600, 27600, 30000],
+    year_data : [44300, 50000, 21000, 80000, 56000, 64000],
+
+  }
+  //OEM銷量
+  var dataset2={
+    month_data : [2300, 6700, 7600, 4320, 2300, 4800],
+    halfYear_data : [21600, 27000, 10200, 39600, 27600, 30000],
+    year_data : [44300, 50000, 21000, 80000, 56000, 64000],
+
+  }
+  
+  //個別產品銷量
+  var item1=[2300, 6700, 7600, 4320, 2300, 4800];
+  var item2=[1500,3900,4700,2800,6900,2200];
+  var item3=[900,1200,850,1500,600,2000];
+
+  var data1 = [];
+  var data2 = [];
+  var data3 = [];
+
+  var select1 = document.getElementById("time1");
+  var select2 = document.getElementById("time2");
+ 
+
+  select1.addEventListener("change", function () {
+    updateChart(data1, select1, Chart1, dataset1);
+  });
+
+  select2.addEventListener("change", function () {
+    updateChart(data2, select2, Chart2, dataset2);
+  });
+
+  
+
+  var ctx1 = document.getElementById("Chart1");
+  var Chart1 = new Chart(ctx1, {
+    type: "bar",
+    data: {
+      labels: ['ODM1', 'ODM2', 'ODM3', 'ODM4', 'ODM5', 'ODM6'],
+      datasets: [{
+        label: "ODM",
+        data: data1,
+        lineTension: 0,
+        fill: true
+      }]
+    }
+  });
+
+  var ctx2 = document.getElementById("Chart2");
+  var Chart2 = new Chart(ctx2, {
+    type: "bar",
+    data: {
+      labels: ['OEM1', 'OEM2', 'OEM3', 'OEM4', 'OEM5', 'OEM6'],
+      datasets: [{
+        label: "OEM",
+        data: data2,
+        lineTension: 0,
+        fill: true
+      }]
+    }
+  });
+
+  var ctx3 = document.getElementById("Chart3");
+  var Chart3 = new Chart(ctx3, {
+    type: "bar",
+    data: {
+      labels: ['2023/1', '2023/3', '2023/5', '2023/7', '2023/9', '2023/11'],
+      datasets: [{
+        label: "item",
+        data: data3,
+        lineTension: 0,
+        fill: true
+      }]
+    }
+  });
+
+  function updateChart(data, select, chart, dataset) {
+    const value = select.options[select.selectedIndex].value;
+
+    switch (value) {
+      case "month":
+        data = dataset.month_data;
+        break;
+      case "halfYear":
+        data = dataset.halfYear_data;
+        break;
+      case "year":
+        data = dataset.year_data;
+        break;
+      default:
+        return;
+    }
+
+    // 更新圖表的資料
+    chart.data.datasets[0].data = data;
+    chart.update();
+  }
+
+  function searchFunction() {
+    var searchValue = document.getElementById("searchInput").value;
+    alert("您搜尋的內容是：" + searchValue);
+  }
+  
+  function searchChart() {
+    var searchValue = document.getElementById("chartInput").value;
+    switch (searchValue) {
+      case "item1":
+        data3 = item1;
+        break;
+      case "item2":
+        data3 = item2;
+        break;
+      case "item3":
+        data3 = item3;
+        break;
+      default:
+        return;
+    }
+    Chart3.data.datasets[0].data = data3;
+    Chart3.data.datasets[0].label = searchValue;
+    Chart3.update();
+  }
+</script>
+
+
+
+</body>
+</html>
+

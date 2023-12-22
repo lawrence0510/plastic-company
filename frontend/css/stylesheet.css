@@ -1,0 +1,518 @@
+/* 基本樣式 */
+body {
+  width: 100%;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+
+
+  flex-direction: column;
+
+
+}
+
+.fixed {
+  /*margin-left: -10px;*/
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.top_bar {
+
+  height: 10%;
+
+  display: flex;
+  background-color: darkgray;
+  pointer-events: auto;
+}
+
+.company_name {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  align-self: center;
+  margin-left: 0px;
+
+}
+
+.logo {
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+.search-box {
+  margin-right: 0px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  align-self: center;
+  height: 25px;
+}
+
+.search-button {
+
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+
+
+
+}
+
+.left_bar {
+  position: fixed;
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #4f4745;
+  height: 100%;
+
+}
+
+.right_bar {
+
+  position: absolute;
+  margin-left: 20%;
+  margin-top: 8%;
+  width: 80%;
+  height: 100%;
+
+}
+
+.manage-pic {
+
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+
+}
+
+.op_manage {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 15px;
+
+}
+
+.cus-pic {
+
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.cus_manage {
+  font-size: 20px;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-top: 50px;
+
+}
+
+input[type="button"] {
+  width: 150px;
+  height: 30px;
+  border: none;
+  font-size: 15px;
+  color: dimgray;
+  cursor: pointer;
+  text-align: left;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-top: 5px;
+  background-color: white;
+  transition: transform 0.3s ease;
+}
+
+input[type="button"]:hover {
+  background-color: #f0f0f0;
+  transform: scale(1.1);
+}
+
+.vertical-line {
+  position: absolute;
+  border-left: 2px solid #000;
+  margin-left: 10%;
+
+}
+
+.title1-1 {
+  font-weight: bold;
+  font-size: 40px;
+  color: dimgray;
+}
+
+.grid {
+  width: 100%;
+  margin-top: 2%;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+    "chart1 chart2 "
+    "chart3 chart3 "
+
+}
+
+.chart1 {
+  grid-area: chart1;
+  height: 300px;
+  margin-right: 5%;
+
+  background-color: #FFF3EE;
+  border-radius: 10px;
+
+}
+
+.chart2 {
+  grid-area: chart2;
+  height: 300px;
+  margin-right: 5%;
+
+  background-color: #FFF3EE;
+  border-radius: 10px;
+
+}
+
+.chart3 {
+  grid-area: chart3;
+  height: 300px;
+  margin-right: 2.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: #FFF3EE;
+  border-radius: 10px;
+
+}
+
+
+
+
+
+.chart_search-button {
+
+  color: white;
+  border: none;
+
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+  align-self: center;
+  margin-right: 2%;
+
+
+
+}
+
+.header {
+  height: 15%;
+  background-color: darkgray;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+
+}
+
+th,
+td {
+  text-align: left;
+  padding-left: 2%;
+}
+
+td {
+  color: #000000;
+}
+
+.button {
+  display: inline-block;
+  padding: 5px 25px;
+  margin: 10px auto 10px 30px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #000000;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 3px #999;
+}
+
+.button:hover {
+  background-color: #c2c2c2
+}
+
+.button:active {
+  background-color: #c2c2c2;
+  box-shadow: 0 1px #666;
+  transform: translateY(4px);
+}
+
+.header_text {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  margin-left: 5%;
+  align-self: center;
+
+
+}
+
+.table {
+  height: 100%;
+  margin-right: 2.5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: #FFF3EE;
+  border-radius: 10px;
+}
+
+.record_tb {
+  height: 50%;
+  margin-top: 5%;
+  margin-right: 2.5%;
+  background-color: #FFF3EE;
+  border-radius: 10px;
+}
+
+
+
+.theader {
+  height: 6%;
+  background-color: darkgray;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+
+}
+
+.theader_text {
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  align-self: center;
+  width: 100%;
+
+
+}
+
+.tcontent_text {
+
+  font-size: 17px;
+  font-weight: bold;
+  color: white;
+  align-self: center;
+  width: 100%;
+
+
+}
+
+.time {
+  margin-right: 5%;
+  margin-left: auto;
+  align-self: center;
+}
+
+.search_chart {
+  border-radius: 5px;
+  margin-left: auto;
+  align-self: center;
+}
+
+
+.chart {
+  margin-left: 2.5%;
+  max-width: 90%;
+  max-height: 80%;
+
+
+
+}
+
+#str {
+  font-size: 20px;
+  color: dimgray;
+  margin-top: 3%;
+}
+
+.detail_table {
+  width: 55%;
+  height: 60%;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: 2.5%;
+  background-color: #FFF3EE;
+  border-radius: 10px;
+
+}
+
+.back_btn {
+  display: inline-block;
+  padding: 10px 25px;
+  margin: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #ffffff;
+  background-color: darkgray;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 3px #999;
+}
+
+/*.bottom {
+
+  margin: 20px 0px;
+  display: flex;
+  position: relative;
+  border: 2px solid black;
+}*/
+
+
+
+
+/* 媒體查詢 - 中型螢幕 */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .top_bar {
+    height: 12%;
+  }
+
+  .company_name {
+    font-size: 35px;
+
+  }
+
+
+
+  .search-box {
+    margin-left: 50px;
+    margin-top: 20px;
+  }
+
+  .search-button {
+    margin-left: 50px;
+    margin-top: 20px;
+  }
+
+  .left_bar {
+    width: 30%;
+  }
+
+  .manage-pic,
+  .cus-pic {
+    margin-left: 45px;
+    margin-top: -3px;
+  }
+
+  .op_manage,
+  .cus_manage {
+    margin-left: 90px;
+    margin-top: 80px;
+  }
+
+  input[type="button"] {
+    margin-left: -40px;
+    margin-top: 9px;
+  }
+
+  .vertical-line {
+    margin-left: 310px;
+    margin-top: -660px;
+  }
+
+  .title1-1 {
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+
+
+
+}
+
+/* 媒體查詢 - 小型螢幕 */
+@media only screen and (max-width: 600px) {
+  .top_bar {
+    height: 10%;
+  }
+
+  .company_name {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: -35px;
+  }
+
+  .logo {
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+
+  .search-box {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .search-button {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .left_bar {
+    width: 100%;
+  }
+
+  .manage-pic,
+  .cus-pic {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .op_manage,
+  .cus_manage {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  input[type="button"] {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .vertical-line {
+    margin-left: 10px;
+    margin-top: -660px;
+  }
+
+  .title1-1 {
+    margin-left: 20px;
+    margin-top: -830px;
+  }
+}

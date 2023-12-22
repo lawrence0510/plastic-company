@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>test</title>
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+ 
+</head>
+ 
+<body>
+ 
+  <!--div class="container"-->
+  <div class="fixed">
+    <div class="top_bar"><!-- 上半部 -->
+        <img src="image/logo.jpg" alt="Logo" class="logo" >
+        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+
+        <div class="search-container">
+          <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+          <div onclick="searchFunction()" class="search-button">
+            <img src="image/seac.png" alt="搜索按钮" class="search-button">
+          </div>
+        </div>
+      
+    </div>
+  </div>
+    
+     
+        <div class="left_bar"><!-- 左半部選單 -->
+          
+          <div class="op_manage">
+            <img src="image/manage.png" alt="Manage" class="manage-pic" >
+            作業管理
+              <br><input type="button" value="庫存管理" name="按鈕名稱">
+              <br><input type="button" value="原物料管理" name="按鈕名稱">
+              <br><input type="button" value="訂單進度" name="按鈕名稱">
+              <br><input type="button" value="新增訂單" name="按鈕名稱">
+          </div>
+          
+          <div class="cus_manage">
+            <img src="image/cus.png" alt="Cus" class="cus-pic" >
+            顧客關係管理
+              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("sales_analyze.html")'>
+              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("customer_analyze.html")'>
+              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("sales_search.html")'>
+              <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("customer_search.html")'>
+          </div>
+        </div>
+        
+        <div class="vertical-line"></div>
+
+        <!--右半部-->
+        <div class='right_bar' >
+          <div class="title1-1">顧客分析</div>
+          <div class="grid">
+            <div class="chart1">
+              <div class="header">
+                <div class="header_text">客戶產業別分布</div>
+
+              </div>
+             <canvas id="Chart1" class="chart"></canvas>
+            </div>
+
+            <div class="chart2">
+              <div class="header">
+                <div class="header_text">客戶地區分布</div>
+
+              </div>
+             <canvas id="Chart2" class="chart"></canvas>
+            </div>
+
+            <div class="chart3">
+              <div class="header">
+                <div class="header_text">顧客數目成長曲線</div>
+                
+                <select name="time" id="time" class="time">
+                  <option>請選擇時間區段</option>
+                  <option value="halfYear">近六個月</option>
+                  <option value="year">近一年</option>
+                  <option value="threeYear">近三年</option>
+
+                </select>
+
+              </div>
+             <canvas id="Chart3" class="chart"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+//近幾年顧客數 
+  halfYear_data  = [3600, 4500, 3800, 4600, 5000, 5700];
+  year_data = [21600, 27000, 30200, 39600, 37600, 50000];
+  threeYear_data = [44300, 50000, 67000, 80000, 76000, 84000];
+  
+  halfYear_label  = ["2023/1", "2023/2", "2023/3", "2023/4", "2023/5", "2023/6"];
+  year_label = ["2022/8", "2022/10", "2022/12", "2023/2", "2023/4", "2023/6"];
+  threeYear_label = ["2020/12", "2021/6", "2021/12", "2022/6", "2022/12", "2023/6"];
+
+//產業別顧客數
+  var biz=[2300, 6700, 7600, 4320, 2300, 4800];
+//地區顧客數
+  var area=[1500,3900,4700,2800,6900,2200];
+ 
+  var ctx1 = document.getElementById("Chart1");
+  var Chart1 = new Chart(ctx1, {
+    type: "doughnut",
+    data: {
+      labels: ['biz1', 'biz2', 'biz3', 'biz4', 'biz5', 'biz6'],
+      datasets: [{
+        label: "business",
+        data: biz,
+        backgroundColor:["#FF2D2D","#FF8040","#F9F900","#00A600","#0072E3","#921AFF"],
+        hoverOffset:4
+      }]
+    }
+  });
+
+  var ctx2 = document.getElementById("Chart2");
+  var Chart2 = new Chart(ctx2, {
+    type: "doughnut",
+    data: {
+      labels: ['area1', 'area2', 'area3', 'area4', 'area5', 'area6'],
+      datasets: [{
+        label: "area",
+        data: area,
+        backgroundColor:["#FF2D2D","#FF8040","#F9F900","#00A600","#0072E3","#921AFF"],
+        hoverOffset:4
+      }]
+    }
+  });
+
+  var customerData = [];
+  var labels=[];
+  var ctx3 = document.getElementById("Chart3");
+  var Chart3 = new Chart(ctx3, {
+    type: "line",
+    data: {
+      labels: labels,
+      datasets: [{
+        label: "customer",
+        data: customerData,
+        lineTension: 0,
+        fill: true
+      }]
+    }
+  });
+
+
+  var select = document.getElementById("time");
+  select.addEventListener("change", function () {
+    updateChart(customerData,labels, select, Chart3);
+  });
+ 
+
+  function updateChart(data,labels, select, chart) {
+    const value = select.options[select.selectedIndex].value;
+
+    switch (value) {
+      case "halfYear":
+        data = halfYear_data;
+        labels=halfYear_label;
+        break;
+      case "year":
+        data = year_data;
+        labels= year_label;
+        break;
+      case "threeYear":
+        data = threeYear_data;
+        labels= threeYear_label;
+        break;
+      default:
+        return;
+    }
+
+    // 更新圖表的資料
+    chart.data.datasets[0].data = data;
+    chart.data.labels = labels;
+    chart.update();
+  }
+
+  function searchFunction() {
+    var searchValue = document.getElementById("searchInput").value;
+    alert("您搜尋的內容是：" + searchValue);
+  }
+  
+  
+</script>
+
+
+
+</body>
+</html>
+

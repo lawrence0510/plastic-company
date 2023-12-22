@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>test</title>
+<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+
+ 
+</head>
+ 
+<body>
+ 
+  <!--div class="container"-->
+  <div class="fixed">
+    <div class="top_bar"><!-- 上半部 -->
+        <img src="image//logo.jpg" alt="Logo" class="logo" >
+        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+
+        <div class="search-container">
+          <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+          <div onclick="searchFunction()" class="search-button">
+            <img src="image//seac.png" alt="搜索按钮" class="search-button">
+          </div>
+        </div>
+      
+    </div>
+  </div>
+    
+     
+        <div class="left_bar"><!-- 左半部選單 -->
+          
+          <div class="op_manage">
+            <img src="image//manage.png" alt="Manage" class="manage-pic" >
+            作業管理
+              <br><input type="button" value="庫存管理" name="按鈕名稱">
+              <br><input type="button" value="原物料管理" name="按鈕名稱">
+              <br><input type="button" value="訂單進度" name="按鈕名稱">
+              <br><input type="button" value="新增訂單" name="按鈕名稱">
+          </div>
+          
+          <div class="cus_manage">
+            <img src="image//cus.png" alt="Cus" class="cus-pic" >
+            顧客關係管理
+              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("sales_analyze.html")' >
+              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("customer_analyze.html")'>
+              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("sales_search.html")'>
+              <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("customer_search.html")'>
+          </div>
+        </div>
+        
+        <div class="vertical-line"></div>
+
+        <!--右半部-->
+      
+        <div class='right_bar'>
+          <div style="height:80%; width:100%" >
+            <div>
+              <div class="title1-1">顧客購買紀錄</div>
+              <div id="str">
+              </div>
+            </div>
+            
+            <div class="record_tb">
+              <div class="theader" style="height: 15%;">
+                <table class="theader_text" id="header" >
+                  <th style="width:10%">訂單編號</th>
+                  <th style="width:10%">顧客編號</th>
+                  <th style="width:10%">訂單金額</th>  
+                  <th style="width:15%">下訂時間</th>
+                  <th style="width:15%">出貨時間</th>
+                  <th style="width:10%">訂單進度</th>
+                  <th style="width:20%"></th>   
+                </table>
+              </div>
+              <div style="display:flex">
+                <table class="tcontent_text" style="width:79%;">
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:10%"></td>
+                </table>
+                <button class="button" onclick="gotoDetail(this)" id="0">查看訂單內容</button>
+              </div>
+              <div style="display:flex">
+                <table class="tcontent_text" style="width:79%;">
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:10%"></td>
+                </table>
+                <button class="button" onclick="gotoDetail(this)" id="1">查看訂單內容</button>
+              </div>
+              <div style="display:flex">
+                <table class="tcontent_text" style="width:79%;">
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:10%"></td>
+                </table>
+                <button class="button" onclick="gotoDetail(this)" id="2">查看訂單內容</button>
+              </div>
+              <div style="display:flex">
+                <table class="tcontent_text" style="width:79%;">
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:10%"></td>
+                </table>
+                <button class="button" onclick="gotoDetail(this)" id="3">查看訂單內容</button>
+              </div>
+              <div style="display:flex">
+                <table class="tcontent_text" style="width:79%;">
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:10%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:15%"></td>
+                  <td style="width:10%"></td>
+                </table>
+                <button class="button" onclick="gotoDetail(this)" id="4">查看訂單內容</button>
+              </div>
+              
+             
+            </div>
+          </div>
+          <div style="padding-left:43%">
+            <button class="back_btn" onclick="history.back()">回前頁</button>
+          </div>
+        </div>
+
+
+
+
+<script>
+  var storedData1 = localStorage.getItem('cusdata');
+  var cusData = JSON.parse(storedData1);
+  var storedData2 = localStorage.getItem('cheaderData');
+  var cheaderData = JSON.parse(storedData2);
+  var id= parseInt(localStorage.getItem('btnid'),10);
+  
+  for(var i=0;i<cheaderData.length-1; i++){
+    var node = document.createElement("div");
+    node.setAttribute("style","margin-top:5px;margin-left:5px")
+    var str = document.createTextNode(cheaderData[i]+"："+cusData[id][i]);
+    node.appendChild(str);
+    document.getElementById("str").appendChild(node);
+   
+  }
+  var storedData3 = localStorage.getItem('data');
+  var data = JSON.parse(storedData3);
+
+  var tables = document.getElementsByClassName("tcontent_text");
+  var tb=0;
+  for (var i = 0; i < tables.length; i++) {
+    var row = tables[tb].getElementsByTagName('td');
+    if(cusData[id][0]==data[i][1]){
+      for (var j = 0; j < row.length; j++) {
+        row[j].textContent = data[i][j];
+      }
+      tb++;
+    }
+   
+  }
+
+  
+  function gotoDetail(button) {
+    var div = button.closest('div');
+    var table = div.querySelector('table'); 
+    var sales_num = table.querySelector('td').textContent;
+    localStorage.setItem('sales_num',sales_num);
+
+    // 找到按鈕所在的行
+    //var row = button.closest('tr');
+    
+    // 獲取行中每個單元格的文字內容
+   // var cells = row.getElementsByTagName('td');
+    //var rowData = [];
+   // for (var i = 0; i < cells.length; i++) {
+     //   rowData.push(cells[i].innerText);
+   // }
+    window.location.href = 'sales_detail.html';
+  }
+
+  var row = document.getElementById('header');
+    
+  var cells = row.getElementsByTagName('th');
+  var headerData = [];
+    for (var i = 0; i < cells.length; i++) {
+        headerData.push(cells[i].innerText);
+    }
+
+    localStorage.setItem('headerData', JSON.stringify(headerData));
+   
+
+                
+
+  
+
+  function searchFunction() {
+    var searchValue = document.getElementById("searchInput").value;
+    alert("您搜尋的內容是：" + searchValue);
+  }
+  
+
+</script>
+
+
+
+</body>
+</html>
+

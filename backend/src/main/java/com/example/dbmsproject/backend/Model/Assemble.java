@@ -1,4 +1,4 @@
-package com.example.dbmsproject.backend.Model;
+package com.example.digitalbusiness.backend.model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,7 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import jakarta.validation.constraints.NotEmpty;
+import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,20 +15,18 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "PLACE")
-public class Place {
-
+@Table(name = "Assemble")
+public class Assemble {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long pid;
+    private Integer id;
 
-    @Column(name = "NAME" , nullable = false)
-    @NotEmpty
-    private String name;
+    @Column(name = "ProductID", nullable = false)
+    private Integer productId;
 
-    @Column(name = "FLOOR" , nullable = true)
-    private String floor;
+    @Column(name = "MaterialID", nullable = false)
+    private Integer materialId;
 
-    @Column(name = "CLASSROOM" , nullable = true)
-    private String classroom;
+    @Column(name = "MaterialQuantity", nullable = false)
+    private Integer materialQuantity;
 }

@@ -1,4 +1,4 @@
-package com.example.dbmsproject.backend;
+package test.java.com.example.dbmsproject.backend;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

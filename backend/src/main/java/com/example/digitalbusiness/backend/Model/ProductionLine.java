@@ -1,4 +1,4 @@
-package com.example.dbmsproject.backend.Model;
+package com.example.digitalbusiness.backend.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,9 +14,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Customer")
-public class Customer {
-
+@Table(name = "ProductionLine")
+public class ProductionLine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,9 +23,9 @@ public class Customer {
     @Column(name = "Name", nullable = false, length = 30)
     private String name;
 
-    @Column(name = "ContactName", nullable = false, length = 30)
-    private String contactName;
+    @Column(name = "DailyProductivity", nullable = false)
+    private Integer dailyProductivity;
 
-    @Column(name = "EmployeeCount", nullable = false)
-    private Integer employeeCount;
+    @Column(name = "IsAvailable", nullable = false)
+    private Boolean isAvailable; // Assuming tinyint(1) is used as a boolean
 }

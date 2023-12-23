@@ -1,4 +1,4 @@
-package com.example.digitalbusiness.backend.model;
+package com.example.digitalbusiness.backend.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,7 +20,7 @@ public class Form {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "Quantity", nullable = false)
     private Integer quantity;
@@ -29,8 +29,8 @@ public class Form {
     private LocalDate time; // Assuming you are using LocalDate for date without time information
 
     @Column(name = "CustomerID", nullable = false)
-    private Integer customerId;
+    private Long customerId;
 
     @Column(name = "ProductID", nullable = false)
-    private Integer productId;
+    private Long productId;
 }

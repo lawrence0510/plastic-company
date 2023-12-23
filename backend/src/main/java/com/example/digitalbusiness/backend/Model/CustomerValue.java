@@ -1,4 +1,4 @@
-package com.example.digitalbusiness.backend.model;
+package com.example.digitalbusiness.backend.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -6,7 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import java.util.Date;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,18 +14,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Assemble")
-public class Assemble {
+@Table(name = "CustomerValue")
+public class CustomerValue {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "ProductID", nullable = false)
-    private Integer productId;
+    @Column(name = "Recency", nullable = false)
+    private double recency;
 
-    @Column(name = "MaterialID", nullable = false)
-    private Integer materialId;
+    @Column(name = "Frequency", nullable = false)
+    private double frequency;
 
-    @Column(name = "MaterialQuantity", nullable = false)
-    private Integer materialQuantity;
+    @Column(name = "MonetaryValue", nullable = false)
+    private double monetaryValue;
 }

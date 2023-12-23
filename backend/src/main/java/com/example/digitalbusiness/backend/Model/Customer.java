@@ -1,4 +1,4 @@
-package com.example.digitalbusiness.backend.model;
+package com.example.digitalbusiness.backend.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -14,19 +14,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "CustomerValue")
-public class CustomerValue {
+@Table(name = "Customer")
+public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    @Column(name = "Recency", nullable = false)
-    private Integer recency;
+    @Column(name = "Name", nullable = false, length = 30)
+    private String name;
 
-    @Column(name = "Frequency", nullable = false)
-    private Integer frequency;
+    @Column(name = "ContactName", nullable = false, length = 30)
+    private String contactName;
 
-    @Column(name = "MonetaryValue", nullable = false)
-    private Integer monetaryValue;
+    @Column(name = "EmployeeCount", nullable = false)
+    private Integer employeeCount;
 }

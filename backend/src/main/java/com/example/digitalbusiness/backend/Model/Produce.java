@@ -1,4 +1,4 @@
-package com.example.digitalbusiness.backend.model;
+package com.example.digitalbusiness.backend.Model;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -20,13 +20,13 @@ public class Produce {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @Column(name = "ProductionLineID", nullable = false)
     private Integer productionLineId;
 
     @Column(name = "ProductID", nullable = false)
-    private Integer productId;
+    private Long productId;
 
     @Column(name = "Quantity", nullable = false)
     private Integer quantity;

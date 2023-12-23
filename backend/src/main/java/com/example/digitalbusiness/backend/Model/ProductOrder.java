@@ -1,12 +1,15 @@
 package com.example.digitalbusiness.backend.Model;
 
+import java.util.Date;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
-import java.time.LocalDate;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,8 +18,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "Form")
-public class Form {
+@Table(name = "ProductOrder")
+public class ProductOrder {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -25,12 +28,14 @@ public class Form {
     @Column(name = "Quantity", nullable = false)
     private Integer quantity;
 
-    @Column(name = "Time", nullable = false)
-    private LocalDate time; // Assuming you are using LocalDate for date without time information
+    @Column(name = "Date", nullable = false)
+    private Date date;
 
-    @Column(name = "CustomerID", nullable = false)
-    private Long customerId;
+    @ManyToOne
+    @JoinColumn(name = "Cusmoter_id")
+    private Customer customer;
 
-    @Column(name = "ProductID", nullable = false)
-    private Long productId;
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 }

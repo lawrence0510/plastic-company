@@ -1,10 +1,13 @@
 package com.example.digitalbusiness.backend.Model;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -34,4 +37,13 @@ public class Product {
 
     @Column(name = "Inventory", nullable = false)
     private Integer inventory;
+
+    @OneToMany(mappedBy = "product")
+    private Set<Assemble> assembles;
+
+    @OneToMany(mappedBy = "product")
+    private Set<Produce> produces;
+
+    @OneToMany(mappedBy = "product")
+    private Set<ProductOrder> productOrders;
 }

@@ -1,10 +1,13 @@
 package com.example.digitalbusiness.backend.Model;
 
+import java.util.Set;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -28,4 +31,7 @@ public class ProductionLine {
 
     @Column(name = "IsAvailable", nullable = false)
     private Boolean isAvailable; // Assuming tinyint(1) is used as a boolean
+
+    @OneToMany(mappedBy = "productionLine")
+    private Set<Produce> produces;
 }

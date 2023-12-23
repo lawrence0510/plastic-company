@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <title>榮紹精密塑膠射出成型工廠</title>
-<link rel="stylesheet" type="text/css" href="css/4-1.css">
+<link rel="stylesheet" type="text/css" href="css/4-2.css">
  
 </head>
  
@@ -43,11 +43,11 @@
 
   <div class="order_in">
   <div>姓名/廠商：</div>
-  <input type="text" class="order_in_input" id="searchInput">
+  <div class="order_in_input"></div>
   <div>聯絡號碼：</div>
-  <input type="text" class="order_in_input" id="searchInput">
+  <div class="order_in_input"></div>
   <div>收貨地址：</div>
-  <input type="text" class="order_in_input" id="searchInput">
+  <div class="order_in_input"></div>
   </div>
 
   <div class="order_name">商品名稱
@@ -56,6 +56,10 @@
   </div>
 
   <div class="order_now">
+    <div class="order_now_1"></div>
+    <div class="order_now_2"></div>
+    <div class="order_now_3"></div>
+
     <input type="text" class="order_now_input_1" id="searchInput" placeholder="請輸入商品名稱">
     <input type="text" class="order_now_input_2" id="searchInput" placeholder="請輸入商品數量">
     <input type="text" class="order_now_input_3" id="searchInput" placeholder="商品包裝/商品要求...">
@@ -63,17 +67,27 @@
 
   <img src="image/plus.png" alt="plus" class="plus" >
 
-  <div class="send">確認訂單</div>
+  <button class="send" onclick="togglePopup()">確認訂單</button>
+
+  <div class="overlay" id="popupOverlay">
+    <div class="popup">
+      <h1>新增訂單成功</h1>
+      <p>訂單編號：110306002</p>
+      <button onclick="togglePopup()" class="pop_close">關閉</button>
+    </div>
+  </div>
 
     
 <script>
 
     function searchFunction() {
-      // 取得輸入框的值
       var searchValue = document.getElementById("searchInput").value;
-      
-      // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
       alert("您搜尋的內容是：" + searchValue);
+    }
+
+    function togglePopup() {
+      var overlay = document.getElementById('popupOverlay');
+      overlay.style.display = (overlay.style.display === 'none' || overlay.style.display === '') ? 'flex' : 'none';
     }
 
   </script>

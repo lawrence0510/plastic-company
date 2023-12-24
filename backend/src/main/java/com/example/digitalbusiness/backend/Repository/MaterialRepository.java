@@ -11,6 +11,6 @@ import com.example.digitalbusiness.backend.Model.Material;
 @CrossOrigin
 public interface MaterialRepository extends JpaRepository<Material, Long> {
 
-    @Query("SELECT m FROM Material m WHERE m.inventory < 100")
-    List<Material> findMaterialsWithInventoryLessThan100();
+    @Query("SELECT m FROM Material m WHERE m.inventory <= 500")
+    List<Material> findMaterialsWithInventoryLessThan500();
 }

@@ -88,7 +88,7 @@ function createItemBox(material) {
 
     let itemNumContent = document.createElement('div');
     itemNumContent.className = 'item_num_content';
-    itemNumContent.textContent = '01';
+    itemNumContent.textContent = '0' + material._links.self.href.match(/\/(\d+)$/)[1];
 
     let iteminv = document.createElement('div');
     iteminv.className = 'item_inv';

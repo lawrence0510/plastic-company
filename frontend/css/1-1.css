@@ -194,7 +194,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
 }
 
 .red-button {
-  position: relative;
+  position: absolute;
   border-radius: 10px; /* 設定圓角半徑，根據需要調整 */
   border: none;
   font-size: 17px;
@@ -203,9 +203,8 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   font-weight: bold;
   height: 40px;
   cursor: pointer;
-  margin-right: -80px;
-  margin-left: 20px;
-  margin-top: 15px;
+  right: 800px;
+  margin-top: -50px;
 }
 
 .item_container{
@@ -340,4 +339,8 @@ color: red;
   height: 244px;
   margin-top: -204px;
   margin-left: 450px;
+}
+
+.low-inventory{
+  background-color: #dc8686;
 }

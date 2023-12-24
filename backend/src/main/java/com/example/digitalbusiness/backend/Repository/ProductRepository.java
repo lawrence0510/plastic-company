@@ -16,6 +16,8 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Set<Product> findByNameContaining(String name);
 
+    Optional<Product> findByName(String name);
+
     @Query("SELECT p FROM Product p WHERE p.inventory < 100")
     List<Product> findProductsWithInventoryLessThan100();
 }

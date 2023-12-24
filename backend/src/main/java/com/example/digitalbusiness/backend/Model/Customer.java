@@ -1,6 +1,5 @@
 package com.example.digitalbusiness.backend.Model;
 
-import java.util.Collection;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;

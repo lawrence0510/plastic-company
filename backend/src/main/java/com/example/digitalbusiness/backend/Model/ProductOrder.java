@@ -13,6 +13,7 @@ import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.minidev.json.annotate.JsonIgnore;
 
 @Data
 @AllArgsConstructor
@@ -31,6 +32,7 @@ public class ProductOrder {
     @Column(name = "Date", nullable = false)
     private Date date;
 
+    @JsonIgnore
     @Column(name = "Status", nullable = false)
     private String status; // "complete" or "processing"
 

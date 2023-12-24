@@ -31,6 +31,12 @@ public class ProductOrder {
     @Column(name = "Date", nullable = false)
     private Date date;
 
+    @Column(name = "Status", nullable = false)
+    private String status; // "complete" or "processing"
+
+    @Column(name = "ProduceId", nullable = true)
+    private Long produceId;
+
     @ManyToOne
     @JoinColumn(name = "Cusmoter_id")
     private Customer customer;

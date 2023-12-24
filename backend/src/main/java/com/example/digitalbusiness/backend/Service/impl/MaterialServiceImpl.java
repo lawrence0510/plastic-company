@@ -22,6 +22,5 @@ public class MaterialServiceImpl implements MaterialService {
         }
     }
 
-    // Implement methods specific to Material entity
 
 }

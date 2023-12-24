@@ -278,6 +278,10 @@ color: red;
   width: 20px;
   height: 142px;
   position: relative;
-  top: -143px;
+  top: -111px;
   margin-left: 267px;
+}
+
+.low-inventory{
+  background-color: #dc8686;
 }

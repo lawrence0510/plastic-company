@@ -56,37 +56,35 @@
         <div class="item_num">收回代碼：</div>
         <div class="item_num_content">01</div>
         <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay1">足夠</div>
+        <div class="item_inv_content" id="inventoryDisplay1">未連接至資料庫</div>
       </div>
       <div class="item_box">
-        <div class="item_topic_warn">ABS</div>
-        <div class="item_num_warn">收回代碼：</div>
-        <div class="item_num_content_warn">02</div>
-        <div class="item_inv_warn">庫存量：</div>
-        <button class="item_inv_content_warn">不足</button>
-        <div class="oem_color_warn"></div>
+        <div class="item_topic">ABS</div>
+        <div class="item_num">收回代碼：</div>
+        <div class="item_num_content">02</div>
+        <div class="item_inv">庫存量：</div>
+        <div class="item_inv_content" id="inventoryDisplay2">未連接至資料庫</div>
       </div>
       <div class="item_box">
         <div class="item_topic">POM</div>
         <div class="item_num">收回代碼：</div>
         <div class="item_num_content">03</div>
         <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content">足夠</div>
+        <div class="item_inv_content" id="inventoryDisplay3">未連接至資料庫</div>
       </div>
       <div class="item_box">
         <div class="item_topic">PP</div>
         <div class="item_num">收回代碼：</div>
         <div class="item_num_content">04</div>
         <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content">足夠</div>
+        <div class="item_inv_content" id="inventoryDisplay4">未連接至資料庫</div>
       </div>
             <div class="item_box">
-        <div class="item_topic_warn">HIPS</div>
-        <div class="item_num_warn">收回代碼：</div>
-        <div class="item_num_content_warn">05</div>
-        <div class="item_inv_warn">庫存量：</div>
-        <button class="item_inv_content_warn">不足</button>
-        <div class="oem_color_warn"></div>
+        <div class="item_topic">HIPS</div>
+        <div class="item_num">收回代碼：</div>
+        <div class="item_num_content">05</div>
+        <div class="item_inv">庫存量：</div>
+        <div class="item_inv_content" id="inventoryDisplay5">未連接至資料庫</div>
       </div>
             
             
@@ -100,36 +98,35 @@
         <div class="item_num">收回代碼：</div>
         <div class="item_num_content">06</div>
         <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content">足夠</div>
+        <div class="item_inv_content" id="inventoryDisplay6">未連接至資料庫</div>
       </div>
       <div class="item_box">
-        <div class="item_topic_warn">PE</div>
-        <div class="item_num_warn">收回代碼：</div>
-        <div class="item_num_content_warn">07</div>
-        <div class="item_inv_warn">庫存量：</div>
-        <button class="item_inv_content_warn">不足</button>
-        <div class="oem_color_warn"></div>
+        <div class="item_topic">PE</div>
+        <div class="item_num">收回代碼：</div>
+        <div class="item_num_content">07</div>
+        <div class="item_inv">庫存量：</div>
+        <div class="item_inv_content" id="inventoryDisplay7">未連接至資料庫</div>
       </div>
       <div class="item_box">
         <div class="item_topic">PA6</div>
         <div class="item_num">收回代碼：</div>
         <div class="item_num_content">08</div>
         <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content">足夠</div>
+        <div class="item_inv_content" id="inventoryDisplay8">未連接至資料庫</div>
       </div>
       <div class="item_box">
         <div class="item_topic">PBT</div>
         <div class="item_num">收回代碼：</div>
         <div class="item_num_content">09</div>
         <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content">足夠</div>
+        <div class="item_inv_content" id="inventoryDisplay9">未連接至資料庫</div>
       </div>
 <div class="item_box">
         <div class="item_topic">複合材</div>
         <div class="item_num">收回代碼：</div>
         <div class="item_num_content">10</div>
         <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content">足夠</div>
+        <div class="item_inv_content" id="inventoryDisplay10">未連接至資料庫</div>
         
       </div>
     </div>
@@ -150,18 +147,40 @@
     }
 
     document.addEventListener('DOMContentLoaded', function() {
-    fetch('http://localhost:8080/materials/1', {
-        method: 'GET',
-        headers: {
-            'accept': 'application/hal+json'
-        }
-    })
-    .then(response => response.json())
-    .then(data => {
-        document.getElementById('inventoryDisplay1').textContent = data.inventory;
-    })
-    .catch(error => console.error('Error:', error));
+    // 創建一個包含所有fetch請求的promise數組
+    let fetchPromises = [];
+
+    for (let i = 1; i <= 10; i++) {
+        fetchPromises.push(
+            fetch(`http://localhost:8080/materials/${i}`, {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/hal+json'
+                }
+            })
+            .then(response => response.json())
+            .catch(error => console.error(`Error fetching material ${i}:`, error))
+        );
+    }
+
+    // 使用Promise.all等待所有fetch請求完成
+    Promise.all(fetchPromises).then(dataArray => {
+        dataArray.forEach((data, index) => {
+            if (data) {
+                // 更新對應的元素，假設元素ID是inventoryDisplay1, inventoryDisplay2等
+                let inventoryDisplayId = `inventoryDisplay${index + 1}`;
+                let inventoryElement = document.getElementById(inventoryDisplayId);
+                if (inventoryElement) {
+                    inventoryElement.textContent = data.inventory;
+                    if(data.inventory <= 500){
+                      inventoryElement.parentNode.classList.add('low-inventory');
+                    }
+                }
+            }
+        });
+    });
 });
+
 
   </script>
 

@@ -18,6 +18,6 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
 
     Optional<Product> findByName(String name);
 
-    @Query("SELECT p FROM Product p WHERE p.inventory < 100")
-    List<Product> findProductsWithInventoryLessThan100();
+    @Query("SELECT p FROM Product p WHERE p.inventory <= 200")
+    List<Product> findProductsWithInventoryLessThan200();
 }

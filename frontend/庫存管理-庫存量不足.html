@@ -44,53 +44,12 @@
   </div>
 
   <div class="title1-1">庫存管理 - 庫存量不足</div>
-  <div class="OEM">OEM</div>
-  <div class="ODM">ODM</div>
 
   <div class="search-container-inside">
-    <input type="text" class="search-box-inside" id="searchInput" placeholder="請輸入欲查詢的商品名稱或編號">
-    <div onclick="searchFunction()">
-      <img src="image/seac.png" alt="搜索按钮" class="search-button-inside">
-    </div>
     <button class="red-button" onclick='location.href=("庫存管理.html")'>查看全部清單</button>
     </div>
 
-  <div class="item_container">
-
-    <!-- 第一個直排 -->
-    <div class="item_column">
-      <div class="item_box">
-        <img src="image/精密零組件.jpg" alt="精密零組件" class="item_pic">
-        <div class="item_topic_warn">精密零組件</div>
-        <div class="item_num_warn">產量編號：</div>
-        <div class="item_num_content_warn">A002</div>
-        <div class="item_inv_warn">庫存量：</div>
-        <button class="item_inv_content_warn">不足</button>
-        <div class="oem_color"></div>
-      </div>
-      <div class="item_box">
-        <img src="image/零配件三.jpg" alt="零配件三" class="item_pic">
-        <div class="item_topic_warn">零配件三</div>
-        <div class="item_num_warn">產量編號：</div>
-        <div class="item_num_content_warn">A009</div>
-        <div class="item_inv_warn">庫存量：</div>
-        <button class="item_inv_content_warn">不足</button>
-        <div class="oem_color"></div>
-      </div>
-    </div>
-
-    <!-- 第二個直排 -->
-    <div class="item_column">
-      <div class="item_box">
-        <img src="image/框架零組件.jpg" alt="框架零組件" class="item_pic">
-        <div class="item_topic_warn">框架零組件</div>
-        <div class="item_num_warn">產量編號：</div>
-        <div class="item_num_content_warn">B015</div>
-        <div class="item_inv_warn">庫存量：</div>
-        <button class="item_inv_content_warn">不足</button>
-        <div class="odm_color"></div>
-      </div>
-    </div>
+  <div class="item_container" id="lowInventoryContainer"">
 
   </div>
 
@@ -99,15 +58,58 @@
     
 <script>
 
-    function searchFunction() {
-      // 取得輸入框的值
-      var searchValue = document.getElementById("searchInput").value;
-      
-      // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
-      alert("您搜尋的內容是：" + searchValue);
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    fetch('http://localhost:8080/products/search/findProductsWithInventoryLessThan200', {
+        method: 'GET',
+        headers: {
+            'accept': 'application/hal+json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        let products = data._embedded.products;
+        products.forEach(product => {
+            let itemBox = createItemBox(product);
+            document.getElementById('lowInventoryContainer').appendChild(itemBox);
+        });
+    })
+    .catch(error => console.error('Error:', error));
+});
 
-  </script>
+function createItemBox(product) {
+    let itemBox = document.createElement('div');
+    itemBox.className = 'item_box';
+
+    let itemTopic = document.createElement('div');
+    itemTopic.className = 'item_topic';
+    itemTopic.textContent = product.name;
+
+    let itemNum = document.createElement('div');
+    itemNum.className = 'item_num';
+    itemNum.textContent = "產品編號：";
+
+    let itemNumContent = document.createElement('div');
+    itemNumContent.className = 'item_num_content';
+    itemNumContent.textContent = product._links.self.href.match(/\/(\d+)$/)[1];
+
+    let iteminv = document.createElement('div');
+    iteminv.className = 'item_inv';
+    iteminv.textContent = "庫存量："
+    
+    let itemInventory = document.createElement('div');
+    itemInventory.className = 'item_inv_content';
+    itemInventory.textContent = product.inventory;
+
+    itemBox.appendChild(itemTopic);
+    itemBox.appendChild(itemNum);
+    itemBox.appendChild(itemNumContent);
+    itemBox.appendChild(iteminv);
+    itemBox.appendChild(itemInventory);
+
+    return itemBox;
+}
+
+</script>
 
 </body>
 </html>

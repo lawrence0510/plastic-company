@@ -123,7 +123,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
 
 .vertical-line {
   border-left: 2px solid #000;
-  height: 1300px; 
+  height: 0px; 
   margin-left: 310px;
   margin-top: -660px;
     }

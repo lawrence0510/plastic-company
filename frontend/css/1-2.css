@@ -70,7 +70,7 @@ html, body {
   cursor: pointer;
   width: 30px; 
   height: 30px;
-  margin-left: 45px;
+  margin-left: -50px;
   margin-top: -3px;
   position: absolute;
 }
@@ -90,8 +90,8 @@ html, body {
   cursor: pointer;
   width: 30px; 
   height: 30px;
-  margin-left: 45px;
-  margin-top: 76px;
+  margin-left: -50px;
+  margin-top: 0px;
   position: absolute;
 }
 

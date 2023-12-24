@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.example.digitalbusiness.backend.Model.Material;
 
-@CrossOrigin(origins = "http://localhost:80")
+@CrossOrigin
 public interface MaterialRepository extends JpaRepository<Material, Long> {
 
     @Query("SELECT m FROM Material m WHERE m.inventory < 100")

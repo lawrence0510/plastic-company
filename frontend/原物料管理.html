@@ -56,7 +56,7 @@
         <div class="item_num">收回代碼：</div>
         <div class="item_num_content">01</div>
         <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content">足夠</div>
+        <div class="item_inv_content" id="inventoryDisplay1">足夠</div>
       </div>
       <div class="item_box">
         <div class="item_topic_warn">ABS</div>
@@ -148,6 +148,20 @@
       // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
       alert("您搜尋的內容是：" + searchValue);
     }
+
+    document.addEventListener('DOMContentLoaded', function() {
+    fetch('http://localhost:8080/materials/1', {
+        method: 'GET',
+        headers: {
+            'accept': 'application/hal+json'
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        document.getElementById('inventoryDisplay1').textContent = data.inventory;
+    })
+    .catch(error => console.error('Error:', error));
+});
 
   </script>
 

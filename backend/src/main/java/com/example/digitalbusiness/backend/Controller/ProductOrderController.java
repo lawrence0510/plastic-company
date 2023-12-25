@@ -1,6 +1,7 @@
 package com.example.digitalbusiness.backend.Controller;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -37,6 +38,12 @@ public class ProductOrderController {
     @GetMapping("/productOrder")
     public ResponseEntity<Collection<ProductOrder>> getAllProductOrder() {
         Collection<ProductOrder> result = productOrderService.getAllProductOrder();
+        return ResponseEntity.ok().body(result);
+    }
+
+    @GetMapping("/productOrder/FindByStatus")
+    public ResponseEntity<Collection<ProductOrder>> getMethodName(@RequestParam String status) {
+        List<ProductOrder> result = productOrderService.findByStatus(status);
         return ResponseEntity.ok().body(result);
     }
 

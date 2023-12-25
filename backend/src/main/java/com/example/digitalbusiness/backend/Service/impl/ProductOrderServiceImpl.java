@@ -3,6 +3,7 @@ package com.example.digitalbusiness.backend.Service.impl;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -101,6 +102,12 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 
         }
         return productOrders;
+    }
+
+    @Override
+    public List<ProductOrder> findByStatus(String status) {
+        List<ProductOrder> result = productOrderRepository.findAllByStatus(status);
+        return result;
     }
 
 }

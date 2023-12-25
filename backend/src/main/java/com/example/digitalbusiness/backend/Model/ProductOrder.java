@@ -1,6 +1,6 @@
 package com.example.digitalbusiness.backend.Model;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -9,6 +9,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,7 +32,7 @@ public class ProductOrder {
     private Integer quantity;
 
     @Column(name = "Date", nullable = false)
-    private Date date;
+    private LocalDateTime date;
 
     @JsonIgnore
     @Column(name = "Status", nullable = false)
@@ -39,14 +41,20 @@ public class ProductOrder {
     @Column(name = "Progress", nullable = true)
     private double progress;
 
-    @Column(name = "ProduceId", nullable = true)
-    private Long produceId;
+    @OneToOne
+    @JoinColumn(name = "Produce_id")
+    private Produce produce;
 
     @ManyToOne
-    @JoinColumn(name = "Cusmoter_id")
+    @JoinColumn(name = "Customer_id")
     private Customer customer;
 
     @ManyToOne
-    @JoinColumn(name = "product_id")
+    @JoinColumn(name = "Product_id")
     private Product product;
+
+    @PrePersist
+    protected void onCreate() {
+        date = LocalDateTime.now();
+    }
 }

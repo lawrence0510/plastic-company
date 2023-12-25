@@ -1,10 +1,14 @@
 package com.example.digitalbusiness.backend.Service.impl;
 
+import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
+import java.util.Collection;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.digitalbusiness.backend.Model.Customer;
+import com.example.digitalbusiness.backend.Model.Produce;
 import com.example.digitalbusiness.backend.Model.Product;
 import com.example.digitalbusiness.backend.Model.ProductOrder;
 import com.example.digitalbusiness.backend.Repository.ProductOrderRepository;
@@ -20,10 +24,10 @@ public class ProductOrderServiceImpl implements ProductOrderService {
     @Autowired
     CustomerService customerService;
     @Autowired
-    ProductOrderRepository productorderRepository;
+    ProductOrderRepository productOrderRepository;
 
     @Override
-    public ResponseEntity<ProductOrder> saveProductOrder(String productName, String customerName, Integer quantity) {
+    public ProductOrder saveProductOrder(String productName, String customerName, Integer quantity) {
         ProductOrder order = new ProductOrder();
 
         Product target = productService.FindProductByName(productName);
@@ -39,19 +43,46 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             // if inventory is enough, update inventory and setting order status to
             // "completed"
             order.setStatus("completed");
+            order.setProgress(1.0);
             productService.updateInventory(target.getId(), quantity);
             // save product order
-            result = productorderRepository.save(order);
+            result = productOrderRepository.save(order);
         } else {
             // if inventory is not enough, setting order status to "processing"
             order.setStatus("processing");
-            // arrage production line
+            // arrange produce
+            Produce produce = new Produce();
+            produce.setProduct(target);
             // save product order
-            result = productorderRepository.save(order);
+            result = productOrderRepository.save(order);
         }
-        return ResponseEntity.ok().body(result);
+        return result;
     }
 
-    // Implement methods specific to ProductOrder entity
+    @Override
+    public Collection<ProductOrder> getAllProductOrder() {
+
+        Collection<ProductOrder> productOrders = productOrderRepository.findAll();
+
+        for (ProductOrder productOrder : productOrders) {
+
+            if (productOrder.getProgress() != 1.0) {
+                Produce produce = productOrder.getProduce();
+                Integer expectedDurationInDays = produce.getDuration();
+                LocalDateTime currentTime = LocalDateTime.now();
+                Long daysDifference = ChronoUnit.DAYS.between(productOrder.getDate(), currentTime);
+
+                double orderProgress = Math.min((double) (daysDifference / expectedDurationInDays), 1.0);
+                productOrder.setProgress(orderProgress);
+                if (orderProgress == 1.0) {
+                    productOrder.setStatus("completed");
+                } else {
+                    productOrder.setStatus("processing");
+                }
+            }
+
+        }
+        return productOrders;
+    }
 
 }

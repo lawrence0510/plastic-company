@@ -35,7 +35,7 @@ public class CustomerValue {
 
     @OneToOne
     @MapsId
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
 }

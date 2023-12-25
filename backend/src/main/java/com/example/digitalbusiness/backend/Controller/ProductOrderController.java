@@ -24,8 +24,8 @@ public class ProductOrderController {
     @PostMapping("/productOrder")
     public ResponseEntity<ProductOrder> saveProductOrder(@RequestParam("productName") String productName,
             @RequestParam("quentity") Integer Quantity, @RequestParam("CustomerName") String name) {
-        ProductOrder result = productorderService.saveProductOrder(productName, name, Quantity);
-        return ResponseEntity.ok().body(result);
+        ResponseEntity<ProductOrder> result = productorderService.saveProductOrder(productName, name, Quantity);
+        return result;
     }
 
 }

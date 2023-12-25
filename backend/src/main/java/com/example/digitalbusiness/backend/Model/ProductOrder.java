@@ -36,6 +36,9 @@ public class ProductOrder {
     @Column(name = "Status", nullable = false)
     private String status; // "complete" or "processing"
 
+    @Column(name = "Progress", nullable = true)
+    private double progress;
+
     @Column(name = "ProduceId", nullable = true)
     private Long produceId;
 

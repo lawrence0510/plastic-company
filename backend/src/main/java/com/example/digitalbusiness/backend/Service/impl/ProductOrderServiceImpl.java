@@ -1,6 +1,7 @@
 package com.example.digitalbusiness.backend.Service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.example.digitalbusiness.backend.Model.Customer;
@@ -22,7 +23,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
     ProductOrderRepository productorderRepository;
 
     @Override
-    public ProductOrder saveProductOrder(String productName, String customerName, Integer quantity) {
+    public ResponseEntity<ProductOrder> saveProductOrder(String productName, String customerName, Integer quantity) {
         ProductOrder order = new ProductOrder();
 
         Product target = productService.FindProductByName(productName);
@@ -48,7 +49,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             // save product order
             result = productorderRepository.save(order);
         }
-        return result;
+        return ResponseEntity.ok().body(result);
     }
 
     // Implement methods specific to ProductOrder entity

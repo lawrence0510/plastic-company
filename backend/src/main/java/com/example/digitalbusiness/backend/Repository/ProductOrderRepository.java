@@ -7,5 +7,4 @@ import com.example.digitalbusiness.backend.Model.ProductOrder;
 
 @CrossOrigin
 public interface ProductOrderRepository extends JpaRepository<ProductOrder, Long> {
-
 }

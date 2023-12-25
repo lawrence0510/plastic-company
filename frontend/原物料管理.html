@@ -172,7 +172,7 @@
                 let inventoryElement = document.getElementById(inventoryDisplayId);
                 if (inventoryElement) {
                     inventoryElement.textContent = data.inventory;
-                    if(data.inventory <= 500){
+                    if(data.inventory <= 1000){
                       inventoryElement.parentNode.classList.add('low-inventory');
                     }
                 }

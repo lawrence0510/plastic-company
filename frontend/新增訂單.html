@@ -45,29 +45,47 @@
 
   <div class="order_in">
   <div>姓名/廠商：</div>
-  <div class="order_in_input"></div>
-  <div>聯絡號碼：</div>
-  <div class="order_in_input"></div>
+  <input class="order_in_input">
+  <div>聯絡電話：</div>
+  <input class="order_in_input">
   <div>收貨地址：</div>
-  <div class="order_in_input"></div>
+  <input class="order_in_input">
   </div>
 
   <div class="order_name">商品名稱
   <span class="order_num">數量</span>
-  <span class="order_word">商品備註</span>
   </div>
 
   <div class="order_now">
     <div class="order_now_1"></div>
     <div class="order_now_2"></div>
-    <div class="order_now_3"></div>
 
-    <input type="text" class="order_now_input_1" id="searchInput" placeholder="請輸入商品名稱">
+    <select id="productSelect" name="products" class="order_now_input_1">
+    <option value="" disabled selected>請選擇商品</option>
+    <option value="industrial-parts">工業用配件</option>
+    <option value="precision-components-two">精密零組件二</option>
+    <option value="parts-one">零配件一</option>
+    <option value="precision-miniature">精密微小件</option>
+    <option value="secondary-covering-products">二次包覆產品</option>
+    <option value="parts-three">零配件三</option>
+    <option value="two-color-injection">雙色射出</option>
+    <option value="components-four">零組件四</option>
+    <option value="medical-equipment-manufacturing">醫療器材生產</option>
+    <option value="plastic-structural-components">塑膠結構組件</option>
+    <option value="computer-accessories">電腦周邊商品</option>
+    <option value="3c-cases">3c外殼</option>
+    <option value="usb-drives">隨身碟</option>
+    <option value="transparent-accessories">透明配件</option>
+    <option value="medical-equipment">醫療器材</option>
+    <option value="components-series">零組件系列</option>
+    <option value="custom-plastic">塑膠客製化</option>
+    <option value="frame-components">框架零組件</option>
+    <option value="accessory-series">薄件系列</option>
+    <option value="car-accessories">汽車零配件</option>
+</select>
+
     <input type="text" class="order_now_input_2" id="searchInput" placeholder="請輸入商品數量">
-    <input type="text" class="order_now_input_3" id="searchInput" placeholder="商品包裝/商品要求...">
   </div>
-
-  <img src="image/plus.png" alt="plus" class="plus" >
 
   <button class="send" onclick="togglePopup()">確認訂單</button>
 

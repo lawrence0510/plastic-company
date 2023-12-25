@@ -27,12 +27,19 @@ public class ProductOrderServiceImpl implements ProductOrderService {
     ProductOrderRepository productOrderRepository;
 
     @Override
-    public ProductOrder saveProductOrder(String productName, String customerName, Integer quantity) {
+    public ProductOrder saveProductOrder(String productName, Integer quantity, String customerName,
+            String customerContactName, Integer customerEmployeeCount) {
         ProductOrder order = new ProductOrder();
 
         Product target = productService.FindProductByName(productName);
         Customer customer = customerService.FindCustomerByName(customerName);
-
+        if (customer == null) {
+            customer = new Customer();
+            customer.setName(customerName);
+            customer.setContactName(customerContactName);
+            customer.setEmployeeCount(customerEmployeeCount);
+            customerService.SaveCustomer(customer);
+        }
         order.setCustomer(customer);
         order.setProduct(target);
         order.setQuantity(quantity);
@@ -53,6 +60,17 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             // arrange produce
             Produce produce = new Produce();
             produce.setProduct(target);
+            produce.setQuantity(quantity + 200);
+            produce.setDuration(20);
+            produce.setCost(20000);
+
+            order.setProduce(produce);
+            // calculate order progress
+            Integer expectedDurationInDays = produce.getDuration();
+            LocalDateTime currentTime = LocalDateTime.now();
+            Long daysDifference = ChronoUnit.DAYS.between(order.getDate(), currentTime);
+            double orderProgress = Math.min((double) (daysDifference / expectedDurationInDays), 1.0);
+            order.setProgress(orderProgress);
             // save product order
             result = productOrderRepository.save(order);
         }

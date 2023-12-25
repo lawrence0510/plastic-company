@@ -37,6 +37,6 @@ public class Produce {
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "production_line_id", referencedColumnName = "id")
+    @JoinColumn(name = "production_line_id", nullable = true, referencedColumnName = "id")
     private ProductionLine productionLine;
 }

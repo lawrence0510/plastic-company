@@ -1,6 +1,8 @@
 package com.example.digitalbusiness.backend.Model;
 
-import java.util.Set;
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -41,5 +43,6 @@ public class Customer {
     private CustomerValue customerValue;
 
     @OneToMany(mappedBy = "customer")
-    private Set<ProductOrder> productOrder;
+    @JsonIgnore
+    private List<ProductOrder> productOrder;
 }

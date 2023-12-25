@@ -6,4 +6,6 @@ public interface CustomerService {
 
     // Define methods specific to Customer entity
     public Customer FindCustomerByName(String customerName);
+
+    public Customer SaveCustomer(Customer customer);
 }

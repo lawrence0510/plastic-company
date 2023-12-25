@@ -1,5 +1,7 @@
 package com.example.digitalbusiness.backend.Service.impl;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,10 +17,17 @@ public class CustomerServiceImpl implements CustomerService {
 
     @Override
     public Customer FindCustomerByName(String customerName) {
-        Customer result = customerRepository.findByName(customerName).get();
-        return result;
+        Optional<Customer> result = customerRepository.findByName(customerName);
+        if (result.isPresent())
+            return result.get();
+        else
+            return null;
     }
 
-    // Implement methods specific to Customer entity
+    @Override
+    public Customer SaveCustomer(Customer customer) {
+        Customer result = customerRepository.save(customer);
+        return result;
+    }
 
 }

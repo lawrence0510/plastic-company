@@ -32,6 +32,9 @@ public class ProductionLine {
     @Column(name = "DailyProductivity", nullable = false)
     private Integer dailyProductivity;
 
+    @Column(name = "DailyCost", nullable = false)
+    private Integer dailyCost;
+
     @OneToMany(mappedBy = "productionLine")
     private Set<Produce> produces;
 

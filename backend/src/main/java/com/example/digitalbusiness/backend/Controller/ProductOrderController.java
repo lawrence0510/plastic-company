@@ -25,8 +25,11 @@ public class ProductOrderController {
     // Post methods
     @PostMapping("/productOrder")
     public ResponseEntity<ProductOrder> saveProductOrder(@RequestParam("productName") String productName,
-            @RequestParam("quantity") Integer Quantity, @RequestParam("CustomerName") String name) {
-        ProductOrder result = productOrderService.saveProductOrder(productName, name, Quantity);
+            @RequestParam("quantity") Integer Quantity, @RequestParam("CustomerName") String customerName,
+            @RequestParam(value = "CustomerContactName", required = false) String customerContactName,
+            @RequestParam(value = "CustomerEmployeeCount", required = false) Integer customerEmployeeCount) {
+        ProductOrder result = productOrderService.saveProductOrder(productName, Quantity, customerName,
+                customerContactName, customerEmployeeCount);
         return ResponseEntity.ok().body(result);
     }
 

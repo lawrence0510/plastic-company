@@ -45,83 +45,49 @@
   <div class="order_num">訂單編號
   <span class="order_word">目前進度</span>
   </div>
+  <div id="ordersContainer" class="order_now"></div>
 
-  <div class="order_now">
-  <div class="order1">
-    <div class="order_inside_num">110306001</div>
-    <button class="order_inside_button">查看原物料管理</button>
-    <div class="order_inside_line"></div>
-    <div class="order_inside_line_color_82"></div>
-    <div class="order_inside_perc">82%</div>
-  </div>
-  <hr>
+    <script>
+        // 訂單進度條的基本樣式
+        const baseStyle = "background-color: SlateGray; height: 50px; border-radius: 5px 5px 5px 5px; margin-top: 25px; margin-left: 278px; position: absolute;";
 
-  <div class="order1">
-    <div class="order_inside_num">110306002</div>
-    <button class="order_inside_button">查看原物料管理</button>
-    <div class="order_inside_line"></div>
-    <div class="order_inside_line_color_69"></div>
-    <div class="order_inside_perc">69%</div>
-  </div>
-  <hr>
+        // 從 API 獲取數據並生成訂單進度條
+        function fetchOrders() {
+            fetch('http://localhost:8080/productOrders?page=0&size=20', {
+                method: 'GET',
+                headers: {
+                    'accept': 'application/hal+json'
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                const orders = data._embedded.productOrders;
+                const ordersContainer = document.getElementById('ordersContainer');
 
-  <div class="order1">
-    <div class="order_inside_num">110306003</div>
-    <button class="order_inside_button">查看原物料管理</button>
-    <div class="order_inside_line"></div>
-    <div class="order_inside_line_color_71"></div>
-    <div class="order_inside_perc">71%</div>
-  </div>
-  <hr>
+                // 清空容器
+                ordersContainer.innerHTML = '';
 
-  <div class="order1">
-    <div class="order_inside_num">110306004</div>
-    <button class="order_inside_button">查看原物料管理</button>
-    <div class="order_inside_line"></div>
-    <div class="order_inside_line_color_63"></div>
-    <div class="order_inside_perc">63%</div>
-  </div>
-  <hr>
+                orders.forEach(order => {
+                    const orderId = order._links.self.href.split('/').pop();
+                    const progress = order.progress * 100;
+                    const orderDiv = document.createElement('div');
+                    orderDiv.className = 'order1';
+                    orderDiv.innerHTML = `
+                        <div class="order_inside_num">${orderId}</div>
+                        <button class="order_inside_button" onclick='location.href=("訂單進度-查看訂單詳情/${orderId}")'>查看原物料管理</button>
+                        <div class="order_inside_line" style="${baseStyle} width: ${progress * 8}px;"></div>
+                        <div class="order_inside_perc">${progress}%</div>
+                    `;
 
-  <div class="order1">
-    <div class="order_inside_num">110306005</div>
-    <button class="order_inside_button">查看原物料管理</button>
-    <div class="order_inside_line"></div>
-    <div class="order_inside_line_color_10"></div>
-    <div class="order_inside_perc">10%</div>
-  </div>
-  <hr>
+                    ordersContainer.appendChild(orderDiv);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+        }
 
-  <div class="order1">
-    <div class="order_inside_num">110306006</div>
-    <button class="order_inside_button">查看原物料管理</button>
-    <div class="order_inside_line"></div>
-    <div class="order_inside_line_color_55"></div>
-    <div class="order_inside_perc">55%</div>
-  </div>
-  <hr>
-
-  <div class="order1">
-    <div class="order_inside_num">110306007</div>
-    <button class="order_inside_button">查看原物料管理</button>
-    <div class="order_inside_line"></div>
-    <div class="order_inside_line_color_38"></div>
-    <div class="order_inside_perc">38%</div>
-  </div>
-
-  </div>
-    
-<script>
-
-    function searchFunction() {
-      // 取得輸入框的值
-      var searchValue = document.getElementById("searchInput").value;
-      
-      // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
-      alert("您搜尋的內容是：" + searchValue);
-    }
-
-  </script>
+        // 頁面加載時調用函數
+        window.onload = fetchOrders;
+    </script>
 
 </body>
 </html>

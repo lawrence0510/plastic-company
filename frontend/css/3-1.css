@@ -162,7 +162,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   border-style: solid; 
   border-width: 1px; 
   margin-left: 370px;
-  height: 850px;
+  height: 230%;
   width: 1250px;
   background-color: gainsboro;
   border-radius: 0 0 20px 20px;
@@ -184,8 +184,8 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
 }
 
 .order_inside_button{
-  margin-left: -155px;
-  margin-top: 60px;
+  margin-left: 15px;
+  margin-top: 75px;
   height: 40px;
   width: 130px;
   font-weight: bold;
@@ -196,7 +196,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   transition: transform 0.3s ease;
 }
 
-.order_inside_button:hover {  /* 鼠標懸停時的變化 */
+.order_inside_button:hover {
   transform: scale(1.1);
 }
 
@@ -209,48 +209,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   margin-left: 96px;
 }
 
-.order_inside_line_color_82,
-.order_inside_line_color_69,
-.order_inside_line_color_71,
-.order_inside_line_color_63,
-.order_inside_line_color_10,
-.order_inside_line_color_55,
-.order_inside_line_color_38{
-  background-color: SlateGray;
-  height: 50px;
-  border-radius: 5px 5px 5px 5px;
-  margin-top: 25px;
-  margin-left: 278px;
-  position: absolute;
-}
 
-.order_inside_line_color_82{
-  width: 700px;
-}
-
-.order_inside_line_color_69{
-  width: 600px;
-}
-
-.order_inside_line_color_71{
-  width: 650px;
-}
-
-.order_inside_line_color_63{
-  width: 550px;
-}
-
-.order_inside_line_color_10{
-  width: 50px;
-}
-
-.order_inside_line_color_55{
-  width: 450px;
-}
-
-.order_inside_line_color_38{
-  width: 250px;
-}
 
 
 .order_inside_perc{

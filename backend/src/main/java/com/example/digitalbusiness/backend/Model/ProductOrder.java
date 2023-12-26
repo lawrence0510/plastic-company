@@ -50,7 +50,6 @@ public class ProductOrder {
 
     @ManyToOne
     @JoinColumn(name = "Customer_id")
-    @JsonIgnore
     private Customer customer;
 
     @ManyToOne

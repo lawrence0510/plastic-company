@@ -45,9 +45,15 @@
   <div class="title1-1">查看訂單詳情</div>
   <div class="order0">
     <div>訂單編號：</div>
-    <div class="order1-1" id="ordernumber">123</div>
+    <div class="order1-1" id="ordernumber"></div>
     <div class="order2">訂單進度：</div>
-    <div class="order2-1" id="progress">123</div>
+    <div class="order2-1" id="progress"></div>
+    <div class="order2">訂單時間：</div>
+    <div class="order2-1" id="date"></div>
+    <div class="order2">總額：</div>
+    <div class="order2-1" id="totalPrice"></div>
+    <div class="order2">顧客名稱：</div>
+    <div class="order2-1" id="customer-name"></div>
     <div class="order3">訂單內容：</div>
   </div>
 
@@ -61,26 +67,26 @@
   </div>
 
   <div class="item_content_r">
-    <div class="item_content_r_1" id="itemname1"></div>
+    <div class="item_content_r_1" id="itemname1" id="material1column"></div>
     <div class="item_container"> <!--框架-->
       <div class="item_column"> <!--左邊直排-->
         <div class="item_box">
-          <div class="item_topic" id="material1">材料1</div>
+          <div class="item_topic" id="material1"></div>
           <div class="item_num">收回代碼：</div>
-          <div class="item_num_content" id="material1id">id1</div>
+          <div class="item_num_content" id="material1id"></div>
           <div class="item_inv">庫存量：</div>
-          <div class="item_inv_content" id="material1quantity">材料1數量</div>
+          <div class="item_inv_content" id="material1quantity"></div>
         </div>
       </div>
-      <div class="item_column"> <!--右邊直排-->
+      <div class="item_column" id="material2column" style="display: none;"> <!--右邊直排-->
         <div class="item_box">
-          <div class="item_topic" id="material2">材料2</div>
+          <div class="item_topic" id="material2"></div>
           <div class="item_num">收回代碼：</div>
-          <div class="item_num_content" id="material1id">id2</div>
+          <div class="item_num_content" id="material2id"></div>
           <div class="item_inv">庫存量：</div>
-          <div class="item_inv_content" id="material1quantity">材料2數量</div>
+          <div class="item_inv_content" id="material2quantity"></div>
         </div>
-      </div>
+      </div>      
     </div>
   </div>
 
@@ -113,8 +119,43 @@ function updateOrderDetails(order) {
     document.getElementById('itemname').textContent = order.product.name;
     document.getElementById('itemname1').textContent = order.product.name;
     document.getElementById('itemnumber').textContent = order.quantity;
+    document.getElementById('date').textContent = order.date;
+    document.getElementById('totalPrice').textContent = order.totalPrice;
+    document.getElementById('customer-name').textContent = order.customer.name;
+
+    const encodedProductName = encodeURIComponent(order.product.name);
+
+    fetch(`http://localhost:8080/materials/search/findByProductName?productName=${encodedProductName}`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    .then(response => response.json())
+    .then(materials => {
+        if (materials.length > 1) {
+            updateMaterialDetails(materials[1], 'material2');
+            document.getElementById('material2column').style.display = 'block'; // Display second column
+        } else {
+            document.getElementById('material2column').style.display = 'none'; // Hide second column
+        }
+        if (materials.length > 0) {
+            updateMaterialDetails(materials[0], 'material1');
+            document.getElementById('material1column').style.display = 'block'; // Ensure first column is displayed
+        } else {
+            document.getElementById('material1column').style.display = 'none'; // Hide first column if no materials
+        }
+
+        
+    })
+    .catch(error => console.error('Error:', error));
 }
 
+function updateMaterialDetails(material, materialPrefix) {
+    document.getElementById(`${materialPrefix}`).textContent = material.name;
+    document.getElementById(`${materialPrefix}id`).textContent = material.id;
+    document.getElementById(`${materialPrefix}quantity`).textContent = material.inventory;
+}
 
   </script>
 

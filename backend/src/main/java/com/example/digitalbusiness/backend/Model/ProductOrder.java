@@ -1,6 +1,9 @@
 package com.example.digitalbusiness.backend.Model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -32,7 +35,7 @@ public class ProductOrder {
     private Integer quantity;
 
     @Column(name = "Date", nullable = false)
-    private LocalDateTime date;
+    private LocalDate date;
 
     @JsonIgnore
     @Column(name = "Status", nullable = false)
@@ -58,6 +61,10 @@ public class ProductOrder {
 
     @PrePersist
     protected void onCreate() {
-        date = LocalDateTime.now();
+        LocalDate today = LocalDate.now();
+        ZoneId taipeiZone = ZoneId.of("Asia/Shanghai");
+        ZonedDateTime taipeiDateTime = today.atStartOfDay(taipeiZone);
+        LocalDate taipeiDate = taipeiDateTime.toLocalDate();
+        this.date = taipeiDate;
     }
 }

@@ -41,6 +41,9 @@ public class ProductOrder {
     @Column(name = "Progress", nullable = true)
     private double progress;
 
+    @Column(name = "TotalPrice", nullable = true)
+    private double totalPrice;
+
     @OneToOne
     @JoinColumn(name = "Produce_id")
     private Produce produce;

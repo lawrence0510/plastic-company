@@ -7,5 +7,5 @@ public interface ProductService {
 
     public Product updateInventory(Long product_id, Integer quantity);
 
-    public Product FindProductByName(String productName);
+    public Product findProductByName(String productName);
 }

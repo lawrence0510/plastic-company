@@ -2,6 +2,8 @@ package com.example.digitalbusiness.backend.Model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,7 +23,8 @@ import lombok.NoArgsConstructor;
 @Table(name = "Material")
 public class Material {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonProperty("id")
     private Long id;
 
     @Column(name = "Name", nullable = false, length = 8)

@@ -32,7 +32,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             String customerContactName, Integer customerEmployeeCount) {
         ProductOrder order = new ProductOrder();
 
-        Product target = productService.FindProductByName(productName);
+        Product target = productService.findProductByName(productName);
         Customer customer = customerService.FindCustomerByName(customerName);
         if (customer == null) {
             customer = new Customer();
@@ -44,6 +44,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         order.setCustomer(customer);
         order.setProduct(target);
         order.setQuantity(quantity);
+        order.setTotalPrice(target.getPrice() * quantity);
 
         ProductOrder result = null;
 

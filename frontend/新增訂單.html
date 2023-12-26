@@ -44,12 +44,14 @@
   <div class="title1-1">新增訂單</div>
 
   <div class="order_in">
-  <div>姓名/廠商：</div>
-  <input class="order_in_input">
+  <div>廠商名稱：</div>
+  <input class="order_in_input" id="customerName">
   <div>聯絡電話：</div>
-  <input class="order_in_input">
-  <div>收貨地址：</div>
-  <input class="order_in_input">
+  <input class="order_in_input" placeholder="非第一次購買不需要填寫" id="customerPhone">
+  <div>聯絡人：</div>
+  <input class="order_in_input" placeholder="非第一次購買不需要填寫" id="customerContactName">
+  <div>員工數量：</div>
+  <input class="order_in_input" placeholder="非第一次購買不需要填寫" id="customerEmployeeCount">
   </div>
 
   <div class="order_name">商品名稱
@@ -61,56 +63,70 @@
     <div class="order_now_2"></div>
 
     <select id="productSelect" name="products" class="order_now_input_1">
-    <option value="" disabled selected>請選擇商品</option>
-    <option value="industrial-parts">工業用配件</option>
-    <option value="precision-components-two">精密零組件二</option>
-    <option value="parts-one">零配件一</option>
-    <option value="precision-miniature">精密微小件</option>
-    <option value="secondary-covering-products">二次包覆產品</option>
-    <option value="parts-three">零配件三</option>
-    <option value="two-color-injection">雙色射出</option>
-    <option value="components-four">零組件四</option>
-    <option value="medical-equipment-manufacturing">醫療器材生產</option>
-    <option value="plastic-structural-components">塑膠結構組件</option>
-    <option value="computer-accessories">電腦周邊商品</option>
-    <option value="3c-cases">3c外殼</option>
-    <option value="usb-drives">隨身碟</option>
-    <option value="transparent-accessories">透明配件</option>
-    <option value="medical-equipment">醫療器材</option>
-    <option value="components-series">零組件系列</option>
-    <option value="custom-plastic">塑膠客製化</option>
-    <option value="frame-components">框架零組件</option>
-    <option value="accessory-series">薄件系列</option>
-    <option value="car-accessories">汽車零配件</option>
-</select>
+      <option value="" disabled selected>請選擇商品</option>
+      <option value="工業用配件">工業用配件</option>
+      <option value="精密零組件二">精密零組件二</option>
+      <option value="零配件一">零配件一</option>
+      <option value="精密微小件">精密微小件</option>
+      <option value="二次包覆產品">二次包覆產品</option>
+      <option value="零配件三">零配件三</option>
+      <option value="雙色射出">雙色射出</option>
+      <option value="零組件四">零組件四</option>
+      <option value="醫療器材生產">醫療器材生產</option>
+      <option value="塑膠結構組件">塑膠結構組件</option>
+      <option value="電腦周邊商品">電腦周邊商品</option>
+      <option value="3c外殼">3c外殼</option>
+      <option value="隨身碟">隨身碟</option>
+      <option value="透明配件">透明配件</option>
+      <option value="醫療器材">醫療器材</option>
+      <option value="零組件系列">零組件系列</option>
+      <option value="塑膠客製化">塑膠客製化</option>
+      <option value="框架零組件">框架零組件</option>
+      <option value="薄件系列">薄件系列</option>
+      <option value="汽車零配件">汽車零配件</option>
+  </select>
+  
 
-    <input type="text" class="order_now_input_2" id="searchInput" placeholder="請輸入商品數量">
+    <input type="text" class="order_now_input_2" id="quantityInput" placeholder="請輸入商品數量">
   </div>
 
-  <button class="send" onclick="togglePopup()">確認訂單</button>
-
-  <div class="overlay" id="popupOverlay">
-    <div class="popup">
-      <h1>新增訂單成功</h1>
-      <p>訂單編號：110306002</p>
-      <button onclick="togglePopup()" class="pop_close">關閉</button>
-    </div>
-  </div>
+  <button class="send" onclick="submitOrder()">確認訂單</button>
 
     
-<script>
-
-    function searchFunction() {
-      var searchValue = document.getElementById("searchInput").value;
-      alert("您搜尋的內容是：" + searchValue);
+  <script>
+    function submitOrder() {
+      // 讀取各個表單元素的值
+      var productName = document.getElementById('productSelect').value;
+      var quantity = document.getElementById('quantityInput').value; 
+      var customerName = document.getElementById('customerName').value; 
+      var customerPhone = document.getElementById('customerPhone').value; 
+      var customerContactName = document.getElementById('customerContactName').value; 
+      var customerEmployeeCount = document.getElementById('customerEmployeeCount').value; 
+  
+      var url = `http://localhost:8080/api/productOrder?productName=${encodeURIComponent(productName)}&quantity=${quantity}&CustomerName=${encodeURIComponent(customerName)}&CustomerContactName=${encodeURIComponent(customerContactName)}&CustomerEmployeeCount=${customerEmployeeCount}&CustomerPhoneNumber=${customerPhone}`;
+  
+      fetch(url, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/hal+json',
+        }
+      })
+      .then(response => {
+        if (response.status === 200) {
+          alert('訂單建立成功');
+          // 在這裡添加其他成功時的處理代碼
+        } else {
+          alert('訂單建立失敗');
+          // 在這裡添加其他失敗時的處理代碼
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('訂單建立過程中出現錯誤');
+      });
     }
-
-    function togglePopup() {
-      var overlay = document.getElementById('popupOverlay');
-      overlay.style.display = (overlay.style.display === 'none' || overlay.style.display === '') ? 'flex' : 'none';
-    }
-
   </script>
+  
 
 </body>
 </html>

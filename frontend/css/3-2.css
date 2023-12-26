@@ -210,19 +210,20 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
 .vertical-line-in {
   border-left: 2px solid;
   height: 125px; 
-  margin-left: 182px;
+  margin-left: 140px;
   position: relative;
-  top: -135px;
+  top: -80px;
   color: gray;
 }
 
 .item_content_r{
-  height: 500px;
+  height: 300px;
   width: 600px;
   background-color: WhiteSmoke;
   border-radius: 6px 6px 6px 6px;
   float: right;
   margin-right: 200px;
+  margin-top: 220px;   
   position: relative;
   top: -440px;
   padding-left: 50px;

@@ -28,9 +28,10 @@ public class ProductOrderController {
     public ResponseEntity<ProductOrder> saveProductOrder(@RequestParam("productName") String productName,
             @RequestParam("quantity") Integer Quantity, @RequestParam("CustomerName") String customerName,
             @RequestParam(value = "CustomerContactName", required = false) String customerContactName,
-            @RequestParam(value = "CustomerEmployeeCount", required = false) Integer customerEmployeeCount) {
+            @RequestParam(value = "CustomerEmployeeCount", required = false) Integer customerEmployeeCount,
+            @RequestParam(value = "CustomerPhoneNumber", required = false) String customerPhoneNumber) {
         ProductOrder result = productOrderService.saveProductOrder(productName, Quantity, customerName,
-                customerContactName, customerEmployeeCount);
+                customerContactName, customerEmployeeCount, customerPhoneNumber);
         return ResponseEntity.ok().body(result);
     }
 

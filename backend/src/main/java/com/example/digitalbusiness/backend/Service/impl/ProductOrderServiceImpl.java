@@ -29,7 +29,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 
     @Override
     public ProductOrder saveProductOrder(String productName, Integer quantity, String customerName,
-            String customerContactName, Integer customerEmployeeCount) {
+            String customerContactName, Integer customerEmployeeCount, String customerPhoneNumber) {
         ProductOrder order = new ProductOrder();
 
         Product target = productService.findProductByName(productName);
@@ -39,6 +39,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             customer.setName(customerName);
             customer.setContactName(customerContactName);
             customer.setEmployeeCount(customerEmployeeCount);
+            customer.setPhoneNumber(customerPhoneNumber);
             customerService.SaveCustomer(customer);
         }
         order.setCustomer(customer);

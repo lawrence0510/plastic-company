@@ -9,7 +9,7 @@ public interface ProductOrderService {
 
     // Define methods specific to ProductOrder entity
     public ProductOrder saveProductOrder(String productName, Integer quantity, String customerName,
-            String customerContactName, Integer customerEmployeeCount);
+            String customerContactName, Integer customerEmployeeCount, String customerPhoneNumber);
 
     public Collection<ProductOrder> getAllProductOrder();
 

@@ -33,6 +33,9 @@ public class Customer {
     @Column(name = "ContactName", nullable = false, length = 30)
     private String contactName;
 
+    @Column(name = "PhoneNumber", nullable = false, length = 10)
+    private String phoneNumber;
+
     @Column(name = "EmployeeCount", nullable = false)
     private Integer employeeCount;
 

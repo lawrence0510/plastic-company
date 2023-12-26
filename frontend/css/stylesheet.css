@@ -28,7 +28,7 @@ body {
   height: 10%;
 
   display: flex;
-  background-color: darkgray;
+  background-color: #949494;
   pointer-events: auto;
 }
 
@@ -232,7 +232,7 @@ input[type="button"]:hover {
 
 .header {
   height: 15%;
-  background-color: darkgray;
+  background-color: #949494;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   display: flex;
@@ -306,7 +306,7 @@ td {
 
 .theader {
   height: 6%;
-  background-color: darkgray;
+  background-color: #949494;
   border-top-right-radius: 10px;
   border-top-left-radius: 10px;
   display: flex;
@@ -383,7 +383,7 @@ td {
   text-decoration: none;
   outline: none;
   color: #ffffff;
-  background-color: darkgray;
+  background-color: #949494;
   border: none;
   border-radius: 15px;
   box-shadow: 0 3px #999;

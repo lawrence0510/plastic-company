@@ -7,7 +7,7 @@ html, body {
 }
 
 .top_bar {
-  background-color: darkgray;
+  background-color: #949494;
   height: 15%;
   position: relative;
 }
@@ -317,7 +317,7 @@ color: red;
   color: white;
   font-size: 18px;
   font-weight: bold;
-  background-color: DarkGray;
+  background-color: #949494;
   border: none;
   border-radius: 5px 5px 5px 5px;
   cursor: pointer;

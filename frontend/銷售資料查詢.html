@@ -5,253 +5,103 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>test</title>
 <link rel="stylesheet" type="text/css" href="css/stylesheet.css">
-
- 
 </head>
- 
 <body>
- 
-  <!--div class="container"-->
+  <!-- 固定頂部 -->
   <div class="fixed">
-    <div class="top_bar"><!-- 上半部 -->
+    <div class="top_bar">
         <img src="image/logo.jpg" alt="Logo" class="logo" >
         <div class="company_name">榮紹精密塑膠射出成型工廠</div>
-
         <div class="search-container">
           <input type="text" class="search-box" id="searchInput" placeholder="Search...">
           <div onclick="searchFunction()" class="search-button">
             <img src="image/search.png" alt="搜索按钮" class="search-button">
           </div>
         </div>
-      
     </div>
   </div>
     
-     
-<div class="left_bar"><!-- 左半部選單 -->
-          <div class="op_manage">
-            <img src="image/manage.png" alt="Manage" class="manage-pic" >
-            作業管理
-              <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
-              <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
-              <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
-              <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
-          </div>
-          
-          <div class="cus_manage">
-            <img src="image/cus.png" alt="Cus" class="cus-pic" >
-            顧客關係管理
-              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")' >
-              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
-              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
-              <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
-          </div>
-        </div>
-
-<div class="vertical-line"></div>
-
-<!--右半部-->
-<div class='right_bar' >
-<div style="display:flex">
-<div class="title1-1">銷售資料查詢</div>
-  <input type="text" class="search_chart" id="chartInput" placeholder="Search...">
-  <div onclick="" class="chart_search-button">
-    <img src="image/search.png" alt="搜索按钮" class="search-button">
+  <div class="left_bar"><!-- 左半部選單 -->
+    <div class="op_manage">
+      <img src="image/manage.png" alt="Manage" class="manage-pic" >
+      作業管理
+        <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
+        <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
+        <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
+        <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
+    </div>
+    
+    <div class="cus_manage">
+      <img src="image/cus.png" alt="Cus" class="cus-pic" >
+      顧客關係管理
+        <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")' >
+        <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
+        <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
+        <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
+    </div>
   </div>
-</div>
-
-<div class="table">
-  <div class="theader">
-    <table class="theader_text" id="header">
-      <th style="width:10%">訂單編號</th>
-      <th style="width:10%">顧客編號</th>
-      <th style="width:10%">顧客名稱</th>
-      <th style="width:15%">下訂時間</th>
-      <th style="width:15%">總金額</th>
-      <th style="width:10%">訂單進度</th>
-      <th style="width:20%"></th>
-    </table>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="0">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="1">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="2">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="3">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="4">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="5">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="6">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="7">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="8">查看訂單內容</button>
-  </div>
-  <div style="display:flex">
-    <table class="tcontent_text" style="width:79%;">
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:10%"></td>
-      <td style="width:15%"></td>
-      <td style="width:15%"></td>
-      <td style="width:10%"></td>
-    </table>
-    <button class="button" onclick="gotoDetail(this)" id="9">查看訂單內容</button>
-  </div>
-</div>
-
-<script>
-  var data = [
   
-    ["000000001", "113306001", "12,345", "2023/1/1", "2023/1/2", "100%"],
-    ["000000002", "113306212", "654,321", "2023/1/12", "2023/1/13", "80%"],
-    ["000000003", "113306383", "987,321", "2023/1/12", "2023/1/13", "90%"],
-    ["000000004", "113306212", "45,847", "2023/5/3", "2023/5/5", "60%"],
-  ];
-  localStorage.setItem('data', JSON.stringify(data));
+  <div class="vertical-line"></div>
 
-  var tables = document.getElementsByClassName("tcontent_text");
-  for (var i = 0; i < tables.length; i++) {
-    var row = tables[i].getElementsByTagName('td');
-    for (var j = 0; j < row.length; j++) {
-      row[j].textContent = data[i][j];
-    }
-  }
+  <!-- 右側主內容 -->
+  <div class='right_bar'>
+    <div style="display:flex">
+      <div class="title1-1">銷售資料查詢</div>
+    </div>
 
+    <div class="table">
+      <div class="theader">
+        <table class="theader_text" id="header">
+          <th style="width:10%">訂單編號</th>
+          <th style="width:10%">顧客名稱</th>
+          <th style="width:15%">下訂時間</th>
+          <th style="width:15%">總金額</th>
+          <th style="width:10%">訂單進度</th>
+          <th style="width:20%"></th>
+        </table>
+      </div>
+      <div id="tableContent"></div>
+    </div>
+  </div>
 
-  function gotoDetail(button) {
-    
-    var div = button.closest('div');
-    var table = div.querySelector('table'); 
-    var sales_num = table.querySelector('td').textContent;
-    localStorage.setItem('sales_num',sales_num);
+  <script>
+    window.onload = function() {
+      fetch('http://localhost:8080/productOrders?page=0&size=20')
+        .then(response => response.json())
+        .then(data => updateTable(data._embedded.productOrders))
+        .catch(error => console.error('Error:', error));
+    };
 
+    function updateTable(productOrders) {
+      const tableContent = document.getElementById('tableContent');
+      productOrders.forEach(order => {
+        const orderId = order._links.self.href.split('/').pop();
 
-    // 找到按鈕所在的行
-    //var row = button.closest('tr');
-    
-    // 獲取行中每個單元格的文字內容
-    //var cells = row.getElementsByTagName('td');
-    //var rowData = [];
-    //for (var i = 0; i < cells.length; i++) {
-    //    rowData.push(cells[i].innerText);
-    //}
-
-    // 將數據存儲到localStorage中
-    //localStorage.setItem('rowData', JSON.stringify(rowData));
-
-    // 跳轉到另一個頁面
-    window.location.href = 'sales_detail.html';
-  }
-
-  var row = document.getElementById('header');
-    
-    // 獲取行中每個單元格的文字內容
-  var cells = row.getElementsByTagName('th');
-  var headerData = [];
-    for (var i = 0; i < cells.length; i++) {
-        headerData.push(cells[i].innerText);
+        fetch(`http://localhost:8080/productOrders/${orderId}/customer`)
+          .then(response => response.json())
+          .then(customerData => {
+            const row = document.createElement('div');
+            row.style.display = 'flex';
+            row.innerHTML = `
+              <table class="tcontent_text" style="width:79%;">
+                <td style="width:10%">${orderId}</td>
+                <td style="width:10%">${customerData.name}</td>
+                <td style="width:15%">${order.date}</td>
+                <td style="width:15%">${order.totalPrice}</td>
+                <td style="width:10%">${order.progress * 100}%</td>
+              </table>
+              <button class="button" onclick='location.href="訂單進度-查看訂單詳情.html?orderId=${orderId}"'>查看訂單詳情</button>
+            `;
+            tableContent.appendChild(row);
+          })
+          .catch(error => console.error('Error fetching customer data:', error));
+      });
     }
 
-    // 將數據存儲到localStorage中
-    localStorage.setItem('headerData', JSON.stringify(headerData));
-
-  
-
-  function searchFunction() {
-    var searchValue = document.getElementById("searchInput").value;
-    alert("您搜尋的內容是：" + searchValue);
-  }
-  
-
-</script>
-
-
-
+    function searchFunction() {
+      var searchValue = document.getElementById("searchInput").value;
+      alert("您搜尋的內容是：" + searchValue);
+    }
+  </script>
 </body>
 </html>
-

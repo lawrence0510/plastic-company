@@ -2,26 +2,33 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>榮紹精密塑膠射出成型工廠</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>test</title>
 <link rel="stylesheet" type="text/css" href="css/1-2.css">
+
  
 </head>
  
 <body>
-	<div class="top_bar"><!-- 上半部 -->
-    <img src="image/logo.jpg" alt="Logo" class="logo" >
-    <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+ 
+  <!--div class="container"-->
+  <div class="fixed">
+    <div class="top_bar"><!-- 上半部 -->
+        <img src="image/logo.jpg" alt="Logo" class="logo" >
+        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
 
-    <div class="search-container">
-    <input type="text" class="search-box" id="searchInput" placeholder="Search...">
-    <div onclick="searchFunction()">
-      <img src="image/search.png" alt="搜索按钮" class="search-button">
+        <div class="search-container">
+          <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+          <div onclick="searchFunction()" class="search-button">
+            <img src="image/seac.png" alt="搜索按钮" class="search-button">
+          </div>
+        </div>
+      
     </div>
-    </div>
-
   </div>
-
-  <div class="left_bar"><!-- 左半部選單 -->
+    
+     
+        <div class="left_bar"><!-- 左半部選單 -->
           <div class="op_manage">
             <img src="image/manage.png" alt="Manage" class="manage-pic" >
             作業管理
@@ -40,24 +47,37 @@
               <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
           </div>
         </div>
-      <div class="vertical-line"></div>
-  </div>
+        
+        <div class="vertical-line"></div>
 
-  <div class="title1-1">庫存管理 - 庫存量不足</div>
+        <!--右半部-->
+        <div class='right_bar' >
+          <div class="title1-1">庫存管理 - 庫存量不足</div>
 
-  <div class="search-container-inside">
+          <div class="search-container-inside">
     <button class="red-button" onclick='location.href=("庫存管理.html")'>查看全部清單</button>
     </div>
 
   <div class="item_container" id="lowInventoryContainer">
 
+
   </div>
 
+         
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-    
 <script>
 
+  function searchFunction() {
+    var searchValue = document.getElementById("searchInput").value;
+    alert("您搜尋的內容是：" + searchValue);
+  }
+  
+  
 document.addEventListener('DOMContentLoaded', function() {
     fetch('http://localhost:8080/products/search/findProductsWithInventoryLessThan200', {
         method: 'GET',
@@ -108,8 +128,9 @@ function createItemBox(product) {
 
     return itemBox;
 }
-
 </script>
+
+
 
 </body>
 </html>

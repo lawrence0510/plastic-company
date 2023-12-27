@@ -1,145 +1,274 @@
-
-html, body {
-  margin: 0;
-  padding: 0;
+/* 基本樣式 */
+body {
   width: 100%;
   height: 100%;
 }
 
+.fixed {
+  /*margin-left: -10px;*/
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .top_bar {
+  height: 10%;
+  display: flex;
   background-color: #949494;
-  height: 15%;
-  position: relative;
+  pointer-events: auto;
 }
 
 .company_name {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   color: white;
-  text-align: left;
-  margin-left: 100px;
-  margin-top: -55px;
+  text-align: center;
+  align-self: center;
+  margin-left: 0px;
 }
 
 .logo {
-  width: 50px; 
-  height: 50px;
-  margin-left: 38px;
-  margin-top: 47px;
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .search-container {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin-left: auto;
+  margin-right: 20px;
 }
 
 .search-box {
-  padding: 10px;
+  margin-right: 0px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-left: 1300px;
-  margin-top: -55px;
-  height: 10px;
-  position: absolute;
+  border-radius: 8px;
+  align-self: center;
+  height: 25px;
 }
 
 .search-button {
-  padding: 10px;
+
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 40px; 
-  height: 40px;
-  margin-left: 740px;
-  margin-top: -67px;
-  position: absolute;
+  width: 30px;
+  height: 30px;
+  align-self: center;
 }
 
 .left_bar {
-  width: 20%;
-  height: 85%;
+  position: fixed;
+  margin-top: 8%;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #4f4745;
+  height: 100%;
+
 }
 
-.manage-pic{
-  padding: 10px;
+.right_bar {
+  position: absolute;
+  margin-left: 20%;
+  margin-top: 8%;
+  width: 80%;
+  height: 100%;
+}
+
+.manage-pic {
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 30px; 
+  width: 30px;
   height: 30px;
-  margin-left: -50px;
-  margin-top: -3px;
-  position: absolute;
+
 }
 
-.op_manage{
-  font-size: 30px;
+.op_manage {
+  font-size: 20px;
   font-weight: bold;
-  margin-left: 90px;
-  margin-top: 80px;
+  margin-left: 15px;
+
 }
 
-.cus-pic{
-  padding: 10px;
+.cus-pic {
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 30px; 
+  width: 30px;
   height: 30px;
-  margin-left: -50px;
-  margin-top: 0px;
-  position: absolute;
 }
 
-.cus_manage{
-  font-size: 30px;
+.cus_manage {
+  font-size: 20px;
   font-weight: bold;
-  margin-left: 90px;
-  margin-top: 80px;
+  margin-left: 15px;
+  margin-top: 50px;
+
 }
 
 input[type="button"] {
   width: 150px;
-  height: 50px;
+  height: 30px;
   border: none;
-  font-size: 20px;
+  font-size: 15px;
   color: dimgray;
   cursor: pointer;
   text-align: left;
-  margin-left: -40px;
-  margin-top: 9px;
+  margin-left: 30px;
+  margin-right: 10px;
+  margin-top: 5px;
   background-color: white;
   transition: transform 0.3s ease;
 }
 
-input[type="button"]:hover {  /* 鼠標懸停時的變化 */
-  background-color: #f0f0f0; 
+input[type="button"]:hover {
+  background-color: #f0f0f0;
   transform: scale(1.1);
 }
 
 .vertical-line {
+  position: absolute;
   border-left: 2px solid #000;
-  height: 800px; 
-  margin-left: 310px;
-  margin-top: -660px;
+  margin-left: 10%;
+
 }
 
-.title1-1{
+.title1-1 {
   font-weight: bold;
-  font-size: 50px;
+  font-size: 40px;
   color: dimgray;
-  margin-left: 370px;
-  margin-top: -830px;
+}
+
+
+/* 媒體查詢 - 中型螢幕 */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .top_bar {
+    height: 12%;
+  }
+
+  .company_name {
+    font-size: 35px;
+
+  }
+
+
+
+  .search-box {
+    margin-left: 50px;
+    margin-top: 20px;
+  }
+
+  .search-button {
+    margin-left: 50px;
+    margin-top: 20px;
+  }
+
+  .left_bar {
+    width: 30%;
+  }
+
+  .manage-pic,
+  .cus-pic {
+    margin-left: 45px;
+    margin-top: -3px;
+  }
+
+  .op_manage,
+  .cus_manage {
+    margin-left: 90px;
+    margin-top: 80px;
+  }
+
+  input[type="button"] {
+    margin-left: -40px;
+    margin-top: 9px;
+  }
+
+  .vertical-line {
+    margin-left: 310px;
+    margin-top: -660px;
+  }
+
+  .title1-1 {
+    margin-left: 10%;
+    margin-top: 10%;
+  }
+
+
+
+}
+
+/* 媒體查詢 - 小型螢幕 */
+@media only screen and (max-width: 600px) {
+  .top_bar {
+    height: 10%;
+  }
+
+  .company_name {
+    font-size: 30px;
+    margin-left: 20px;
+    margin-top: -35px;
+  }
+
+  .logo {
+    margin-left: 10px;
+    margin-top: 20px;
+  }
+
+  .search-box {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .search-button {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .left_bar {
+    width: 100%;
+  }
+
+  .manage-pic,
+  .cus-pic {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .op_manage,
+  .cus_manage {
+    margin-left: 20px;
+    margin-top: 10px;
+  }
+
+  input[type="button"] {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+
+  .vertical-line {
+    margin-left: 10px;
+    margin-top: -660px;
+  }
+
+  .title1-1 {
+    margin-left: 20px;
+    margin-top: -830px;
+  }
 }
 
 .order_in{
   font-size: 20px;
   color: dimgray;
-  margin-left: 370px;
   margin-top: 35px;
   height: 170px;
   width: 420px;
@@ -163,8 +292,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   border-color: black;
   border-style: solid; 
   border-width: 1px; 
-  margin-left: 370px;
-  margin-top: 50px;
+  margin-top: 100px;
   height: 45px;
   width: 380px;
   background-color: dimgray;
@@ -181,15 +309,11 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   margin-left: 100px;
 }
 
-.order_word{
-  margin-left: 150px;
-}
 
 .order_now{
   border-color: black;
   border-style: solid; 
   border-width: 1px; 
-  margin-left: 370px;
   height: 150px;
   width: 420px;
   background-color: gainsboro;
@@ -215,16 +339,6 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   width: 150px;
 }
 
-.order_now_3{
-  margin-left: 455px;
-  height: 30px;
-  top: -62px;
-  position: relative;
-  font-size: 30px;
-  font-weight: bold;
-  width: 350px;
-}
-
 .order_now_input_1{
   margin-left: 40px;
   top: -30px;
@@ -239,6 +353,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
 .order_now_input_1::placeholder {
   color: Gainsboro;
 }
+
 
 .order_now_input_2{
   margin-left: 48px;
@@ -255,55 +370,6 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   color: Gainsboro;
 }
 
-.order_now_input_3{
-  margin-left: 45px;
-  top: -30px;
-  height: 30px;
-  position: relative;
-  background-color: WhiteSmoke;
-  font-size: 20px;
-  width: 350px;
-  border-radius: 8px 8px 8px 8px;
-}
-
-.order_now_input_3::placeholder {
-  color: Gainsboro;
-}
-
-.order_now::before{
-  content: "";
-  position: absolute;
-  height: 12%;
-  width: 2px;
-  background-color: black;
-  margin-top: 14px;
-}
-
-.order_now::before {
-  margin-left: 225px;
-}
-
-.order_now::after {
-  left: 800px;
-  top: 638px;
-}
-
-
-.plus{
-  width: 50px;
-  height: 50px;
-  padding: 10px;
-  border-radius: 4px;
-  cursor: pointer;
-  position: relative;
-  margin-left: 1400px;
-  top: -80px;
-  transition: transform 0.3s ease;
-}
-
-.plus:hover {  /* 鼠標懸停時的變化 */
-  transform: scale(1.1);
-}
 
 .send{
   background-color: dimgray;
@@ -312,7 +378,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   color: white;
   width: 170px;
   height: 60px;
-  margin-left: 55%;
+  margin-left: 35%;
   margin-top: -8%;
   text-align: center;
   line-height: 100%;
@@ -326,35 +392,4 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
 
 .send:hover {  /* 鼠標懸停時的變化 */
   transform: scale(1.1);
-}
-
-.overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-}
-
-.popup {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-  display: flex;
-  flex-direction: column;
-  align-items: center; /* 將子元素垂直居中 */
-  height: 190px;
-  width: 22pc;
-}
-
-.pop_close {
-  margin-top: 20px;
-  padding: 10px;
-  cursor: pointer;
 }

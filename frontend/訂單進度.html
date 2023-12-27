@@ -1,54 +1,79 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <meta charset="utf-8">
-  <title>榮紹精密塑膠射出成型工廠</title>
-  <link rel="stylesheet" type="text/css" href="css/3-1.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>test</title>
+<link rel="stylesheet" type="text/css" href="css/3-1.css">
 
+ 
 </head>
-
+ 
 <body>
-  <div class="top_bar"><!-- 上半部 -->
-    <img src="image/logo.jpg" alt="Logo" class="logo">
-    <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+ 
+  <!--div class="container"-->
+  <div class="fixed">
+    <div class="top_bar"><!-- 上半部 -->
+        <img src="image/logo.jpg" alt="Logo" class="logo" >
+        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
 
-    <div class="search-container">
-      <input type="text" class="search-box" id="searchInput" placeholder="Search...">
-      <div onclick="searchFunction()">
-        <img src="image/search.png" alt="搜索按钮" class="search-button">
-      </div>
-    </div>
-
-  </div>
-
-  <div class="left_bar"><!-- 左半部選單 -->
-    <div class="op_manage">
-      <img src="image/manage.png" alt="Manage" class="manage-pic">
-      作業管理
-      <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
-      <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
-      <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
-      <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
-    </div>
-
-    <div class="cus_manage">
-      <img src="image/cus.png" alt="Cus" class="cus-pic">
-      顧客關係管理
-      <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")'>
-      <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
-      <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
-      <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
+        <div class="search-container">
+          <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+          <div onclick="searchFunction()" class="search-button">
+            <img src="image/seac.png" alt="搜索按钮" class="search-button">
+          </div>
+        </div>
+      
     </div>
   </div>
+    
+     
+        <div class="left_bar"><!-- 左半部選單 -->
+          <div class="op_manage">
+            <img src="image/manage.png" alt="Manage" class="manage-pic" >
+            作業管理
+              <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
+              <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
+              <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
+              <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
+          </div>
+          
+          <div class="cus_manage">
+            <img src="image/cus.png" alt="Cus" class="cus-pic" >
+            顧客關係管理
+              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")' >
+              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
+              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
+              <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
+          </div>
+        </div>
+        
+        <div class="vertical-line"></div>
 
-  <div class="title1-1">訂單進度</div>
-  <div class="order_num">訂單編號
+        <!--右半部-->
+        <div class='right_bar' >
+          <div class="title1-1">訂單進度</div>
+          <div class="order_num">訂單編號
     <span class="order_word">目前進度</span>
   </div>
-  <div id="ordersContainer" class="order_now"></div>
 
-  <script>
+  <div id="ordersContainer" class="order_now">
+  
+  </div>
+         
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+  function searchFunction() {
+    var searchValue = document.getElementById("searchInput").value;
+    alert("您搜尋的內容是：" + searchValue);
+  }
+
     const baseStyle = "background-color: SlateGray; height: 50px; border-radius: 5px 5px 5px 5px; margin-top: 25px; margin-left: 278px; position: absolute;";
 
     function fetchOrders() {
@@ -81,8 +106,10 @@
         .catch(error => console.error('Error:', error));
     }
     window.onload = fetchOrders;
-  </script>
+</script>
+
+
 
 </body>
-
 </html>
+

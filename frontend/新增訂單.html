@@ -2,26 +2,33 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>榮紹精密塑膠射出成型工廠</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>test</title>
 <link rel="stylesheet" type="text/css" href="css/4-2.css">
+
  
 </head>
  
 <body>
-	<div class="top_bar"><!-- 上半部 -->
-    <img src="image/logo.jpg" alt="Logo" class="logo" >
-    <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+ 
+  <!--div class="container"-->
+  <div class="fixed">
+    <div class="top_bar"><!-- 上半部 -->
+        <img src="image/logo.jpg" alt="Logo" class="logo" >
+        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
 
-    <div class="search-container">
-    <input type="text" class="search-box" id="searchInput" placeholder="Search...">
-    <div onclick="searchFunction()">
-      <img src="image/search.png" alt="搜索按钮" class="search-button">
+        <div class="search-container">
+          <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+          <div onclick="searchFunction()" class="search-button">
+            <img src="image/seac.png" alt="搜索按钮" class="search-button">
+          </div>
+        </div>
+      
     </div>
-    </div>
-
   </div>
-
-  <div class="left_bar"><!-- 左半部選單 -->
+    
+     
+        <div class="left_bar"><!-- 左半部選單 -->
           <div class="op_manage">
             <img src="image/manage.png" alt="Manage" class="manage-pic" >
             作業管理
@@ -40,10 +47,14 @@
               <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
           </div>
         </div>
+        
+        <div class="vertical-line"></div>
 
-  <div class="title1-1">新增訂單</div>
+        <!--右半部-->
+        <div class='right_bar' >
+          <div class="title1-1">新增訂單</div>
 
-  <div class="order_in">
+           <div class="order_in">
   <div>廠商名稱：</div>
   <input class="order_in_input" id="customerName">
   <div>聯絡電話：</div>
@@ -54,11 +65,11 @@
   <input class="order_in_input" placeholder="非第一次購買不需要填寫" id="customerEmployeeCount">
   </div>
 
-  <div class="order_name">商品名稱
+           <div class="order_name">商品名稱
   <span class="order_num">數量</span>
   </div>
 
-  <div class="order_now">
+        <div class="order_now">
     <div class="order_now_1"></div>
     <div class="order_now_2"></div>
 
@@ -92,9 +103,22 @@
 
   <button class="send" onclick="submitOrder()">確認訂單</button>
 
-    
-  <script>
-    function submitOrder() {
+
+         
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+  function searchFunction() {
+    var searchValue = document.getElementById("searchInput").value;
+    alert("您搜尋的內容是：" + searchValue);
+  }
+
+  function submitOrder() {
       // 讀取各個表單元素的值
       var productName = document.getElementById('productSelect').value;
       var quantity = document.getElementById('quantityInput').value; 
@@ -125,8 +149,9 @@
         alert('訂單建立過程中出現錯誤');
       });
     }
-  </script>
-  
+</script>
+
+
 
 </body>
 </html>

@@ -1,17 +1,16 @@
 /* 基本樣式 */
 body {
+  /* padding: 0; */
+  margin: 0;
   width: 100%;
   height: 100%;
+  font-family:  "Arial","微軟正黑體", sans-serif;
 }
 
 .container {
   width: 100%;
   height: 100%;
-
-
   flex-direction: column;
-
-
 }
 
 .fixed {
@@ -59,33 +58,33 @@ body {
 
 .search-box {
   margin-right: 0px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 20px;
   align-self: center;
   height: 25px;
 }
 
-.search-button {
 
+.search-button {
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 3vh;
+  height: 3vh;
   align-self: center;
-
-
-
+  margin-left: 0.5vh;
 }
+
 
 .left_bar {
   position: fixed;
-  margin-top: 8%;
+  /* margin-top: 8%; */
   display: flex;
   flex-direction: column;
-  border-right: 2px solid #4f4745;
+  border-right: 1px solid #4f4745;
   height: 100%;
+  align-items: center;
 
 }
 
@@ -105,8 +104,8 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 3vh;
+  height: 3vh;
 
 }
 
@@ -114,6 +113,8 @@ body {
   font-size: 20px;
   font-weight: bold;
   margin-left: 15px;
+  margin-top: 60%;
+  align-items: center;
 
 }
 
@@ -123,16 +124,68 @@ body {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 30px;
-  height: 30px;
+  width: 3vh;
+  height: 3vh;
+  align-self:auto;
 }
 
 .cus_manage {
   font-size: 20px;
   font-weight: bold;
   margin-left: 15px;
-  margin-top: 50px;
+  margin-top: 40px;
 
+}
+.search-bar-container {
+  display: flex; /* Use flexbox to layout children */
+  align-items: center; /* Align children vertically in the center */
+  /* padding: 10px; */
+  box-sizing: border-box;
+  margin-top: 1%;
+  margin-bottom: 3%;
+}
+
+.search-bar {
+  width: 700px;
+  padding: 10px;
+  margin-right: 20px; /* Add some space between the search bar and buttons */
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+.search-bar::placeholder {
+  color: #909090; /* Your desired placeholder color */
+  opacity: 1; /* Adjust if you want to change the transparency */
+  font-size: 2vh;
+}
+.search-bar-button {
+  display: flex;
+  border: none;
+  background-color: #817F7F;
+  border-radius: 10px;
+  cursor: pointer;
+  width: 4.5vh;
+  height: 4.5vh;
+  align-self: center;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1%;
+  box-shadow: rgba(0, 0, 0, 0.249) 3px 3px 2px 2px;
+  margin-right: 2%;
+}
+.search-bar-button img{
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 3vh;
+  height: 3vh;
+  align-self: center;
+}
+
+.search-bar:focus {
+  outline: none;
+  border-color: #666; /* Adjust focus color as needed */
 }
 
 input[type="button"] {
@@ -157,17 +210,150 @@ input[type="button"]:hover {
 
 .vertical-line {
   position: absolute;
-  border-left: 2px solid #000;
-  margin-left: 10%;
-
+  border-left: 1px solid #817F7F;
+  margin-left: 40%;
 }
 
 .title1-1 {
   font-weight: bold;
   font-size: 40px;
   color: dimgray;
+  font-family:  "Arial","微軟正黑體", sans-serif;
+}
+.ODM {
+  font-size: 2vh;
+  background-color: #9BE3F9;
+  color: dimgray;
+  font-weight: bold;
+  width: 7vh;
+  height: 3vh;
+  margin-left: 3%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
 }
 
+.OEM {
+  background-color: #9BF9CC;
+  font-size: 2vh;
+  color: dimgray;
+  font-weight: bold;
+  width: 7vh;
+  height: 3vh;
+  margin-left: 3%;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+.red-button {
+  border-radius: 5px; /* 設定圓角半徑，根據需要調整 */
+  border: none;
+  font-size: 12px;
+  background-color: #C40000;
+  color: white;
+  font-weight: bold;
+  height: 3.5vh;
+  width: 20vh;
+  cursor: pointer;
+}
+.item_container {
+  display: flex;
+  margin-top: 20px;
+}
+
+.item_column {
+  display: flex;
+  flex-direction: column;
+}
+
+.item_box {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 50px;
+  margin-right: 50px;
+  width: 500px;
+  height: 200px;
+  background-color: lightgray;
+}
+.item_pic {
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  width: 150px;
+  height: 150px;
+  margin-top: 13px;
+  position: absolute;
+}
+
+.item_topic {
+  border-color: black;
+  margin-left: 250px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 35px;
+}
+
+.item_num {
+  margin-left: 250px;
+  margin-top: 20px;
+  font-size: 20px;
+}
+
+.item_num_content {
+  margin-left: 350px;
+  margin-top: -25px;
+  font-size: 22px;
+}
+
+.item_inv {
+  margin-left: 250px;
+  margin-top: 5px;
+  font-size: 20px;
+}
+
+.item_inv_content {
+  margin-left: 329px;
+  margin-top: -24px;
+  font-size: 22px;
+}
+
+.item_topic_warn {
+  margin-left: 250px;
+  margin-top: 20px;
+  font-weight: bold;
+  font-size: 35px;
+  color: red;
+}
+
+.item_num_warn {
+  margin-left: 250px;
+  margin-top: 20px;
+  font-size: 20px;
+  color: red;
+}
+
+.item_num_content_warn {
+  margin-left: 350px;
+  margin-top: -25px;
+  font-size: 22px;
+  color: red;
+}
+
+.item_inv_warn {
+  margin-left: 250px;
+  margin-top: 5px;
+  font-size: 20px;
+  color: red;
+}
+
+.item_inv_content_warn {
+  margin-left: 329px;
+  position: relative;
+  top: -30px;
+  font-size: 22px;
+  color: red;
+}
 .grid {
   width: 100%;
   margin-top: 2%;
@@ -514,4 +700,5 @@ td {
     margin-left: 20px;
     margin-top: -830px;
   }
+  
 }

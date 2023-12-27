@@ -1,101 +1,121 @@
-
-html, body {
+body {
+  /* padding: 0; */
   margin: 0;
-  padding: 0;
   width: 100%;
   height: 100%;
 }
 
+.fixed {
+  /*margin-left: -10px;*/
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
 .top_bar {
+  height: 10%;
+
+  display: flex;
   background-color: #949494;
-  height: 15%;
-  position: relative;
+  pointer-events: auto;
 }
 
 .company_name {
-  font-size: 40px;
+  font-size: 20px;
   font-weight: bold;
   color: white;
-  text-align: left;
-  margin-left: 100px;
-  margin-top: -55px;
+  text-align: center;
+  align-self: center;
+  margin-left: 0px;
 }
 
 .logo {
-  width: 50px; 
-  height: 50px;
-  margin-left: 38px;
-  margin-top: 47px;
+  align-self: center;
+  width: 30px;
+  height: 30px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .search-container {
   display: flex;
   justify-content: center;
-  margin: 20px;
+  margin-left: auto;
+  margin-right: 20px;
+  align-items: center;
 }
 
 .search-box {
-  padding: 10px;
+  margin-right: 0px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  margin-left: 1300px;
-  margin-top: -55px;
-  height: 10px;
-  position: absolute;
+  border-radius: 20px;
+  align-self: center;
+  height: 25px;
 }
 
 .search-button {
-  padding: 10px;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 40px; 
-  height: 40px;
-  margin-left: 740px;
-  margin-top: -67px;
-  position: absolute;
+  width: 30px;
+  height: 30px;
+  align-self: center;
 }
 
 .left_bar {
-  width: 20%;
-  height: 85%;
+  position: fixed;
+  /* margin-top: 8%; */
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #4f4745;
+  height: 100%;
+  align-items: center;
 }
 
-.manage-pic{
+.right_bar {
+  position: absolute;
+  margin-left: 20%;
+  margin-top: 8%;
+  width: 80%;
+  height: 100%;
+}
+.manage-pic {
   padding: 10px;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 30px; 
+  width: 30px;
   height: 30px;
   margin-left: -50px;
   margin-top: -3px;
   position: absolute;
 }
 
-.op_manage{
+.op_manage {
   font-size: 30px;
   font-weight: bold;
   margin-left: 90px;
   margin-top: 80px;
 }
 
-.cus-pic{
+.cus-pic {
   padding: 10px;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 30px; 
+  width: 30px;
   height: 30px;
   margin-left: -50px;
   margin-top: 0px;
   position: absolute;
 }
 
-.cus_manage{
+.cus_manage {
   font-size: 30px;
   font-weight: bold;
   margin-left: 90px;
@@ -116,29 +136,28 @@ input[type="button"] {
   transition: transform 0.3s ease;
 }
 
-input[type="button"]:hover {  /* 鼠標懸停時的變化 */
-  background-color: #f0f0f0; 
+input[type="button"]:hover {
+  /* 鼠標懸停時的變化 */
+  background-color: #f0f0f0;
   transform: scale(1.1);
 }
 
 .vertical-line {
   border-left: 2px solid #000;
-  height: 1300px; 
+  height: 1300px;
   margin-left: 310px;
   margin-top: -660px;
-    }
-
-.title1-1{
-  font-weight: bold;
-  font-size: 50px;
-  color: dimgray;
-  margin-left: 370px;
-  margin-top: -830px;
 }
 
-.ODM{
+.title1-1 {
+  font-weight: bold;
+  font-size: 40px;
+  color: dimgray;
+}
+
+.ODM {
   font-size: 20px;
-  background-color: lightgreen;
+  background-color: #9BE3F9;
   width: 58px;
   margin-left: 600px;
   margin-top: 10px;
@@ -147,9 +166,9 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   align-items: center;
 }
 
-.OEM{
+.OEM {
   font-size: 20px;
-  background-color: lightblue;
+  background-color: #9BF9CC;
   width: 58px;
   margin-left: 600px;
   margin-top: -60px;
@@ -187,7 +206,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  width: 40px; 
+  width: 40px;
   height: 40px;
   margin-left: 10px;
   margin-top: 10px;
@@ -207,7 +226,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   margin-top: -50px;
 }
 
-.item_container{
+.item_container {
   display: flex;
   margin-left: 280px;
   margin-top: 20px;
@@ -216,7 +235,7 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
 .item_column {
   display: flex;
   flex-direction: column;
- }
+}
 
 .item_box {
   border: 2px solid #ccc;
@@ -225,22 +244,21 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   margin-bottom: 50px;
   margin-left: 90px;
   width: 500px;
-  height: 200px; 
+  height: 200px;
   background-color: lightgray;
 }
-.item_pic{
+.item_pic {
   padding: 10px;
   border: none;
   border-radius: 4px;
-  width: 150px; 
+  width: 150px;
   height: 150px;
   margin-left: 14px;
   margin-top: 13px;
   position: absolute;
-
 }
 
-.item_topic{
+.item_topic {
   border-color: black;
   margin-left: 250px;
   margin-top: 20px;
@@ -248,31 +266,31 @@ input[type="button"]:hover {  /* 鼠標懸停時的變化 */
   font-size: 35px;
 }
 
-.item_num{
-margin-left: 250px;
-margin-top: 20px;
-font-size: 20px;
+.item_num {
+  margin-left: 250px;
+  margin-top: 20px;
+  font-size: 20px;
 }
 
-.item_num_content{
-margin-left: 350px;
-margin-top: -25px;
-font-size: 22px;
+.item_num_content {
+  margin-left: 350px;
+  margin-top: -25px;
+  font-size: 22px;
 }
 
-.item_inv{
-margin-left: 250px;
-margin-top: 5px;
-font-size: 20px;
+.item_inv {
+  margin-left: 250px;
+  margin-top: 5px;
+  font-size: 20px;
 }
 
-.item_inv_content{
-margin-left: 329px;
-margin-top: -24px;
-font-size: 22px;
+.item_inv_content {
+  margin-left: 329px;
+  margin-top: -24px;
+  font-size: 22px;
 }
 
-.item_topic_warn{
+.item_topic_warn {
   margin-left: 250px;
   margin-top: 20px;
   font-weight: bold;
@@ -280,36 +298,36 @@ font-size: 22px;
   color: red;
 }
 
-.item_num_warn{
-margin-left: 250px;
-margin-top: 20px;
-font-size: 20px;
-color: red;
+.item_num_warn {
+  margin-left: 250px;
+  margin-top: 20px;
+  font-size: 20px;
+  color: red;
 }
 
-.item_num_content_warn{
-margin-left: 350px;
-margin-top: -25px;
-font-size: 22px;
-color: red;
+.item_num_content_warn {
+  margin-left: 350px;
+  margin-top: -25px;
+  font-size: 22px;
+  color: red;
 }
 
-.item_inv_warn{
-margin-left: 250px;
-margin-top: 5px;
-font-size: 20px;
-color: red;
+.item_inv_warn {
+  margin-left: 250px;
+  margin-top: 5px;
+  font-size: 20px;
+  color: red;
 }
 
-.item_inv_content_warn{
-margin-left: 329px;
-position: relative;
-top: -30px;
-font-size: 22px;
-color: red;
+.item_inv_content_warn {
+  margin-left: 329px;
+  position: relative;
+  top: -30px;
+  font-size: 22px;
+  color: red;
 }
 
-.oem_color{
+.oem_color {
   background-color: lightblue;
   width: 20px;
   height: 244px;
@@ -317,7 +335,7 @@ color: red;
   margin-left: 450px;
 }
 
-.odm_color{
+.odm_color {
   background-color: lightgreen;
   width: 20px;
   height: 244px;
@@ -325,7 +343,7 @@ color: red;
   margin-left: 450px;
 }
 
-.oem_color_warn{
+.oem_color_warn {
   background-color: lightblue;
   width: 20px;
   height: 244px;
@@ -333,7 +351,7 @@ color: red;
   margin-left: 450px;
 }
 
-.odm_color_warn{
+.odm_color_warn {
   background-color: lightgreen;
   width: 20px;
   height: 244px;
@@ -341,6 +359,6 @@ color: red;
   margin-left: 450px;
 }
 
-.low-inventory{
+.low-inventory {
   background-color: #dc8686;
 }

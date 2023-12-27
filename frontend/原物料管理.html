@@ -1,189 +1,228 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>榮紹精密塑膠射出成型工廠</title>
-<link rel="stylesheet" type="text/css" href="css/2-1.css">
- 
-</head>
- 
-<body>
-	<div class="top_bar"><!-- 上半部 -->
-    <img src="image/logo.jpg" alt="Logo" class="logo" >
-    <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+  <head>
+    <meta charset="utf-8" />
+    <title>榮紹精密塑膠射出成型工廠</title>
+    <link rel="stylesheet" type="text/css" href="css/2-1.css" />
+  </head>
 
-    <div class="search-container">
-    <input type="text" class="search-box" id="searchInput" placeholder="Search...">
-    <div onclick="searchFunction()">
-      <img src="image/seac.png" alt="搜索按钮" class="search-button">
-    </div>
-    </div>
+  <body>
+    <div class="top_bar">
+      <!-- 上半部 -->
+      <img src="image/logo.jpg" alt="Logo" class="logo" />
+      <div class="company_name">榮紹精密塑膠射出成型工廠</div>
 
-  </div>
-
-  <div class="left_bar"><!-- 左半部選單 -->
-          <div class="op_manage">
-            <img src="image/manage.png" alt="Manage" class="manage-pic" >
-            作業管理
-              <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
-              <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
-              <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
-              <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
-          </div>
-          
-          <div class="cus_manage">
-            <img src="image/cus.png" alt="Cus" class="cus-pic" >
-            顧客關係管理
-              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")' >
-              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
-              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
-              <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
-          </div>
+      <div class="search-container">
+        <input
+          type="text"
+          class="search-box"
+          id="searchInput"
+          placeholder="Search..."
+        />
+        <div onclick="searchFunction()">
+          <img src="image/search.png" alt="搜索按钮" class="search-button" />
         </div>
-
-  <div class="title1-1">原物料管理</div>
-
-  <div class="search-container-inside">
-    <button class="red-button" onclick='location.href=("原物料管理-庫存量不足.html")'>查看庫存量不足清單</button>
-    </div>
-
-  <div class="item_container">
-
-    <!-- 第一個直排 -->
-    <div class="item_column">
-      <div class="item_box">
-        <div class="item_topic">TPR</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">01</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay1"></div>
-      </div>
-      <div class="item_box">
-        <div class="item_topic">ABS</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">02</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay2"></div>
-      </div>
-      <div class="item_box">
-        <div class="item_topic">POM</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">03</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay3"></div>
-      </div>
-      <div class="item_box">
-        <div class="item_topic">PP</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">04</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay4"></div>
-      </div>
-            <div class="item_box">
-        <div class="item_topic">HIPS</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">05</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay5"></div>
-      </div>
-            
-            
-    </div>
-
-    <!-- 第二個直排 -->
-    <div class="item_column">
-
-      <div class="item_box">
-        <div class="item_topic">PC</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">06</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay6"></div>
-      </div>
-      <div class="item_box">
-        <div class="item_topic">PE</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">07</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay7"></div>
-      </div>
-      <div class="item_box">
-        <div class="item_topic">PA6</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">08</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay8"></div>
-      </div>
-      <div class="item_box">
-        <div class="item_topic">PBT</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">09</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay9"></div>
-      </div>
-<div class="item_box">
-        <div class="item_topic">複合材</div>
-        <div class="item_num">收回代碼：</div>
-        <div class="item_num_content">10</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay10"></div>
-        
       </div>
     </div>
 
-  </div>
+    <div class="left_bar">
+      <!-- 左半部選單 -->
+      <div class="op_manage">
+        <img src="image/manage.png" alt="Manage" class="manage-pic" />
+        作業管理
+        <br /><input
+          type="button"
+          value="庫存管理"
+          name="按鈕名稱"
+          onclick='location.href=("庫存管理.html")'
+        />
+        <br /><input
+          type="button"
+          value="原物料管理"
+          name="按鈕名稱"
+          onclick='location.href=("原物料管理.html")'
+        />
+        <br /><input
+          type="button"
+          value="訂單進度"
+          name="按鈕名稱"
+          onclick='location.href=("訂單進度.html")'
+        />
+        <br /><input
+          type="button"
+          value="新增訂單"
+          name="按鈕名稱"
+          onclick='location.href=("新增訂單.html")'
+        />
+      </div>
 
+      <div class="cus_manage">
+        <img src="image/cus.png" alt="Cus" class="cus-pic" />
+        顧客關係管理
+        <br /><input
+          type="button"
+          value="銷售分析"
+          name="按鈕名稱"
+          onclick='location.href=("銷售分析.html")'
+        />
+        <br /><input
+          type="button"
+          value="顧客分析"
+          name="按鈕名稱"
+          onclick='location.href=("顧客分析.html")'
+        />
+        <br /><input
+          type="button"
+          value="銷售資料查詢"
+          name="按鈕名稱"
+          onclick='location.href=("銷售資料查詢.html")'
+        />
+        <br /><input
+          type="button"
+          value="顧客資料查詢"
+          name="按鈕名稱"
+          onclick='location.href=("顧客資料查詢.html")'
+        />
+      </div>
+    </div>
 
+    <div class="title1-1">原物料管理</div>
 
-    
-<script>
+    <div class="search-container-inside">
+      <button
+        class="red-button"
+        onclick='location.href=("原物料管理-庫存量不足.html")'
+      >
+        查看庫存量不足清單
+      </button>
+    </div>
 
-    function searchFunction() {
-      // 取得輸入框的值
-      var searchValue = document.getElementById("searchInput").value;
-      
-      // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
-      alert("您搜尋的內容是：" + searchValue);
-    }
+    <div class="item_container">
+      <!-- 第一個直排 -->
+      <div class="item_column">
+        <div class="item_box">
+          <div class="item_topic">TPR</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">01</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay1"></div>
+        </div>
+        <div class="item_box">
+          <div class="item_topic">ABS</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">02</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay2"></div>
+        </div>
+        <div class="item_box">
+          <div class="item_topic">POM</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">03</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay3"></div>
+        </div>
+        <div class="item_box">
+          <div class="item_topic">PP</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">04</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay4"></div>
+        </div>
+        <div class="item_box">
+          <div class="item_topic">HIPS</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">05</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay5"></div>
+        </div>
+      </div>
 
-    document.addEventListener('DOMContentLoaded', function() {
-    // 創建一個包含所有fetch請求的promise數組
-    let fetchPromises = [];
+      <!-- 第二個直排 -->
+      <div class="item_column">
+        <div class="item_box">
+          <div class="item_topic">PC</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">06</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay6"></div>
+        </div>
+        <div class="item_box">
+          <div class="item_topic">PE</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">07</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay7"></div>
+        </div>
+        <div class="item_box">
+          <div class="item_topic">PA6</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">08</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay8"></div>
+        </div>
+        <div class="item_box">
+          <div class="item_topic">PBT</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">09</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay9"></div>
+        </div>
+        <div class="item_box">
+          <div class="item_topic">複合材</div>
+          <div class="item_num">收回代碼：</div>
+          <div class="item_num_content">10</div>
+          <div class="item_inv">庫存量：</div>
+          <div class="item_inv_content" id="inventoryDisplay10"></div>
+        </div>
+      </div>
+    </div>
 
-    for (let i = 1; i <= 10; i++) {
-        fetchPromises.push(
+    <script>
+      function searchFunction() {
+        // 取得輸入框的值
+        var searchValue = document.getElementById("searchInput").value;
+
+        // 這裡可添加搜尋邏輯，跳轉到搜尋結果頁面或是在當前頁面展示搜尋結果
+        alert("您搜尋的內容是：" + searchValue);
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // 創建一個包含所有fetch請求的promise數組
+        let fetchPromises = [];
+
+        for (let i = 1; i <= 10; i++) {
+          fetchPromises.push(
             fetch(`http://localhost:8080/materials/${i}`, {
-                method: 'GET',
-                headers: {
-                    'accept': 'application/hal+json'
-                }
+              method: "GET",
+              headers: {
+                accept: "application/hal+json",
+              },
             })
-            .then(response => response.json())
-            .catch(error => console.error(`Error fetching material ${i}:`, error))
-        );
-    }
+              .then((response) => response.json())
+              .catch((error) =>
+                console.error(`Error fetching material ${i}:`, error)
+              )
+          );
+        }
 
-    // 使用Promise.all等待所有fetch請求完成
-    Promise.all(fetchPromises).then(dataArray => {
-        dataArray.forEach((data, index) => {
+        // 使用Promise.all等待所有fetch請求完成
+        Promise.all(fetchPromises).then((dataArray) => {
+          dataArray.forEach((data, index) => {
             if (data) {
-                // 更新對應的元素，假設元素ID是inventoryDisplay1, inventoryDisplay2等
-                let inventoryDisplayId = `inventoryDisplay${index + 1}`;
-                let inventoryElement = document.getElementById(inventoryDisplayId);
-                if (inventoryElement) {
-                    inventoryElement.textContent = data.inventory;
-                    if(data.inventory <= 1000){
-                      inventoryElement.parentNode.classList.add('low-inventory');
-                    }
+              // 更新對應的元素，假設元素ID是inventoryDisplay1, inventoryDisplay2等
+              let inventoryDisplayId = `inventoryDisplay${index + 1}`;
+              let inventoryElement =
+                document.getElementById(inventoryDisplayId);
+              if (inventoryElement) {
+                inventoryElement.textContent = data.inventory;
+                if (data.inventory <= 1000) {
+                  inventoryElement.parentNode.classList.add("low-inventory");
                 }
+              }
             }
+          });
         });
-    });
-});
-
-
-  </script>
-
-</body>
+      });
+    </script>
+  </body>
 </html>
-

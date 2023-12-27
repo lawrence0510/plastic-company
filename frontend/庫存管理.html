@@ -1,295 +1,373 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<title>榮紹精密塑膠射出成型工廠</title>
-<link rel="stylesheet" type="text/css" href="css/1-1.css">
- 
-</head>
- 
-<body>
-	<div class="top_bar"><!-- 上半部 -->
-    <img src="image/logo.jpg" alt="Logo" class="logo" >
-    <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>榮紹精密塑膠射出成型工廠</title>
+    <link rel="stylesheet" type="text/css" href="css/stylesheet.css" />
+  </head>
 
-    <div class="search-container">
-    <input type="text" class="search-box" id="searchInput" placeholder="Search...">
-    <div onclick="searchFunction()">
-      <img src="image/seac.png" alt="搜索按钮" class="search-button">
-    </div>
-    </div>
+  <body>
+    <!--div class="container"-->
+    <div class="fixed">
+      <div class="top_bar">
+        <!-- 上半部 -->
+        <img src="image/logo.jpg" alt="Logo" class="logo" />
+        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
 
-  </div>
-
-  <div class="left_bar"><!-- 左半部選單 -->
-          <div class="op_manage">
-            <img src="image/manage.png" alt="Manage" class="manage-pic" >
-            作業管理
-              <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
-              <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
-              <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
-              <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
+        <div class="search-container">
+          <input
+            type="text"
+            class="search-box"
+            id="searchInput"
+            placeholder="  Search..."
+          />
+          <div onclick="searchFunction()" class="search-button">
+            <img src="image/search.png" alt="搜索按钮" class="search-button" />
           </div>
-          
-          <div class="cus_manage">
-            <img src="image/cus.png" alt="Cus" class="cus-pic" >
-            顧客關係管理
-              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")' >
-              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
-              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
-              <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
+        </div>
+      </div>
+    </div>
+
+    <div class="left_bar">
+      <!-- 左半部選單 -->
+      <div class="op_manage">
+        <img src="image/manage.png" alt="Manage" class="manage-pic" />
+        作業管理
+        <br /><input
+          type="button"
+          value="庫存管理"
+          name="按鈕名稱"
+          onclick='location.href=("庫存管理.html")'
+        />
+        <br /><input
+          type="button"
+          value="原物料管理"
+          name="按鈕名稱"
+          onclick='location.href=("原物料管理.html")'
+        />
+        <br /><input
+          type="button"
+          value="訂單進度"
+          name="按鈕名稱"
+          onclick='location.href=("訂單進度.html")'
+        />
+        <br /><input
+          type="button"
+          value="新增訂單"
+          name="按鈕名稱"
+          onclick='location.href=("新增訂單.html")'
+        />
+      </div>
+
+      <div class="cus_manage">
+        <img src="image/cus.png" alt="Cus" class="cus-pic" />
+        顧客關係管理
+        <br /><input
+          type="button"
+          value="銷售分析"
+          name="按鈕名稱"
+          onclick='location.href=("銷售分析.html")'
+        />
+        <br /><input
+          type="button"
+          value="顧客分析"
+          name="按鈕名稱"
+          onclick='location.href=("顧客分析.html")'
+        />
+        <br /><input
+          type="button"
+          value="銷售資料查詢"
+          name="按鈕名稱"
+          onclick='location.href=("銷售資料查詢.html")'
+        />
+        <br /><input
+          type="button"
+          value="顧客資料查詢"
+          name="按鈕名稱"
+          onclick='location.href=("顧客資料查詢.html")'
+        />
+      </div>
+    </div>
+
+    <div class="right_bar">
+      <div style="display: flex; align-items: center">
+        <div class="title1-1">庫存管理</div>
+        <div class="ODM">ODM</div>
+        <div class="OEM">OEM</div>
+      </div>
+
+      <div class="search-bar-container">
+        <input
+          type="text"
+          class="search-bar"
+          placeholder="請輸入欲查詢的商品名稱或編號"
+        />
+        <div class="search-bar-button">
+          <img src="image/search.png" alt="搜索按钮" />
+        </div>
+
+        <button
+          class="red-button"
+          onclick='location.href=("庫存管理-庫存量不足.html")'
+        >
+          查看庫存量不足清單
+        </button>
+      </div>
+
+      <div class="item_container">
+        <!-- 第一個直排 -->
+        <div class="item_column">
+          <div class="item_box">
+            <img src="image/工業用配件.jpg" alt="工業用配件" class="item_pic" />
+            <div class="item_topic">工業用配件</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">1</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay1"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img src="image/精密零組件.jpg" alt="精密零組件" class="item_pic" />
+            <div class="item_topic">精密零組件二</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">2</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay2"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img src="image/零配件一.jpg" alt="零配件一" class="item_pic" />
+            <div class="item_topic">零配件一</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">3</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay3"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img src="image/精密微小件.jpg" alt="精密微小件" class="item_pic" />
+            <div class="item_topic">精密微小件</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">4</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay4"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img
+              src="image/二次包覆產品.jpg"
+              alt="二次包覆產品"
+              class="item_pic"
+            />
+            <div class="item_topic">二次包覆產品</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">5</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay5"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img src="image/零配件三.jpg" alt="零配件三" class="item_pic" />
+            <div class="item_topic">零配件三</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">6</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay6"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img src="image/雙色射出.jpg" alt="雙色射出" class="item_pic" />
+            <div class="item_topic">雙色射出</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">7</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay7"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img src="image/零組件四.jpg" alt="零組件四" class="item_pic" />
+            <div class="item_topic">零組件四</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">8</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay8"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img
+              src="image/醫療器材生產.jpg"
+              alt="醫療器材生產"
+              class="item_pic"
+            />
+            <div class="item_topic">醫療器材生產</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">9</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay9"></div>
+            <div class="oem_color"></div>
+          </div>
+
+          <div class="item_box">
+            <img
+              src="image/塑膠結構組件.jpg"
+              alt="塑膠結構組件"
+              class="item_pic"
+            />
+            <div class="item_topic">塑膠結構組件</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">10</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay10"></div>
+            <div class="oem_color"></div>
           </div>
         </div>
 
-  <div class="title1-1">庫存管理</div>
-  <div class="OEM">OEM</div>
-  <div class="ODM">ODM</div>
-  <button class="red-button" onclick='location.href=("庫存管理-庫存量不足.html")'>查看庫存量不足清單</button>
+        <!-- 第二個直排 -->
+        <div class="item_column">
+          <div class="item_box">
+            <img
+              src="image/電腦週邊商品.jpg"
+              alt="電腦週邊商品"
+              class="item_pic"
+            />
+            <div class="item_topic">電腦週邊商品</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">11</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay11"></div>
+            <div class="odm_color"></div>
+          </div>
+          <div class="item_box">
+            <img src="image/3c外殼.jpg" alt="3c外殼" class="item_pic" />
+            <div class="item_topic">3c外殼</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">12</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay12"></div>
+            <div class="odm_color"></div>
+          </div>
+          <div class="item_box">
+            <img src="image/隨身碟.jpg" alt="隨身碟" class="item_pic" />
+            <div class="item_topic">隨身碟</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">13</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay13"></div>
+            <div class="odm_color"></div>
+          </div>
 
-  <div class="item_container">
+          <div class="item_box">
+            <img src="image/透明配件.jpg" alt="透明配件" class="item_pic" />
+            <div class="item_topic">透明配件</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">14</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay14"></div>
+            <div class="odm_color"></div>
+          </div>
+          <div class="item_box">
+            <img src="image/醫療器材.jpg" alt="醫療器材" class="item_pic" />
+            <div class="item_topic">醫療器材</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">15</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay15"></div>
+            <div class="odm_color"></div>
+          </div>
+          <div class="item_box">
+            <img src="image/零組件系列.jpg" alt="零組件系列" class="item_pic" />
+            <div class="item_topic">零組件系列</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">16</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay16"></div>
+            <div class="odm_color"></div>
+          </div>
+          <div class="item_box">
+            <img src="image/塑膠客製化.jpg" alt="塑膠客製化" class="item_pic" />
+            <div class="item_topic">塑膠客製化</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">17</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay17"></div>
+            <div class="odm_color"></div>
+          </div>
 
-    <!-- 第一個直排 -->
-    <div class="item_column">
-      <div class="item_box">
-        <img src="image/工業用配件.jpg" alt="工業用配件" class="item_pic">
-        <div class="item_topic">工業用配件</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">1</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay1"></div>
-        <div class="oem_color"></div>
-      </div>
-      
-      <div class="item_box">
-        <img src="image/精密零組件.jpg" alt="精密零組件" class="item_pic">
-        <div class="item_topic">精密零組件二</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">2</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay2"></div>
-        <div class="oem_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/零配件一.jpg" alt="零配件一" class="item_pic">
-        <div class="item_topic">零配件一</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">3</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay3"></div>
-        <div class="oem_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/精密微小件.jpg" alt="精密微小件" class="item_pic">
-        <div class="item_topic">精密微小件</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">4</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay4"></div>
-        <div class="oem_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/二次包覆產品.jpg" alt="二次包覆產品" class="item_pic">
-        <div class="item_topic">二次包覆產品</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">5</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay5"></div>
-        <div class="oem_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/零配件三.jpg" alt="零配件三" class="item_pic">
-        <div class="item_topic">零配件三</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">6</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay6"></div>
-        <div class="oem_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/雙色射出.jpg" alt="雙色射出" class="item_pic">
-        <div class="item_topic">雙色射出</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">7</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay7"></div>
-        <div class="oem_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/零組件四.jpg" alt="零組件四" class="item_pic">
-        <div class="item_topic">零組件四</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">8</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay8"></div>
-        <div class="oem_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/醫療器材生產.jpg" alt="醫療器材生產" class="item_pic">
-        <div class="item_topic">醫療器材生產</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">9</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay9"></div>
-        <div class="oem_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/塑膠結構組件.jpg" alt="塑膠結構組件" class="item_pic">
-        <div class="item_topic">塑膠結構組件</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">10</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay10"></div>
-        <div class="oem_color"></div>
-      </div>
-      
-    </div>
-
-    <!-- 第二個直排 -->
-    <div class="item_column">
-      <div class="item_box">
-        <img src="image/電腦週邊商品.jpg" alt="電腦週邊商品" class="item_pic">
-        <div class="item_topic">電腦週邊商品</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">11</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay11"></div>
-        <div class="odm_color"></div>
-      </div>
-      <div class="item_box">
-        <img src="image/3c外殼.jpg" alt="3c外殼" class="item_pic">
-        <div class="item_topic">3c外殼</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">12</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay12"></div>
-        <div class="odm_color"></div>
-      </div>
-      <div class="item_box">
-        <img src="image/隨身碟.jpg" alt="隨身碟" class="item_pic">
-        <div class="item_topic">隨身碟</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">13</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay13"></div>
-        <div class="odm_color"></div>
-      </div>
-      
-      <div class="item_box">
-        <img src="image/透明配件.jpg" alt="透明配件" class="item_pic">
-        <div class="item_topic">透明配件</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">14</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay14"></div>
-        <div class="odm_color"></div>
-      </div>
-      <div class="item_box">
-        <img src="image/醫療器材.jpg" alt="醫療器材" class="item_pic">
-        <div class="item_topic">醫療器材</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">15</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay15"></div>
-        <div class="odm_color"></div>
-      </div>
-      <div class="item_box">
-        <img src="image/零組件系列.jpg" alt="零組件系列" class="item_pic">
-        <div class="item_topic">零組件系列</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">16</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay16"></div>
-        <div class="odm_color"></div>
-      </div>
-      <div class="item_box">
-        <img src="image/塑膠客製化.jpg" alt="塑膠客製化" class="item_pic">
-        <div class="item_topic">塑膠客製化</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">17</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay17"></div>
-        <div class="odm_color"></div>
-      </div>
-
-      <div class="item_box">
-        <img src="image/框架零組件.jpg" alt="框架零組件" class="item_pic">
-        <div class="item_topic">框架零組件</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">18</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay18"></div>
-        <div class="odm_color"></div>
-      </div>
-      <div class="item_box">
-        <img src="image/薄件系列.jpg" alt="薄件系列" class="item_pic">
-        <div class="item_topic">薄件系列</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">19</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay19"></div>
-        <div class="odm_color"></div>
-      </div>
-      <div class="item_box">
-        <img src="image/汽車零配件.jpg" alt="汽車零配件" class="item_pic">
-        <div class="item_topic">汽車零配件</div>
-        <div class="item_num">產品編號：</div>
-        <div class="item_num_content">20</div>
-        <div class="item_inv">庫存量：</div>
-        <div class="item_inv_content" id="inventoryDisplay20"></div>
-        <div class="odm_color"></div>
+          <div class="item_box">
+            <img src="image/框架零組件.jpg" alt="框架零組件" class="item_pic" />
+            <div class="item_topic">框架零組件</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">18</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay18"></div>
+            <div class="odm_color"></div>
+          </div>
+          <div class="item_box">
+            <img src="image/薄件系列.jpg" alt="薄件系列" class="item_pic" />
+            <div class="item_topic">薄件系列</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">19</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay19"></div>
+            <div class="odm_color"></div>
+          </div>
+          <div class="item_box">
+            <img src="image/汽車零配件.jpg" alt="汽車零配件" class="item_pic" />
+            <div class="item_topic">汽車零配件</div>
+            <div class="item_num">產品編號：</div>
+            <div class="item_num_content">20</div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="inventoryDisplay20"></div>
+            <div class="odm_color"></div>
+          </div>
+        </div>
       </div>
     </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        let fetchPromises = [];
 
-  </div>
-
-
-
-    
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    let fetchPromises = [];
-
-    for (let i = 1; i <= 20; i++) {
-        fetchPromises.push(
+        for (let i = 1; i <= 20; i++) {
+          fetchPromises.push(
             fetch(`http://localhost:8080/products/${i}`, {
-                method: 'GET',
-                headers: {
-                    'accept': 'application/hal+json'
-                }
+              method: "GET",
+              headers: {
+                accept: "application/hal+json",
+              },
             })
-            .then(response => response.json())
-            .catch(error => console.error(`Error fetching product ${i}:`, error))
-        );
-    }
+              .then((response) => response.json())
+              .catch((error) =>
+                console.error(`Error fetching product ${i}:`, error)
+              )
+          );
+        }
 
-    // 使用Promise.all等待所有fetch請求完成
-    Promise.all(fetchPromises).then(dataArray => {
-        dataArray.forEach((data, index) => {
+        // 使用Promise.all等待所有fetch請求完成
+        Promise.all(fetchPromises).then((dataArray) => {
+          dataArray.forEach((data, index) => {
             if (data) {
-                let inventoryDisplayId = `inventoryDisplay${index + 1}`;
-                let inventoryElement = document.getElementById(inventoryDisplayId);
-                if (inventoryElement) {
-                    inventoryElement.textContent = data.inventory;
-                    if(data.inventory <= 200){
-                      inventoryElement.parentNode.classList.add('low-inventory');
-                    }
+              let inventoryDisplayId = `inventoryDisplay${index + 1}`;
+              let inventoryElement =
+                document.getElementById(inventoryDisplayId);
+              if (inventoryElement) {
+                inventoryElement.textContent = data.inventory;
+                if (data.inventory <= 200) {
+                  inventoryElement.parentNode.classList.add("low-inventory");
                 }
+              }
             }
+          });
         });
-    });
-});
-
-
-  </script>
-
-</body>
+      });
+    </script>
+  </body>
 </html>
-

@@ -109,7 +109,7 @@
             <td style="width:10%">${phoneNumber}</td>
             <td style="width:15%">${customerValue}</td>
           </table>
-          <button class="button" onclick="gotoRecord(this)" id="${index}">查看購買紀錄</button>
+          <button class="button" onclick='location.href="顧客資料查詢-購買紀錄.html?customerId=${customerId}"'>查看購買紀錄</button>
         `;
         tableContent.appendChild(row);
       });

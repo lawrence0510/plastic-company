@@ -9,4 +9,6 @@ import java.util.List;
 @CrossOrigin
 public interface ProductOrderRepository extends JpaRepository<ProductOrder, Long> {
     List<ProductOrder> findAllByStatus(String status);
+
+    List<ProductOrder> findAllByCustomerId(Long customerId);
 }

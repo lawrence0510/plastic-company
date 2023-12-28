@@ -1,5 +1,7 @@
 package com.example.digitalbusiness.backend.Model;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -8,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.MapsId;
 import jakarta.persistence.OneToOne;
+import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -33,9 +36,24 @@ public class CustomerValue {
     @Column(name = "MonetaryValue", nullable = false)
     private double monetaryValue;
 
+    @Column(name = "CreateAt", nullable = true)
+    private LocalDate createAt;
+
+    @Column(name = "customerLTV", nullable = true)
+    private double customerLTV;
+
+    private double averagePurchaseValue;
+    private double averagePurchaseFrequency;
+    private double customerValue;
+    private double averageCustomerLifespan;
+
     @OneToOne
     @MapsId
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     private Customer customer;
 
+    @PrePersist
+    public void prePersist() {
+        this.createAt = LocalDate.now();
+    }
 }

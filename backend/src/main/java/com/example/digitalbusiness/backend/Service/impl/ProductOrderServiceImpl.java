@@ -1,5 +1,6 @@
 package com.example.digitalbusiness.backend.Service.impl;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.temporal.ChronoUnit;
 import java.util.Collection;
@@ -56,7 +57,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             order.setProgress(1.0);
             productService.updateInventory(target.getId(), quantity);
             // save product order
-            result = productOrderRepository.save(order);
+
         } else {
             // if inventory is not enough, setting order status to "processing"
             order.setStatus("processing");
@@ -74,9 +75,11 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             Long daysDifference = ChronoUnit.DAYS.between(order.getDate(), currentTime);
             double orderProgress = Math.min((double) (daysDifference / expectedDurationInDays), 1.0);
             order.setProgress(orderProgress);
-            // save product order
-            result = productOrderRepository.save(order);
         }
+        // save product order
+        result = productOrderRepository.save(order);
+        customerService.updateCustomerValue(customer.getId(), target.getPrice() * quantity, LocalDate.now());
+
         return result;
     }
 

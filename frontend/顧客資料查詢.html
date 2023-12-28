@@ -72,7 +72,7 @@
 
   <script>
     function fetchCustomers() {
-      fetch('http://localhost:8080/customers?page=0&size=200', {
+      fetch('/api/customers?page=0&size=200', {
         method: 'GET',
         headers: {
           'accept': 'application/hal+json'
@@ -87,7 +87,7 @@
     }
 
     function fetchCustomerValue(customerId) {
-  return fetch(`http://localhost:8080/customerValues/${customerId}`, {
+  return fetch(`/api/customerValues/${customerId}`, {
     method: 'GET',
     headers: {
       'accept': 'application/json'

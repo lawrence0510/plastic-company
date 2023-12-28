@@ -66,7 +66,7 @@
 
   <script>
     window.onload = function() {
-      fetch('http://localhost:8080/productOrders?page=0&size=200')
+      fetch('/api/productOrders?page=0&size=200')
         .then(response => response.json())
         .then(data => updateTable(data._embedded.productOrders))
         .catch(error => console.error('Error:', error));
@@ -77,7 +77,7 @@
       productOrders.forEach(order => {
         const orderId = order._links.self.href.split('/').pop();
 
-        fetch(`http://localhost:8080/productOrders/${orderId}/customer`)
+        fetch(`/api/productOrders/${orderId}/customer`)
           .then(response => response.json())
           .then(customerData => {
             const row = document.createElement('div');

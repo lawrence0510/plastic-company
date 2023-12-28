@@ -127,7 +127,7 @@
       var customerContactName = document.getElementById('customerContactName').value; 
       var customerEmployeeCount = document.getElementById('customerEmployeeCount').value; 
   
-      var url = `http://localhost:8080/api/productOrder?productName=${encodeURIComponent(productName)}&quantity=${quantity}&CustomerName=${encodeURIComponent(customerName)}&CustomerContactName=${encodeURIComponent(customerContactName)}&CustomerEmployeeCount=${customerEmployeeCount}&CustomerPhoneNumber=${customerPhone}`;
+      var url = `/api/api/productOrder?productName=${encodeURIComponent(productName)}&quantity=${quantity}&CustomerName=${encodeURIComponent(customerName)}&CustomerContactName=${encodeURIComponent(customerContactName)}&CustomerEmployeeCount=${customerEmployeeCount}&CustomerPhoneNumber=${customerPhone}`;
   
       fetch(url, {
         method: 'POST',

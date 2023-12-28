@@ -165,7 +165,7 @@
 
     for (let i = 1; i <= 10; i++) {
         fetchPromises.push(
-            fetch(`http://localhost:8080/materials/${i}`, {
+            fetch(`/api/materials/${i}`, {
                 method: 'GET',
                 headers: {
                     'accept': 'application/hal+json'

@@ -77,7 +77,7 @@
     const baseStyle = "background-color: SlateGray; height: 50px; border-radius: 5px 5px 5px 5px; margin-top: 25px; margin-left: 278px; position: absolute;";
 
     function fetchOrders() {
-      fetch('/api/productOrders?page=0&size=20', {
+      fetch('/productOrders?page=0&size=20', {
         method: 'GET',
         headers: {
           'accept': 'application/hal+json'

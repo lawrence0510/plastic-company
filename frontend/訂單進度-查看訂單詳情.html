@@ -117,7 +117,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
     const orderId = getOrderIdFromUrl();
-    fetch('/productOrder')
+    fetch('/api/api/productOrder')
         .then(response => response.json())
         .then(data => {
             const order = data.find(order => order.id === parseInt(orderId));
@@ -145,7 +145,7 @@ function updateOrderDetails(order) {
 
     const encodedProductName = encodeURIComponent(order.product.name);
 
-    fetch(`/materials/search/findByProductName?productName=${encodedProductName}`, {
+    fetch(`/api/materials/search/findByProductName?productName=${encodedProductName}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json'

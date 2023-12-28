@@ -86,7 +86,7 @@
             const customerId = urlParams.get('customerId');
         
             // API 請求 URL
-            const apiUrl = `/productOrders/search/findAllByCustomerId?customerId=${customerId}`;
+            const apiUrl = `/api/productOrders/search/findAllByCustomerId?customerId=${customerId}`;
         
             // 使用 fetch 從 API 獲取數據
             fetch(apiUrl)
@@ -132,7 +132,7 @@
         
           // 發送 API 請求以獲取產品信息
           function fetchProductInfo(orderId) {
-            fetch('/productOrder')
+            fetch('/api/api/productOrder')
               .then(response => response.json())
               .then(data => {
                 const order = data.find(o => o.id === parseInt(orderId));

@@ -11,12 +11,16 @@ import com.example.digitalbusiness.backend.Model.Customer;
 import com.example.digitalbusiness.backend.Model.CustomerValue;
 import com.example.digitalbusiness.backend.Repository.CustomerRepository;
 import com.example.digitalbusiness.backend.Service.CustomerService;
+import com.example.digitalbusiness.backend.Service.CustomerValueService;
 
 @Service
 public class CustomerServiceImpl implements CustomerService {
 
     @Autowired
     CustomerRepository customerRepository;
+
+    @Autowired
+    CustomerValueService customerValueService;
 
     @Override
     public Customer FindCustomerByName(String customerName) {
@@ -47,20 +51,26 @@ public class CustomerServiceImpl implements CustomerService {
                 newCustomerValue.setAveragePurchaseFrequency(1);
                 newCustomerValue.setCustomerValue(totalPrice);
                 newCustomerValue.setAverageCustomerLifespan(10);
+                newCustomerValue.setCustomer(customer);
+                customer.setCustomerValue(newCustomerValue);
+                customerRepository.save(customer);
             } else {
                 customerValue.setFrequency(customerValue.getFrequency() + 1);
                 customerValue.setMonetaryValue(customerValue.getMonetaryValue() + totalPrice);
-                customerValue.setRecency(ChronoUnit.DAYS.between(orderDate, LocalDate.now()));
+                customerValue.setRecency(Math.max(ChronoUnit.DAYS.between(orderDate, LocalDate.now()), 1));
                 customerValue.setAveragePurchaseValue(customerValue.getMonetaryValue() / customerValue.getFrequency());
                 customerValue.setAveragePurchaseFrequency(customerValue.getFrequency()
-                        / ChronoUnit.DAYS.between(customerValue.getCreateAt(), LocalDate.now()));
+                        / Math.max(ChronoUnit.DAYS.between(customerValue.getCreateAt(), LocalDate.now()), 1));
                 customerValue.setCustomerValue(
                         customerValue.getAveragePurchaseValue() * customerValue.getAveragePurchaseFrequency());
                 customerValue
                         .setCustomerLTV(customerValue.getCustomerValue() * customerValue.getAverageCustomerLifespan());
+                customerValue.setCustomer(customer);
+                customer.setCustomerValue(customerValue);
+                customerRepository.save(customer);
             }
         } else {
-            customerValue.setRecency(ChronoUnit.DAYS.between(orderDate, LocalDate.now()));
+            customerValue.setRecency(Math.max(ChronoUnit.DAYS.between(orderDate, LocalDate.now()), 1));
             customerValue.setAveragePurchaseValue(customerValue.getMonetaryValue() / customerValue.getFrequency());
             customerValue.setAveragePurchaseFrequency(customerValue.getFrequency()
                     / ChronoUnit.DAYS.between(customerValue.getCreateAt(), LocalDate.now()));
@@ -68,9 +78,10 @@ public class CustomerServiceImpl implements CustomerService {
                     customerValue.getAveragePurchaseValue() * customerValue.getAveragePurchaseFrequency());
             customerValue
                     .setCustomerLTV(customerValue.getCustomerValue() * customerValue.getAverageCustomerLifespan());
+            customerValue.setCustomer(customer);
+            customerValueService.saveCustomerValue(customerValue);
         }
-        customer.setCustomerValue(customerValue);
-        customerRepository.save(customer);
+
     }
 
 }

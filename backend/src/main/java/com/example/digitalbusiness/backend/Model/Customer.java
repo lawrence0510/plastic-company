@@ -43,6 +43,7 @@ public class Customer {
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
+    @JsonIgnore
     private CustomerValue customerValue;
 
     @OneToMany(mappedBy = "customer")

@@ -80,7 +80,7 @@ public class ProductOrderServiceImpl implements ProductOrderService {
         result = productOrderRepository.save(order);
         customerService.updateCustomerValue(customer.getId(), target.getPrice() * quantity, LocalDate.now());
 
-        return null;
+        return result;
     }
 
     @Override

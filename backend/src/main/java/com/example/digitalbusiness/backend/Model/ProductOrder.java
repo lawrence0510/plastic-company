@@ -6,6 +6,7 @@ import java.time.ZonedDateTime;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -35,7 +36,7 @@ public class ProductOrder {
     @Column(name = "Quantity", nullable = false)
     private Integer quantity;
 
-    @Column(name = "Date", nullable = false)
+    @Column(name = "Date", nullable = true)
     private LocalDate date;
 
     @JsonIgnore
@@ -48,7 +49,7 @@ public class ProductOrder {
     @Column(name = "TotalPrice", nullable = true)
     private double totalPrice;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Produce_id")
     private Produce produce;
 

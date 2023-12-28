@@ -56,7 +56,6 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             order.setStatus("completed");
             order.setProgress(1.0);
             productService.updateInventory(target.getId(), quantity);
-            // save product order
 
         } else {
             // if inventory is not enough, setting order status to "processing"
@@ -68,13 +67,14 @@ public class ProductOrderServiceImpl implements ProductOrderService {
             produce.setDuration(20);
             produce.setCost(20000);
 
-            order.setProduce(produce);
+            // order.setProduce(produce);
             // calculate order progress
             Integer expectedDurationInDays = produce.getDuration();
             LocalDateTime currentTime = LocalDateTime.now();
-            Long daysDifference = ChronoUnit.DAYS.between(order.getDate(), currentTime);
+            Long daysDifference = (long) 0;
             double orderProgress = Math.min((double) (daysDifference / expectedDurationInDays), 1.0);
             order.setProgress(orderProgress);
+            order.setDate(LocalDate.now());
         }
         // save product order
         result = productOrderRepository.save(order);

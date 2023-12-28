@@ -79,7 +79,7 @@
   
   
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('/api/products/search/findProductsWithInventoryLessThan200', {
+    fetch('http://140.119.19.145:8080/products/search/findProductsWithInventoryLessThan200', {
         method: 'GET',
         headers: {
             'accept': 'application/hal+json'

@@ -338,7 +338,7 @@
 
         for (let i = 1; i <= 20; i++) {
           fetchPromises.push(
-            fetch(`/api/products/${i}`, {
+            fetch(`http://140.119.19.145:8080/products/${i}`, {
               method: "GET",
               headers: {
                 accept: "application/hal+json",

@@ -78,7 +78,7 @@
   }
   
   document.addEventListener('DOMContentLoaded', function() {
-    fetch('/api/materials/search/findMaterialsWithInventoryLessThan1000', {
+    fetch('http://140.119.19.145:8080/materials/search/findMaterialsWithInventoryLessThan1000', {
         method: 'GET',
         headers: {
             'accept': 'application/hal+json'

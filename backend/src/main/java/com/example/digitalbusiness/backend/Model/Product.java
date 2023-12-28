@@ -2,6 +2,9 @@ package com.example.digitalbusiness.backend.Model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -39,11 +42,14 @@ public class Product {
     private Integer inventory;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private Set<Assemble> assembles;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private Set<Produce> produces;
 
     @OneToMany(mappedBy = "product")
+    @JsonIgnore
     private Set<ProductOrder> productOrders;
 }

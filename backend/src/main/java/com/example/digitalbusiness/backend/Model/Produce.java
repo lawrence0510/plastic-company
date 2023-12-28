@@ -1,5 +1,7 @@
 package com.example.digitalbusiness.backend.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,6 +36,7 @@ public class Produce {
 
     @ManyToOne
     @JoinColumn(name = "product_id", nullable = true, referencedColumnName = "id")
+    @JsonIgnore
     private Product product;
 
     @ManyToOne

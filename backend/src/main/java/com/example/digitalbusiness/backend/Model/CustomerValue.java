@@ -2,6 +2,8 @@ package com.example.digitalbusiness.backend.Model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -50,6 +52,7 @@ public class CustomerValue {
     @OneToOne
     @MapsId
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
+    @JsonBackReference(value = "customer-customerValue")
     private Customer customer;
 
     @PrePersist

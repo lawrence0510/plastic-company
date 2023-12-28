@@ -3,6 +3,7 @@ package com.example.digitalbusiness.backend.Model;
 import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -43,7 +44,7 @@ public class Customer {
 
     @OneToOne(mappedBy = "customer", cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-    @JsonIgnore
+    @JsonManagedReference(value = "customer-customerValue")
     private CustomerValue customerValue;
 
     @OneToMany(mappedBy = "customer")

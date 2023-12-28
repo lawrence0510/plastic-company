@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -52,7 +54,6 @@ public class ProductOrder {
 
     @ManyToOne
     @JoinColumn(name = "Customer_id")
-    @JsonIgnore
     private Customer customer;
 
     @ManyToOne

@@ -147,7 +147,7 @@
   var Chart1 = new Chart(ctx1, {
     type: "bar",
     data: {
-      labels: ['ODM1', 'ODM2', 'ODM3', 'ODM4', 'ODM5', 'ODM6'],
+      labels: ['工業用配件', '精密零組件二', '零配件一', '精密微小件', '二次包覆產品', '零配件三'],
       datasets: [{
         label: "ODM",
         data: data1,
@@ -161,7 +161,7 @@
   var Chart2 = new Chart(ctx2, {
     type: "bar",
     data: {
-      labels: ['OEM1', 'OEM2', 'OEM3', 'OEM4', 'OEM5', 'OEM6'],
+      labels: ['3c外殼', '隨身碟', '透明配件', '醫療器材', '塑膠客製化', '汽車零配件'],
       datasets: [{
         label: "OEM",
         data: data2,
@@ -215,13 +215,13 @@
   function searchChart() {
     var searchValue = document.getElementById("chartInput").value;
     switch (searchValue) {
-      case "item1":
+      case "工業用配件":
         data3 = item1;
         break;
-      case "item2":
+      case "3c外殼":
         data3 = item2;
         break;
-      case "item3":
+      case "塑膠客製化":
         data3 = item3;
         break;
       default:

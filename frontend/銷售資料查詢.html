@@ -66,7 +66,7 @@
 
   <script>
     window.onload = function() {
-      fetch('http://localhost:8080/productOrders?page=0&size=20')
+      fetch('http://localhost:8080/productOrders?page=0&size=200')
         .then(response => response.json())
         .then(data => updateTable(data._embedded.productOrders))
         .catch(error => console.error('Error:', error));

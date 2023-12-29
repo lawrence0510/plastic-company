@@ -1,138 +1,139 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>榮紹精密塑膠射出成型工廠</title>
-<link rel="stylesheet" type="text/css" href="css/2-2.css">
 
- 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>榮紹精密塑膠射出成型工廠</title>
+  <link rel="stylesheet" type="text/css" href="css/2-2.css">
+
+
 </head>
- 
+
 <body>
- 
+
   <!--div class="container"-->
   <div class="fixed">
     <div class="top_bar"><!-- 上半部 -->
-        <img src="image/logo.jpg" alt="Logo" class="logo" >
-        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+      <img src="image/logo.jpg" alt="Logo" class="logo">
+      <div class="company_name">榮紹精密塑膠射出成型工廠</div>
 
-        <div class="search-container">
-          <input type="text" class="search-box" id="searchInput" placeholder="Search...">
-          <div onclick="searchFunction()" class="search-button">
-            <img src="image/search.png" alt="搜索按钮" class="search-button">
-          </div>
+      <div class="search-container">
+        <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+        <div onclick="searchFunction()" class="search-button">
+          <img src="image/search.png" alt="搜索按钮" class="search-button">
         </div>
-      
+      </div>
+
     </div>
   </div>
-    
-     
-        <div class="left_bar"><!-- 左半部選單 -->
-          <div class="op_manage">
-            <img src="image/manage.png" alt="Manage" class="manage-pic" >
-            作業管理
-              <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
-              <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
-              <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
-              <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
-          </div>
-          
-          <div class="cus_manage">
-            <img src="image/cus.png" alt="Cus" class="cus-pic" >
-            顧客關係管理
-              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")' >
-              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
-              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
-              <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
-          </div>
-        </div>
-        
-        <div class="vertical-line"></div>
 
-        <!--右半部-->
-        <div class='right_bar' >
-          <div class="title1-1">原物料管理 - 庫存量不足</div>
 
-          <div class="search-container-inside">
-    <button class="red-button" onclick='location.href=("原物料管理.html")'>查看全部清單</button>
+  <div class="left_bar"><!-- 左半部選單 -->
+    <div class="op_manage">
+      <img src="image/manage.png" alt="Manage" class="manage-pic">
+      作業管理
+      <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
+      <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
+      <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
+      <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
+    </div>
+
+    <div class="cus_manage">
+      <img src="image/cus.png" alt="Cus" class="cus-pic">
+      顧客關係管理
+      <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")'>
+      <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
+      <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
+      <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
+    </div>
+  </div>
+
+  <div class="vertical-line"></div>
+
+  <!--右半部-->
+  <div class='right_bar'>
+    <div class="title1-1">原物料管理 - 庫存量不足</div>
+
+    <div class="search-container-inside">
+      <button class="red-button" onclick='location.href=("原物料管理.html")'>查看全部清單</button>
     </div>
     <div class="item_container" id="lowInventoryContainer">
 
 
 
+    </div>
+
+
+
   </div>
 
-         
-
-        </div>
-
-        <script src="chart.js"></script>
+  <script src="chart.js"></script>
 
 
-<script>
+  <script>
 
-  function searchFunction() {
-    var searchValue = document.getElementById("searchInput").value;
-    alert("您搜尋的內容是：" + searchValue);
-  }
-  
-  document.addEventListener('DOMContentLoaded', function() {
-    fetch('http://140.119.19.145:8080/materials/search/findMaterialsWithInventoryLessThan1000', {
+    function searchFunction() {
+      var searchValue = document.getElementById("searchInput").value;
+      alert("您搜尋的內容是：" + searchValue);
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      fetch('http://140.119.19.145:8080/materials/search/findMaterialsWithInventoryLessThan1000', {
         method: 'GET',
         headers: {
-            'accept': 'application/hal+json'
+          'accept': 'application/hal+json'
         }
-    })
-    .then(response => response.json())
-    .then(data => {
-        let materials = data._embedded.materials;
-        materials.forEach(material => {
+      })
+        .then(response => response.json())
+        .then(data => {
+          let materials = data._embedded.materials;
+          materials.forEach(material => {
             let itemBox = createItemBox(material);
             document.getElementById('lowInventoryContainer').appendChild(itemBox);
-        });
-    })
-    .catch(error => console.error('Error:', error));
-});
+          });
+        })
+        .catch(error => console.error('Error:', error));
+    });
 
-function createItemBox(material) {
-    let itemBox = document.createElement('div');
-    itemBox.className = 'item_box';
+    function createItemBox(material) {
+      let itemBox = document.createElement('div');
+      itemBox.className = 'item_box';
 
-    let itemTopic = document.createElement('div');
-    itemTopic.className = 'item_topic';
-    itemTopic.textContent = material.name;
+      let itemTopic = document.createElement('div');
+      itemTopic.className = 'item_topic';
+      itemTopic.textContent = material.name;
 
-    let itemNum = document.createElement('div');
-    itemNum.className = 'item_num';
-    itemNum.textContent = "收回代碼：";
+      let itemNum = document.createElement('div');
+      itemNum.className = 'item_num';
+      itemNum.textContent = "收回代碼：";
 
-    let itemNumContent = document.createElement('div');
-    itemNumContent.className = 'item_num_content';
-    itemNumContent.textContent = '0' + material._links.self.href.match(/\/(\d+)$/)[1];
+      let itemNumContent = document.createElement('div');
+      itemNumContent.className = 'item_num_content';
+      itemNumContent.textContent = '0' + material._links.self.href.match(/\/(\d+)$/)[1];
 
-    let iteminv = document.createElement('div');
-    iteminv.className = 'item_inv';
-    iteminv.textContent = "庫存量："
-    
-    let itemInventory = document.createElement('div');
-    itemInventory.className = 'item_inv_content';
-    itemInventory.textContent = material.inventory;
+      let iteminv = document.createElement('div');
+      iteminv.className = 'item_inv';
+      iteminv.textContent = "庫存量："
 
-    itemBox.appendChild(itemTopic);
-    itemBox.appendChild(itemNum);
-    itemBox.appendChild(itemNumContent);
-    itemBox.appendChild(iteminv);
-    itemBox.appendChild(itemInventory);
+      let itemInventory = document.createElement('div');
+      itemInventory.className = 'item_inv_content';
+      itemInventory.textContent = material.inventory;
 
-    return itemBox;
-}
+      itemBox.appendChild(itemTopic);
+      itemBox.appendChild(itemNum);
+      itemBox.appendChild(itemNumContent);
+      itemBox.appendChild(iteminv);
+      itemBox.appendChild(itemInventory);
+
+      return itemBox;
+    }
 
 
-</script>
+  </script>
 
 
 
 </body>
-</html>
 
+</html>

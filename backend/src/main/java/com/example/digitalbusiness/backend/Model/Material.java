@@ -2,6 +2,7 @@ package com.example.digitalbusiness.backend.Model;
 
 import java.util.Set;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 import jakarta.persistence.Column;
@@ -37,5 +38,6 @@ public class Material {
     private Integer inventory;
 
     @OneToMany(mappedBy = "material")
+    @JsonIgnore
     private Set<Assemble> assembles;
 }

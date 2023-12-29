@@ -116,8 +116,8 @@
         .then(data => {
           const productOrders = data._embedded.productOrders;
           const order = productOrders.find(order => order.id === parseInt(orderId));
+          console.log(order);
           if (order) {
-            console.log(order)
             updateOrderDetails(order);
           }
         })

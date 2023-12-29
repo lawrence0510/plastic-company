@@ -114,7 +114,8 @@
       fetch('http://140.119.19.145:8080/productOrders')
         .then(response => response.json())
         .then(data => {
-          const order = data.find(order => order.id === parseInt(orderId));
+          const productOrders = data._embedded.productOrders;
+          const order = productOrders.find(order => order.id === parseInt(orderId));
           if (order) {
             updateOrderDetails(order);
           }

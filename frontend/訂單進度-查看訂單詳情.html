@@ -152,7 +152,7 @@
         .then(response => response.json())
         .then(materials => {
           if (materials.length > 1) {
-            updateMaterialDetails(materials[1], 'material2');
+            updateMaterialDetails(materials[1], material[2]);
             document.getElementById('material2column').style.display = 'block'; // Display second column
           } else {
             document.getElementById('material2column').style.display = 'none'; // Hide second column

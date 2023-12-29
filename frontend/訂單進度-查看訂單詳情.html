@@ -111,12 +111,14 @@
   <script>
     document.addEventListener('DOMContentLoaded', function () {
       const orderId = getOrderIdFromUrl();
+      console.log("orderId"+orderId);
       fetch('http://140.119.19.145:8080/productOrders')
         .then(response => response.json())
         .then(data => {
           const productOrders = data._embedded.productOrders;
+          console.log("productOrders: "+productOrders)
           const order = productOrders.find(order => order.id === parseInt(orderId));
-          console.log(order);
+          console.log("order: "+order);
           if (order) {
             updateOrderDetails(order);
           }

@@ -1,185 +1,179 @@
 <!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>test</title>
-<link rel="stylesheet" type="text/css" href="css/3-2.css">
 
- 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>test</title>
+  <link rel="stylesheet" type="text/css" href="css/3-2.css">
+
+
 </head>
- 
+
 <body>
- 
+
   <!--div class="container"-->
   <div class="fixed">
     <div class="top_bar"><!-- 上半部 -->
-        <img src="image/logo.jpg" alt="Logo" class="logo" >
-        <div class="company_name">榮紹精密塑膠射出成型工廠</div>
+      <img src="image/logo.jpg" alt="Logo" class="logo">
+      <div class="company_name">榮紹精密塑膠射出成型工廠</div>
 
-        <div class="search-container">
-          <input type="text" class="search-box" id="searchInput" placeholder="Search...">
-          <div onclick="searchFunction()" class="search-button">
-            <img src="image/search.png" alt="搜索按钮" class="search-button">
-          </div>
-        </div>
-      
-    </div>
-  </div>
-    
-     
-        <div class="left_bar"><!-- 左半部選單 -->
-          <div class="op_manage">
-            <img src="image/manage.png" alt="Manage" class="manage-pic" >
-            作業管理
-              <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
-              <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
-              <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
-              <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
-          </div>
-          
-          <div class="cus_manage">
-            <img src="image/cus.png" alt="Cus" class="cus-pic" >
-            顧客關係管理
-              <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")' >
-              <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
-              <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
-              <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
-          </div>
-        </div>
-        
-        <div class="vertical-line"></div>
-
-        <!--右半部-->
-        <div class='right_bar' >
-          <div class="title1-1">訂單進度</div>
-          <div class="order0">
-    <div>訂單編號：</div>
-    <div class="order1-1" id="ordernumber"></div>
-    <div class="order2">訂單進度：</div>
-    <div class="order2-1" id="progress"></div>
-    <div class="order2">訂單時間：</div>
-    <div class="order2-1" id="date"></div>
-    <div class="order2">全部金額：</div>
-    <div class="order2-1" id="totalPrice"></div>
-    <div class="order2">顧客名稱：</div>
-    <div class="order2-1" id="customer-name"></div>
-    <div class="order3">訂單內容：</div>
-  </div>
-
-        <div class="item_name">商品名稱
-    <span class="item_num"> 數量</span>
-  </div>
-  <div class="item_content">
-    <div class="item_content_name" id="itemname"></div>
-    <div class="item_content_num" id="itemnumber"></div>
-    <div class="vertical-line-in"></div>
-  </div>
-
-      <div class="item_content_r">
-    <div class="item_content_r_1" id="itemname1" id="material1column"></div>
-    <div class="item_container"> <!--框架-->
-      <div class="item_column"> <!--左邊直排-->
-        <div class="item_box">
-          <div class="item_topic" id="material1"></div>
-          <div class="item_num">收回代碼：</div>
-          <div class="item_num_content" id="material1id"></div>
-          <div class="item_inv">庫存量：</div>
-          <div class="item_inv_content" id="material1quantity"></div>
+      <div class="search-container">
+        <input type="text" class="search-box" id="searchInput" placeholder="Search...">
+        <div onclick="searchFunction()" class="search-button">
+          <img src="image/search.png" alt="搜索按钮" class="search-button">
         </div>
       </div>
-      <div class="item_column" id="material2column" style="display: none;"> <!--右邊直排-->
-        <div class="item_box">
-          <div class="item_topic" id="material2"></div>
-          <div class="item_num">收回代碼：</div>
-          <div class="item_num_content" id="material2id"></div>
-          <div class="item_inv">庫存量：</div>
-          <div class="item_inv_content" id="material2quantity"></div>
-        </div>
-      </div>      
+
     </div>
   </div>
 
-         
 
+  <div class="left_bar"><!-- 左半部選單 -->
+    <div class="op_manage">
+      <img src="image/manage.png" alt="Manage" class="manage-pic">
+      作業管理
+      <br><input type="button" value="庫存管理" name="按鈕名稱" onclick='location.href=("庫存管理.html")'>
+      <br><input type="button" value="原物料管理" name="按鈕名稱" onclick='location.href=("原物料管理.html")'>
+      <br><input type="button" value="訂單進度" name="按鈕名稱" onclick='location.href=("訂單進度.html")'>
+      <br><input type="button" value="新增訂單" name="按鈕名稱" onclick='location.href=("新增訂單.html")'>
+    </div>
+
+    <div class="cus_manage">
+      <img src="image/cus.png" alt="Cus" class="cus-pic">
+      顧客關係管理
+      <br><input type="button" value="銷售分析" name="按鈕名稱" onclick='location.href=("銷售分析.html")'>
+      <br><input type="button" value="顧客分析" name="按鈕名稱" onclick='location.href=("顧客分析.html")'>
+      <br><input type="button" value="銷售資料查詢" name="按鈕名稱" onclick='location.href=("銷售資料查詢.html")'>
+      <br><input type="button" value="顧客資料查詢" name="按鈕名稱" onclick='location.href=("顧客資料查詢.html")'>
+    </div>
+  </div>
+
+  <div class="vertical-line"></div>
+
+  <!--右半部-->
+  <div class='right_bar'>
+    <div class="title1-1">訂單進度</div>
+    <div class="order0">
+      <div>訂單編號：</div>
+      <div class="order1-1" id="ordernumber"></div>
+      <div class="order2">訂單進度：</div>
+      <div class="order2-1" id="progress"></div>
+      <div class="order2">訂單時間：</div>
+      <div class="order2-1" id="date"></div>
+      <div class="order2">全部金額：</div>
+      <div class="order2-1" id="totalPrice"></div>
+      <div class="order2">顧客名稱：</div>
+      <div class="order2-1" id="customer-name"></div>
+      <div class="order3">訂單內容：</div>
+    </div>
+
+    <div class="item_name">商品名稱
+      <span class="item_num"> 數量</span>
+    </div>
+    <div class="item_content">
+      <div class="item_content_name" id="itemname"></div>
+      <div class="item_content_num" id="itemnumber"></div>
+      <div class="vertical-line-in"></div>
+    </div>
+
+    <div class="item_content_r">
+      <div class="item_content_r_1" id="itemname1" id="material1column"></div>
+      <div class="item_container"> <!--框架-->
+        <div class="item_column"> <!--左邊直排-->
+          <div class="item_box">
+            <div class="item_topic" id="material1"></div>
+            <div class="item_num">收回代碼：</div>
+            <div class="item_num_content" id="material1id"></div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="material1quantity"></div>
+          </div>
         </div>
+        <div class="item_column" id="material2column" style="display: none;"> <!--右邊直排-->
+          <div class="item_box">
+            <div class="item_topic" id="material2"></div>
+            <div class="item_num">收回代碼：</div>
+            <div class="item_num_content" id="material2id"></div>
+            <div class="item_inv">庫存量：</div>
+            <div class="item_inv_content" id="material2quantity"></div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
-<script>
+  </div>
 
-  function searchFunction() {
-    var searchValue = document.getElementById("searchInput").value;
-    alert("您搜尋的內容是：" + searchValue);
-  }
-  
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    document.addEventListener('DOMContentLoaded', function() {
-    const orderId = getOrderIdFromUrl();
-    fetch('http://140.119.19.145:8080/productOrders')
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const orderId = getOrderIdFromUrl();
+      fetch('http://140.119.19.145:8080/productOrders')
         .then(response => response.json())
         .then(data => {
-            const order = data.find(order => order.id === parseInt(orderId));
-            if (order) {
-                updateOrderDetails(order);
-            }
+          const order = data.find(order => order.id === parseInt(orderId));
+          if (order) {
+            updateOrderDetails(order);
+          }
         })
         .catch(error => console.error('Error:', error));
-});
+    });
 
-function getOrderIdFromUrl() {
-    const queryParams = new URLSearchParams(window.location.search);
-    return queryParams.get('orderId');
-}
+    function getOrderIdFromUrl() {
+      const queryParams = new URLSearchParams(window.location.search);
+      return queryParams.get('orderId');
+    }
 
-function updateOrderDetails(order) {
-    document.getElementById('ordernumber').textContent = order.id;
-    document.getElementById('progress').textContent = (order.progress * 100) + '%';
-    document.getElementById('itemname').textContent = order.product.name;
-    document.getElementById('itemname1').textContent = order.product.name;
-    document.getElementById('itemnumber').textContent = order.quantity;
-    document.getElementById('date').textContent = order.date;
-    document.getElementById('totalPrice').textContent = order.totalPrice;
-    document.getElementById('customer-name').textContent = order.customer.name;
+    function updateOrderDetails(order) {
+      document.getElementById('ordernumber').textContent = order.id;
+      document.getElementById('progress').textContent = (order.progress * 100) + '%';
+      document.getElementById('itemname').textContent = order.product.name;
+      document.getElementById('itemname1').textContent = order.product.name;
+      document.getElementById('itemnumber').textContent = order.quantity;
+      document.getElementById('date').textContent = order.date;
+      document.getElementById('totalPrice').textContent = order.totalPrice;
+      document.getElementById('customer-name').textContent = order.customer.name;
 
-    const encodedProductName = encodeURIComponent(order.product.name);
+      const encodedProductName = encodeURIComponent(order.product.name);
 
-    fetch(`http://140.119.19.145:8080/materials/search/findByProductName?productName=${encodedProductName}`, {
+      fetch(`http://140.119.19.145:8080/materials/search/findByProductName?productName=${encodedProductName}`, {
         method: 'GET',
         headers: {
-            'Content-Type': 'application/json'
+          'Content-Type': 'application/json'
         }
-    })
-    .then(response => response.json())
-    .then(materials => {
-        if (materials.length > 1) {
+      })
+        .then(response => response.json())
+        .then(materials => {
+          if (materials.length > 1) {
             updateMaterialDetails(materials[1], 'material2');
             document.getElementById('material2column').style.display = 'block'; // Display second column
-        } else {
+          } else {
             document.getElementById('material2column').style.display = 'none'; // Hide second column
-        }
-        if (materials.length > 0) {
+          }
+          if (materials.length > 0) {
             updateMaterialDetails(materials[0], 'material1');
             document.getElementById('material1column').style.display = 'block'; // Ensure first column is displayed
-        } else {
+          } else {
             document.getElementById('material1column').style.display = 'none'; // Hide first column if no materials
-        }
+          }
 
-        
-    })
-    .catch(error => console.error('Error:', error));
-}
 
-function updateMaterialDetails(material, materialPrefix) {
-    document.getElementById(`${materialPrefix}`).textContent = material.name;
-    document.getElementById(`${materialPrefix}id`).textContent = material.id;
-    document.getElementById(`${materialPrefix}quantity`).textContent = material.inventory;
-}
-</script>
+        })
+        .catch(error => console.error('Error:', error));
+    }
+
+    function updateMaterialDetails(material, materialPrefix) {
+      document.getElementById(`${materialPrefix}`).textContent = material.name;
+      document.getElementById(`${materialPrefix}id`).textContent = material.id;
+      document.getElementById(`${materialPrefix}quantity`).textContent = material.inventory;
+    }
+  </script>
 
 
 
 </body>
-</html>
 
+</html>

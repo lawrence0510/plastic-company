@@ -127,7 +127,7 @@
       var customerContactName = document.getElementById('customerContactName').value; 
       var customerEmployeeCount = document.getElementById('customerEmployeeCount').value; 
   
-      var url = `http://140.119.19.145:8080/productOrder?productName=${encodeURIComponent(productName)}&quantity=${quantity}&CustomerName=${encodeURIComponent(customerName)}&CustomerContactName=${encodeURIComponent(customerContactName)}&CustomerEmployeeCount=${customerEmployeeCount}&CustomerPhoneNumber=${customerPhone}`;
+      var url = `http://140.119.19.145:8080/productOrders?productName=${encodeURIComponent(productName)}&quantity=${quantity}&CustomerName=${encodeURIComponent(customerName)}&CustomerContactName=${encodeURIComponent(customerContactName)}&CustomerEmployeeCount=${customerEmployeeCount}&CustomerPhoneNumber=${customerPhone}`;
   
       fetch(url, {
         method: 'POST',

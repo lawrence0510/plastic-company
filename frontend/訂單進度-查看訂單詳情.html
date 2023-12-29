@@ -117,7 +117,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
     const orderId = getOrderIdFromUrl();
-    fetch('http://140.119.19.145:8080/productOrder')
+    fetch('http://140.119.19.145:8080/productOrders')
         .then(response => response.json())
         .then(data => {
             const order = data.find(order => order.id === parseInt(orderId));

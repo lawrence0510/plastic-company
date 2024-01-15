@@ -51,6 +51,7 @@ public class ProductOrder {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "Produce_id")
+    @JsonIgnore
     private Produce produce;
 
     @ManyToOne

@@ -16,9 +16,9 @@ import com.example.digitalbusiness.backend.Service.ProductOrderService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class ProductOrderController {
     @Autowired
     private ProductOrderService productOrderService;

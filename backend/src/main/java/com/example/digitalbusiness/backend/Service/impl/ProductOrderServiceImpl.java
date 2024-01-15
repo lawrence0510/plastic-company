@@ -90,20 +90,22 @@ public class ProductOrderServiceImpl implements ProductOrderService {
 
         for (ProductOrder productOrder : productOrders) {
 
-            if (productOrder.getProgress() != 1.0) {
-                Produce produce = productOrder.getProduce();
-                Integer expectedDurationInDays = produce.getDuration();
-                LocalDateTime currentTime = LocalDateTime.now();
-                Long daysDifference = ChronoUnit.DAYS.between(productOrder.getDate(), currentTime);
+            // if (productOrder.getProgress() != 1.0) {
+            // Produce produce = productOrder.getProduce();
+            // Integer expectedDurationInDays = produce.getDuration();
+            // LocalDateTime currentTime = LocalDateTime.now();
+            // Long daysDifference = ChronoUnit.DAYS.between(productOrder.getDate(),
+            // currentTime);
 
-                double orderProgress = Math.min((double) (daysDifference / expectedDurationInDays), 1.0);
-                productOrder.setProgress(orderProgress);
-                if (orderProgress == 1.0) {
-                    productOrder.setStatus("completed");
-                } else {
-                    productOrder.setStatus("processing");
-                }
-            }
+            // double orderProgress = Math.min((double) (daysDifference /
+            // expectedDurationInDays), 1.0);
+            // productOrder.setProgress(orderProgress);
+            // if (orderProgress == 1.0) {
+            // productOrder.setStatus("completed");
+            // } else {
+            // productOrder.setStatus("processing");
+            // }
+            // }
 
         }
         return productOrders;
